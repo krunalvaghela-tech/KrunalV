@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<title>Aarvish | Inquiry</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: 'Jost', sans-serif; background: #000; color: #fff; overflow-x: hidden; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 600; line-height: 1.15; }
+em { font-style: italic; color: rgba(255,255,255,0.5); font-weight: 300; }
+:root { --blue: #1770f1; --line: rgba(255,255,255,0.07); --muted: rgba(255,255,255,0.55); }
+
+/* NAV — pill style with logo (matches mobile innovation pattern) */
+.nav {
+  position: fixed; top: 12px; left: 12px; right: 12px;
+  z-index: 100; background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-radius: 40px; padding: 8px 8px 8px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.nav-brand img { height: 32px; width: auto; display: block; }
+.nav-toggle {
+  width: 40px; height: 40px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 5px;
+  background: transparent; border: none; cursor: pointer; padding: 0;
+}
+.nav-toggle span { display: block; width: 20px; height: 2px; background: #fff; transition: transform 0.25s, opacity 0.2s; }
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-menu {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.97); backdrop-filter: blur(16px);
+  padding: 80px 24px 32px;
+  transform: translateY(-100%);
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1), visibility 0s linear 0.35s;
+  z-index: 99; border-bottom: 1px solid var(--line);
+  pointer-events: none; visibility: hidden;
+}
+.nav-menu.open { transform: translateY(0); pointer-events: auto; visibility: visible; transition: transform 0.35s cubic-bezier(.4,0,.2,1), visibility 0s linear 0s; }
+.nav-menu a {
+  display: block; padding: 14px 0; font-size: 18px;
+  font-family: 'Poppins', sans-serif; font-weight: 400;
+  color: rgba(255,255,255,0.85); border-bottom: 1px solid var(--line);
+  letter-spacing: 0.4px;
+}
+.nav-menu a.active { color: var(--blue); }
+
+/* HERO */
+.hero {
+  min-height: 50vh; padding: 100px 22px 48px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden; text-align: center;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 30%, rgba(23,112,241,0.18) 0%, transparent 65%),
+    linear-gradient(180deg, #020815 0%, #000 80%);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, #000 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, #000 0%, transparent 80%);
+  opacity: 0.6;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; align-self: center;
+  font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase;
+  color: var(--blue); font-weight: 500; margin-bottom: 18px; position: relative; z-index: 1;
+}
+.eyebrow::before, .eyebrow::after { content: ''; width: 22px; height: 1px; background: var(--blue); }
+.hero h1 { font-size: 38px; line-height: 1.08; margin-bottom: 14px; letter-spacing: -0.5px; position: relative; z-index: 1; }
+.crumbs {
+  display: flex; gap: 8px; justify-content: center; align-items: center;
+  font-size: 12px; color: rgba(255,255,255,0.5); position: relative; z-index: 1;
+}
+.crumbs span.sep { color: rgba(255,255,255,0.25); }
+
+/* INTRO BLOCK */
+.intro { padding: 50px 22px 30px; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase;
+  color: var(--blue); font-weight: 500; margin-bottom: 14px;
+}
+.section-label::before { content: ''; width: 22px; height: 1px; background: var(--blue); }
+.intro h2 { font-size: 28px; line-height: 1.12; margin-bottom: 12px; letter-spacing: -0.3px; }
+.intro h2 .accent { color: var(--blue); }
+.intro p { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+/* INFO GRID */
+.info-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--line); border-radius: 12px;
+  overflow: hidden; margin: 22px 22px 0;
+}
+.info-cell {
+  padding: 18px 16px; background: #050505;
+  border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.info-cell:nth-child(2n) { border-right: none; }
+.info-cell:nth-last-child(-n+2) { border-bottom: none; }
+.info-cell .ic-label {
+  font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+}
+.info-cell .ic-label svg { stroke: var(--blue); }
+.info-cell .ic-value {
+  font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500; color: #fff; line-height: 1.4;
+}
+.info-cell .ic-value a { color: #fff; }
+
+/* FORM CARD */
+.form-section { padding: 40px 14px 30px; }
+.form-card {
+  border: 1px solid var(--line); border-radius: 18px;
+  padding: 28px 22px; background: linear-gradient(180deg, #050505 0%, #020202 100%);
+  position: relative; overflow: hidden;
+}
+.form-card::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 280px; height: 280px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(23,112,241,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.form-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--blue); font-weight: 500; margin-bottom: 14px;
+  font-family: 'Courier New', monospace; position: relative; z-index: 1;
+}
+.form-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); animation: blink 2s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+.form-card h3 { font-size: 26px; line-height: 1.15; margin-bottom: 8px; letter-spacing: -0.3px; position: relative; z-index: 1; }
+.form-card .form-sub { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; font-weight: 300; position: relative; z-index: 1; }
+
+.form-group { position: relative; margin-bottom: 14px; }
+.form-group label {
+  position: absolute; left: 16px; top: 14px;
+  font-size: 13px; color: rgba(255,255,255,0.4);
+  pointer-events: none; transition: all 0.2s;
+  background: linear-gradient(180deg, transparent 0%, transparent 50%, #030303 50%, #030303 100%);
+  padding: 0 6px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%; padding: 14px 16px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--line); border-radius: 10px;
+  color: #fff; font-size: 14px; font-family: 'Jost', sans-serif;
+  transition: border-color 0.2s, background 0.2s;
+}
+.form-group textarea { min-height: 120px; resize: vertical; }
+.form-group input:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--blue); background: rgba(23,112,241,0.04);
+}
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: -7px; font-size: 10px; color: var(--blue); letter-spacing: 1px; text-transform: uppercase;
+}
+
+.recaptcha-wrap { margin: 8px 0 16px; transform-origin: 0 0; transform: scale(0.92); }
+@media (max-width: 360px) { .recaptcha-wrap { transform: scale(0.84); } }
+
+.btn-submit {
+  width: 100%; background: var(--blue); color: #fff;
+  padding: 15px 22px; border: none; border-radius: 30px;
+  font-size: 13px; font-weight: 500; letter-spacing: 0.5px;
+  text-transform: uppercase; font-family: 'Jost', sans-serif;
+  cursor: pointer; transition: all 0.2s; min-height: 50px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-submit:hover { background: #0e58c3; }
+.privacy-note {
+  font-size: 11px; color: rgba(255,255,255,0.3);
+  line-height: 1.6; font-weight: 300; margin-top: 14px; text-align: center;
+}
+
+/* SUPPORT STRIP */
+.support-strip { padding: 40px 22px; background: #050505; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.support-card {
+  padding: 22px 18px; border: 1px solid var(--line);
+  border-radius: 12px; background: #030303; margin-bottom: 12px;
+}
+.support-icon {
+  width: 38px; height: 38px; border: 1px solid rgba(23,112,241,0.25);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.support-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.support-card p { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+.support-card a { color: #fff; }
+
+/* FOOTER */
+footer { padding: 40px 22px 24px; border-top: 1px solid var(--line); background: #020202; }
+.footer-brand { font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+.footer-tag { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 18px; }
+.footer-addr { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-bottom: 26px; }
+.footer-col { margin-bottom: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.footer-col:last-of-type { border-bottom: none; }
+.footer-col h4 { font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; font-weight: 500; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul a { font-size: 13px; color: rgba(255,255,255,0.6); }
+.social-links { display: flex; gap: 10px; margin-top: 14px; }
+.social-links a {
+  width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.7);
+}
+.footer-bottom { margin-top: 14px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; }
+.footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+.fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <a href="https://www.aarvish.ca/index.php" class="nav-brand">
+    <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Logo">
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="nav-menu" id="navMenu">
+  <a href="https://www.aarvish.ca/index.php">Home</a>
+  <a href="https://www.aarvish.ca/insights.php">Insights</a>
+  <a href="https://www.aarvish.ca/innovation.php">Innovation</a>
+  <a href="https://www.aarvish.ca/inquiry.php" class="active">Inquiry</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow fade-up">Get in Touch</div>
+  <h1 class="fade-up">We've got the <em>answers</em><span style="color:var(--blue);">.</span></h1>
+  <div class="crumbs fade-up">
+    <a href="https://www.aarvish.ca/index.php">Home</a>
+    <span class="sep">/</span>
+    <span style="color:var(--blue);">Inquiry</span>
+  </div>
+</section>
+
+<!-- INTRO + INFO -->
+<section class="intro">
+  <div class="section-label fade-up">Contact Aarvish</div>
+  <h2 class="fade-up">Let's build a <span class="accent">water-secure</span> future, <em>together</em>.</h2>
+  <p class="fade-up">Whether you represent a band council, a government agency, an enterprise partner, or an impact investor — our team is ready to design a solution that fits your community.</p>
+</section>
+
+<div class="info-grid fade-up">
+  <div class="info-cell">
+    <div class="ic-label">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92V21a1 1 0 01-1.09 1A19.88 19.88 0 012 4.08 1 1 0 013 3h4.08a1 1 0 011 .75 12.36 12.36 0 00.66 2.65 1 1 0 01-.23 1L6.91 9.09a16 16 0 006 6l1.69-1.6a1 1 0 011-.23 12.36 12.36 0 002.65.66 1 1 0 01.75 1z"/></svg>
+      Phone
+    </div>
+    <div class="ic-value"><a href="tel:+12049623844">+1 204-962-3844</a></div>
+  </div>
+  <div class="info-cell">
+    <div class="ic-label">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Email
+    </div>
+    <div class="ic-value" style="font-size:12px;"><a id="contact-email" href="mailto:operations@aarvish.ca">operations@aarvish.ca</a></div>
+  </div>
+  <div class="info-cell">
+    <div class="ic-label">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      HQ
+    </div>
+    <div class="ic-value" style="font-size:12px;">Winnipeg, Manitoba</div>
+  </div>
+  <div class="info-cell">
+    <div class="ic-label">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+      Hours
+    </div>
+    <div class="ic-value" style="font-size:12px;">Mon – Fri<br>9 AM – 6 PM CST</div>
+  </div>
+</div>
+
+<!-- FORM -->
+<section class="form-section">
+  <div class="form-card fade-up">
+    <div class="form-eyebrow">Inquiry Form · 24 hr Response</div>
+    <h3>Tell us about your <em>project</em>.</h3>
+    <p class="form-sub">Share a few details and we'll get back to you within one business day.</p>
+
+    <form id="contactUs" action="contact-dynamic.php" method="POST" enctype="multipart/form-data" onsubmit="return validateContactNow();">
+      <div class="form-group">
+        <input id="name" name="name" type="text" placeholder=" ">
+        <label for="name">Full Name</label>
+      </div>
+      <div class="form-group">
+        <input id="email" name="email" type="email" placeholder=" ">
+        <label for="email">Email Address</label>
+      </div>
+      <div class="form-group">
+        <input id="phone" name="phone" type="tel" placeholder=" ">
+        <label for="phone">Phone Number</label>
+      </div>
+      <div class="form-group">
+        <textarea id="message" name="message" placeholder=" "></textarea>
+        <label for="message">How can we help?</label>
+      </div>
+
+      <div class="recaptcha-wrap">
+        <div class="g-recaptcha" data-sitekey="6LfKNU8sAAAAAHGdgbwiCvNM-0WfTgVzIoYpkExz"></div>
+      </div>
+
+      <button type="submit" class="btn-submit">Send Inquiry →</button>
+      <p class="privacy-note">Your information is confidential. We never share your details with third parties.</p>
+    </form>
+  </div>
+</section>
+
+<!-- SUPPORT STRIP -->
+<section class="support-strip">
+  <div class="support-card fade-up">
+    <div class="support-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.6"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </div>
+    <h4>General Inquiries</h4>
+    <p>Questions about our technology or partnerships.<br><a href="mailto:operations@aarvish.ca">operations@aarvish.ca</a></p>
+  </div>
+  <div class="support-card fade-up">
+    <div class="support-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+    </div>
+    <h4>Project &amp; Procurement</h4>
+    <p>RFPs, deployment scoping, and tenders.<br><a href="mailto:operations@aarvish.ca">operations@aarvish.ca</a></p>
+  </div>
+  <div class="support-card fade-up">
+    <div class="support-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.6"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+    </div>
+    <h4>Investor Relations</h4>
+    <p>Strategic partners and impact investment.<br><a href="tel:+12049623844">+1 204-962-3844</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand"><img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Logo" style="max-width: 60px;"></div>
+  <div class="footer-tag">Innovative water &amp; renewable technologies.</div>
+  <div class="footer-addr">175 Pulberry St, Winnipeg,<br>Manitoba R2M 3X6, Canada</div>
+
+  <div class="footer-col">
+    <h4>Technologies</h4>
+    <ul>
+      <li><a href="https://www.aarvish.ca/innovation.php#awg">AWG System</a></li>
+      <li><a href="https://www.aarvish.ca/innovation.php#windmill">Portable Windmill</a></li>
+      <li><a href="https://www.aarvish.ca/innovation.php#ro">RO Purification</a></li>
+      <li><a href="https://www.aarvish.ca/innovation.php#reclamation">Wastewater Reclamation</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="https://www.aarvish.ca/index.php">Home</a></li>
+      <li><a href="https://www.aarvish.ca/insights.php">Insights</a></li>
+      <li><a href="https://www.aarvish.ca/innovation.php">Innovation</a></li>
+      <li><a href="https://www.aarvish.ca/inquiry.php">Inquiry</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Connect</h4>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/company/aarvish/" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43c-1.14 0-2.06-.93-2.06-2.06 0-1.14.92-2.06 2.06-2.06s2.06.92 2.06 2.06c0 1.13-.92 2.06-2.06 2.06zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://youtube.com/@aarvishgloballtd" aria-label="YouTube">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/aarvish.ca" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aarvish Global LTD. All rights reserved.</p>
+    <p><a id="footer-email" href="mailto:operations@aarvish.ca">operations@aarvish.ca</a> · +1 204-962-3844</p>
+  </div>
+</footer>
+
+<script>
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+navToggle.addEventListener('click', () => { navToggle.classList.toggle('open'); navMenu.classList.toggle('open'); });
+navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { navToggle.classList.remove('open'); navMenu.classList.remove('open'); }));
+
+function validateContactNow() {
+  var name = document.getElementById('name').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  if (name === '' || email === '' || phone === '') { alert("Please fill all fields."); return false; }
+  var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  if (!reg.test(email)) { alert("Invalid Email."); return false; }
+  if (typeof grecaptcha !== 'undefined') {
+    var response = grecaptcha.getResponse();
+    if (!response) { alert("Please verify you're not a robot."); return false; }
+  }
+  return true;
+}
+
+const fadeEls = document.querySelectorAll('.fade-up');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
