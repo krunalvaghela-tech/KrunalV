@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aarvish | Insights</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;padding:0;font-family:'Jost',sans-serif;background:#000;overflow-x:hidden;color:#fff;}
+img{max-width:100%;height:auto;}
+ul{padding:0;margin:0;list-style:none;}
+a{text-decoration:none;}
+h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 24px;}
+
+/* NAVBAR */
+.navbar{padding:0;position:fixed;top:30px;left:0;right:0;z-index:999;display:flex;justify-content:center;}
+.navbar-wrap{background:#00000096;padding:10px 25px;border-radius:50px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;width:calc(100% - 60px);max-width:1320px;border:1px solid rgba(255,255,255,0.06);}
+.navbar-brand img{max-width:65px;width:100%;}
+.navbar-nav{display:flex;flex-direction:row;align-items:center;gap:4px;list-style:none;margin:0;padding:0;}
+.nav-item .nav-link{padding:10px 22px;font-size:18px;font-weight:400;color:#fff;font-family:'Poppins',sans-serif;transition:color 0.3s;display:block;}
+.nav-item .nav-link:hover,.nav-item .nav-link.active{color:#1770f1;}
+
+/* HERO */
+.insights-banner{min-height:86vh;padding:160px 0 100px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;}
+.banner-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(155deg,#010508 0%,#030d18 45%,#000 100%);}
+.banner-grid{position:absolute;inset:0;z-index:0;opacity:0.03;background-image:linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px);background-size:80px 80px;}
+.banner-accent{position:absolute;right:0;top:0;bottom:0;width:48%;background:linear-gradient(to left,rgba(23,112,241,0.04) 0%,transparent 100%);border-left:1px solid rgba(23,112,241,0.06);z-index:0;}
+.banner-orb{position:absolute;top:10%;right:7%;width:520px;height:520px;border-radius:50%;z-index:0;background:radial-gradient(circle,rgba(23,112,241,0.13) 0%,rgba(23,112,241,0.03) 55%,transparent 70%);animation:orbPulse 7s ease-in-out infinite;}
+.banner-orb-2{position:absolute;bottom:8%;left:4%;width:320px;height:320px;border-radius:50%;z-index:0;background:radial-gradient(circle,rgba(23,112,241,0.06) 0%,transparent 70%);animation:orbPulse 9s ease-in-out infinite reverse;}
+@keyframes orbPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.12);opacity:0.5}}
+.banner-content{position:relative;z-index:1;max-width:920px;}
+.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+.eyebrow-line{width:36px;height:1px;background:#1770f1;flex-shrink:0;}
+.eyebrow span{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#1770f1;font-weight:400;font-family:'Jost',sans-serif;}
+.banner-content h1{font-family:'Poppins',sans-serif;font-size:clamp(44px,6.5vw,90px);font-weight:700;line-height:1.03;color:#fff;margin-bottom:28px;letter-spacing:-2px;}
+.banner-content h1 em{font-style:italic;color:rgba(255,255,255,0.45);font-weight:300;}
+.banner-sub{font-size:18px;color:rgba(255,255,255,0.55);max-width:580px;line-height:1.85;font-weight:300;margin-bottom:52px;}
+.banner-stats-row{position:relative;z-index:1;display:flex;gap:48px;align-items:center;flex-wrap:wrap;}
+.banner-stat-num{font-family:'Poppins',sans-serif;font-size:38px;font-weight:700;color:#1770f1;line-height:1;margin-bottom:4px;}
+.banner-stat-label{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1.5px;text-transform:uppercase;}
+.banner-divider{width:1px;height:44px;background:rgba(255,255,255,0.1);}
+
+/* SECTION LABELS */
+.section-label{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.section-label-line{width:28px;height:1px;background:#1770f1;flex-shrink:0;}
+.section-label span{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#1770f1;font-weight:400;font-family:'Jost',sans-serif;}
+.section-title{font-family:'Poppins',sans-serif;font-size:clamp(30px,3.8vw,54px);font-weight:700;line-height:1.1;color:#fff;margin:0 0 16px;}
+.section-title em{font-style:italic;color:rgba(255,255,255,0.38);font-weight:300;}
+.section-subtitle{font-size:16px;color:rgba(255,255,255,0.48);font-weight:300;line-height:1.85;max-width:640px;margin-bottom:56px;}
+
+/* ARTICLES SECTION */
+.insights-section{padding:100px 0;}
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.blog-card{border:1px solid rgba(255,255,255,0.07);border-radius:16px;overflow:hidden;background:#090909;transition:transform 0.35s,box-shadow 0.35s,border-color 0.35s;display:flex;flex-direction:column;height:100%;}
+.blog-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.7);border-color:rgba(23,112,241,0.22);}
+.blog-card-image{width:100%;height:210px;object-fit:cover;display:block;background:#111;}
+.blog-card-content{padding:26px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.blog-meta{display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(255,255,255,0.32);font-family:'Jost',sans-serif;}
+.blog-meta-dot{width:3px;height:3px;border-radius:50%;background:#1770f1;flex-shrink:0;}
+.blog-card-title{font-family:'Poppins',sans-serif;font-size:18px;font-weight:600;color:#fff;line-height:1.35;margin:4px 0 0;}
+.blog-card-excerpt{font-size:14px;color:rgba(255,255,255,0.48);line-height:1.8;font-weight:300;flex-grow:1;}
+.blog-card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
+.blog-tag{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#1770f1;border:1px solid rgba(23,112,241,0.22);padding:3px 10px;border-radius:20px;font-family:'Jost',sans-serif;background:rgba(23,112,241,0.04);}
+.blog-card-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#1770f1;font-weight:500;margin-top:10px;transition:gap 0.2s;font-family:'Jost',sans-serif;}
+.blog-card-link:hover{gap:12px;}
+.coming-badge{display:inline-block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.28);border:1px solid rgba(255,255,255,0.1);padding:3px 10px;border-radius:20px;margin-top:10px;font-family:'Jost',sans-serif;}
+
+/* STATS SECTION */
+.stats-section{padding:100px 0;background:#050505;border-top:1px solid rgba(255,255,255,0.04);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:64px;}
+.stat-card{background:linear-gradient(135deg,#0d0d0d 0%,#070707 100%);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:40px 26px;text-align:center;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;position:relative;overflow:hidden;}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#1770f1,transparent);opacity:0;transition:opacity 0.3s;}
+.stat-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(23,112,241,0.12);border-color:rgba(23,112,241,0.2);}
+.stat-card:hover::before{opacity:1;}
+.stat-number{font-size:52px;font-weight:700;color:#1770f1;margin-bottom:12px;font-family:'Poppins',sans-serif;line-height:1;}
+.stat-label{font-size:16px;color:#fff;margin-bottom:10px;font-weight:600;}
+.stat-desc{font-size:13px;color:rgba(255,255,255,0.42);line-height:1.65;}
+
+/* LINE CHART */
+.line-chart-card{background:linear-gradient(135deg,#0d0d0d 0%,#070707 100%);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:40px;margin-bottom:28px;}
+.line-chart-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;flex-wrap:wrap;gap:16px;}
+.chart-title{font-size:20px;color:#fff;font-weight:600;font-family:'Poppins',sans-serif;margin:0 0 6px;}
+.chart-subtitle{font-size:13px;color:rgba(255,255,255,0.38);margin:0;}
+.line-legend{display:flex;gap:24px;flex-wrap:wrap;}
+.line-legend-item{display:flex;align-items:center;gap:8px;}
+.line-legend-dash{width:24px;height:2px;border-radius:2px;}
+.line-legend-label{font-size:12px;color:rgba(255,255,255,0.48);font-family:'Jost',sans-serif;}
+
+/* CHARTS ROW */
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.chart-card{background:linear-gradient(135deg,#0d0d0d 0%,#070707 100%);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px;}
+.pie-wrap{display:flex;align-items:center;gap:36px;}
+.pie-legend{display:flex;flex-direction:column;gap:16px;}
+.pie-legend-item{display:flex;align-items:center;gap:10px;}
+.pie-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+.pie-legend-text{font-size:13px;color:rgba(255,255,255,0.7);flex:1;}
+.pie-legend-val{font-size:13px;color:#fff;font-weight:600;}
+.bar-rows{display:flex;flex-direction:column;gap:20px;}
+.bar-row-labels{display:flex;justify-content:space-between;margin-bottom:6px;}
+.bar-name{font-size:13px;color:rgba(255,255,255,0.65);}
+.bar-val{font-size:13px;color:#fff;font-weight:600;}
+.bar-track{height:10px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:6px;}
+.bar-blue{background:linear-gradient(90deg,#1770f1,#0e58c3);}
+.bar-warm{background:linear-gradient(90deg,#d4b896,#b8956a);}
+.bar-red{background:linear-gradient(90deg,#ff6b6b,#ee5a52);}
+.bar-green{background:linear-gradient(90deg,#4ade80,#22c55e);}
+
+/* TECH TABLE */
+.tech-section{padding:100px 0;background:#000;}
+.tech-table-wrap{border:1px solid rgba(255,255,255,0.07);border-radius:20px;overflow:hidden;overflow-x:auto;}
+.tech-table{width:100%;border-collapse:collapse;min-width:800px;}
+.tech-table th,.tech-table td{padding:16px 20px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.05);font-family:'Jost',sans-serif;}
+.tech-table thead th{background:#0c0c0c;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1770f1;font-weight:500;border-bottom:1px solid rgba(255,255,255,0.08);}
+.tech-table thead th:first-child{color:rgba(255,255,255,0.35);}
+.tech-table tbody tr{background:#090909;transition:background 0.2s;}
+.tech-table tbody tr:hover{background:#0f0f0f;}
+.tech-table tbody tr:last-child td{border-bottom:none;}
+.tech-table td{font-size:13px;color:rgba(255,255,255,0.58);vertical-align:middle;}
+.tech-table td:first-child{font-weight:600;color:rgba(255,255,255,0.8);font-size:13px;}
+.col-hi{background:rgba(23,112,241,0.04);border-left:1px solid rgba(23,112,241,0.08);border-right:1px solid rgba(23,112,241,0.08);}
+.col-hi-strong{color:#fff !important;font-weight:600;}
+.col-hi-head{color:#4da3ff !important;}
+.chk{color:#4ade80;}
+.crs{color:rgba(255,255,255,0.18);}
+.par{color:#d4b896;}
+
+/* CASE STUDIES */
+.case-section{padding:100px 0;background:#050505;border-top:1px solid rgba(255,255,255,0.04);}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.case-card{background:#090909;border:1px solid rgba(255,255,255,0.07);border-radius:20px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;}
+.case-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.65);border-color:rgba(255,255,255,0.12);}
+.case-banner{height:156px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#fff;font-family:'Poppins',sans-serif;}
+.case-body{padding:28px;}
+.case-body h4{font-size:18px;color:#fff;margin:0 0 12px;font-weight:600;font-family:'Poppins',sans-serif;}
+.case-body p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:22px;}
+.case-metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.case-metric{text-align:center;padding:14px 10px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);}
+.case-metric-val{font-size:22px;font-weight:700;font-family:'Poppins',sans-serif;line-height:1;margin-bottom:4px;}
+.case-metric-label{font-size:11px;color:rgba(255,255,255,0.38);letter-spacing:0.5px;}
+
+/* ENV IMPACT */
+.env-section{padding:100px 0;background:#000;}
+.env-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.env-card{border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px 24px;background:#090909;text-align:center;transition:transform 0.3s,border-color 0.3s;}
+.env-card:hover{transform:translateY(-5px);border-color:rgba(74,222,128,0.25);}
+.env-icon{font-size:38px;margin-bottom:18px;display:block;}
+.env-number{font-size:44px;font-weight:700;color:#4ade80;font-family:'Poppins',sans-serif;line-height:1;margin-bottom:10px;}
+.env-label{font-size:15px;color:#fff;font-weight:600;margin-bottom:10px;}
+.env-desc{font-size:13px;color:rgba(255,255,255,0.42);line-height:1.65;}
+
+/* WHY SECTION */
+.why-section{padding:100px 0;background:#050505;border-top:1px solid rgba(255,255,255,0.04);}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.why-card{padding:36px 28px;border:1px solid rgba(255,255,255,0.07);border-radius:20px;background:#090909;position:relative;overflow:hidden;transition:transform 0.3s,border-color 0.3s;}
+.why-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,#1770f1,transparent);opacity:0;transition:opacity 0.3s;}
+.why-card:hover{transform:translateY(-5px);border-color:rgba(23,112,241,0.22);}
+.why-card:hover::before{opacity:1;}
+.why-num{font-size:72px;font-weight:800;color:rgba(23,112,241,0.08);font-family:'Poppins',sans-serif;line-height:1;margin-bottom:16px;}
+.why-card h4{font-size:19px;color:#fff;margin:0 0 12px;font-weight:600;font-family:'Poppins',sans-serif;}
+.why-card p{font-size:14px;color:rgba(255,255,255,0.52);line-height:1.8;margin:0;}
+
+/* CTA */
+.cta-section{padding:120px 0;position:relative;overflow:hidden;background:linear-gradient(135deg,#010c1f 0%,#000 60%);border-top:1px solid rgba(255,255,255,0.04);}
+.cta-orb{position:absolute;right:-80px;top:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(23,112,241,0.12) 0%,transparent 70%);pointer-events:none;}
+.cta-content{position:relative;z-index:1;max-width:720px;}
+.cta-content h2{font-size:clamp(38px,4.5vw,66px);font-weight:700;color:#fff;line-height:1.1;margin:0 0 22px;letter-spacing:-1px;}
+.cta-content h2 em{font-style:italic;color:rgba(255,255,255,0.38);font-weight:300;}
+.cta-content p{font-size:17px;color:rgba(255,255,255,0.52);line-height:1.85;margin-bottom:44px;font-weight:300;}
+.cta-btns{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-blue{display:inline-flex;align-items:center;gap:8px;background:#1770f1;color:#fff;padding:14px 32px;border-radius:50px;font-size:15px;font-weight:600;font-family:'Poppins',sans-serif;transition:background 0.2s,transform 0.2s;}
+.btn-blue:hover{background:#0e58c3;transform:translateY(-2px);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.2);color:#fff;padding:14px 32px;border-radius:50px;font-size:15px;font-weight:400;font-family:'Poppins',sans-serif;transition:border-color 0.2s,background 0.2s;}
+.btn-outline:hover{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.04);}
+
+/* FOOTER */
+.footer-sec{background:#020202;padding:70px 0 0;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px;}
+.footer-logo-img{max-width:70px;width:100%;height:auto;display:block;margin-bottom:18px;}
+.footer-tagline{font-size:14px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.75;}
+.footer-col-title{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#1770f1;margin-bottom:20px;font-weight:500;font-family:'Jost',sans-serif;}
+.footer-links{display:flex;flex-direction:column;gap:12px;}
+.footer-links a{font-size:14px;color:rgba(255,255,255,0.38);transition:color 0.2s;font-family:'Jost',sans-serif;font-weight:300;}
+.footer-links a:hover{color:#fff;}
+.social-links{display:flex;gap:10px;margin-top:24px;}
+.social-links a{width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.38);font-size:13px;transition:all 0.2s;font-weight:600;}
+.social-links a:hover{border-color:#1770f1;color:#1770f1;background:rgba(23,112,241,0.08);}
+.footer-bottom{padding:24px 0;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.2);margin:0;font-family:'Jost',sans-serif;}
+
+/* FADE */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.fade-up.visible{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:1199px){
+  .insights-grid{grid-template-columns:repeat(2,1fr);}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .env-grid{grid-template-columns:repeat(2,1fr);}
+  .case-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:991px){
+  .navbar{top:20px;}
+  .navbar-wrap{padding:10px 18px;}
+  .charts-row{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:767px){
+  .insights-grid{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:1fr 1fr;}
+  .case-grid{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .env-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .banner-stats-row{gap:24px;}
+  .pie-wrap{flex-direction:column;align-items:flex-start;gap:24px;}
+}
+@media(max-width:575px){
+  .banner-orb,.banner-orb-2{display:none;}
+  .insights-section,.stats-section,.tech-section,.case-section,.env-section,.why-section,.cta-section{padding:70px 0;}
+  .stats-grid{grid-template-columns:1fr;}
+  .env-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-wrap">
+    <a class="navbar-brand" href="https://www.aarvish.ca/index.php">
+      <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Logo">
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/index.php">Home</a></li>
+      <li class="nav-item"><a class="nav-link active" href="https://www.aarvish.ca/insights.php">Insights</a></li>
+      <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/innovation.php">Innovation</a></li>
+      <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/inquiry.php">Inquiry</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="insights-banner" id="top">
+  <div class="banner-bg"></div>
+  <div class="banner-grid"></div>
+  <div class="banner-accent"></div>
+  <div class="banner-orb"></div>
+  <div class="banner-orb-2"></div>
+  <div class="container">
+    <div class="banner-content">
+      <div class="eyebrow fade-up">
+        <div class="eyebrow-line"></div>
+        <span>Water Innovation · Climate-Real Impact</span>
+      </div>
+      <h1 class="fade-up">Hope Through <em>Water</em><br>Innovation.</h1>
+      <p class="banner-sub fade-up">Delivering clean water where it's needed most. Discover breakthrough insights, case studies, and strategic perspectives on decentralized water solutions.</p>
+    </div>
+    <div class="banner-stats-row fade-up">
+      <div>
+        <div class="banner-stat-num" data-target="8000">0</div>
+        <div class="banner-stat-label">Litres / Day Per Unit</div>
+      </div>
+      <div class="banner-divider"></div>
+      <div>
+        <div class="banner-stat-num" data-target="98">0</div>
+        <div class="banner-stat-label">% System Uptime</div>
+      </div>
+      <div class="banner-divider"></div>
+      <div>
+        <div class="banner-stat-num" data-target="14">0</div>
+        <div class="banner-stat-label">Active MB Advisories</div>
+      </div>
+      <div class="banner-divider"></div>
+      <div>
+        <div class="banner-stat-num" data-target="80">0</div>
+        <div class="banner-stat-label">% Trucking Cost Cut</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="insights-section" id="articles">
+  <div class="container">
+    <div class="section-label fade-up"><div class="section-label-line"></div><span>Featured Stories & Case Studies</span></div>
+    <h2 class="section-title fade-up">Latest from <em>our team</em>.</h2>
+    <p class="section-subtitle fade-up">Peer-reviewed analysis, field data, and engineering insights from Aarvish's water innovation work across remote and Indigenous communities.</p>
+    <div class="insights-grid">
+
+      <div class="fade-up">
+        <a href="Blog-Detail-Desktop.html" class="blog-card">
+          <img class="blog-card-image" src="https://www.aarvish.ca/assets/images/blog-img.png" alt="Manitoba Water Security">
+          <div class="blog-card-content">
+            <div class="blog-meta"><span>February 15, 2026</span><div class="blog-meta-dot"></div><span>10 min read</span></div>
+            <h3 class="blog-card-title">Revolutionizing Water Security in Manitoba's Remote Communities</h3>
+            <p class="blog-card-excerpt">With Decentralized AWG-RO Innovation. Water is life — but for millions of people across the globe, access to clean and reliable drinking water remains uncertain.</p>
+            <div class="blog-card-tags"><span class="blog-tag">Water Innovation</span><span class="blog-tag">Sustainability</span><span class="blog-tag">Manitoba</span></div>
+            <span class="blog-card-link">Read Full Article →</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="fade-up">
+        <div class="blog-card">
+          <img class="blog-card-image" src="https://www.aarvish.ca/assets/images/blog-img.png" alt="Arctic Water Solutions">
+          <div class="blog-card-content">
+            <div class="blog-meta"><span>January 28, 2026</span><div class="blog-meta-dot"></div><span>8 min read</span></div>
+            <h3 class="blog-card-title">Arctic Water Solutions: Engineering for Extreme Environments</h3>
+            <p class="blog-card-excerpt">Explore how Aarvish's AWG and RO systems are engineered to function in temperatures as low as −40°C, with advanced thermal management and anti-freeze protocols.</p>
+            <div class="blog-card-tags"><span class="blog-tag">Arctic Tech</span><span class="blog-tag">Engineering</span><span class="blog-tag">Climate</span></div>
+            <span class="coming-badge">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <div class="blog-card">
+          <img class="blog-card-image" src="https://www.aarvish.ca/assets/images/blog-img.png" alt="Closed-Loop Recovery">
+          <div class="blog-card-content">
+            <div class="blog-meta"><span>January 12, 2026</span><div class="blog-meta-dot"></div><span>12 min read</span></div>
+            <h3 class="blog-card-title">Closed-Loop Water Recovery: Zero Discharge Engineering</h3>
+            <p class="blog-card-excerpt">Why 85% wastewater recovery matters in sensitive Arctic ecosystems. Learn how our reclamation module achieves near-zero liquid discharge with reusable brine streams.</p>
+            <div class="blog-card-tags"><span class="blog-tag">Wastewater</span><span class="blog-tag">Sustainability</span><span class="blog-tag">Environment</span></div>
+            <span class="coming-badge">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <div class="blog-card">
+          <img class="blog-card-image" src="https://www.aarvish.ca/assets/images/blog-img.png" alt="Hybrid Power">
+          <div class="blog-card-content">
+            <div class="blog-meta"><span>December 18, 2025</span><div class="blog-meta-dot"></div><span>15 min read</span></div>
+            <h3 class="blog-card-title">Hybrid Power Systems: Wind + Solar for 24/7 Water Production</h3>
+            <p class="blog-card-excerpt">How Aarvish combines wind turbines and solar panels to provide continuous power for water treatment in remote locations, eliminating diesel dependency entirely.</p>
+            <div class="blog-card-tags"><span class="blog-tag">Renewables</span><span class="blog-tag">Off-Grid</span><span class="blog-tag">Cost Efficiency</span></div>
+            <span class="coming-badge">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <div class="blog-card">
+          <img class="blog-card-image" src="https://www.aarvish.ca/assets/images/blog-img.png" alt="Global Water Crisis">
+          <div class="blog-card-content">
+            <div class="blog-meta"><span>November 30, 2025</span><div class="blog-meta-dot"></div><span>6 min read</span></div>
+            <h3 class="blog-card-title">The Global Water Crisis: Why Decentralized Solutions Matter</h3>
+            <p class="blog-card-excerpt">Statistics and insights on the worldwide water scarcity crisis affecting 2.2 billion people, and how decentralized water production can address this challenge at scale.</p>
+            <div class="blog-card-tags"><span class="blog-tag">Global Impact</span><span class="blog-tag">Water Crisis</span><span class="blog-tag">Innovation</span></div>
+            <span class="coming-badge">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <div class="blog-card">
+          <img class="blog-card-image" src="https://www.aarvish.ca/assets/images/blog-img.png" alt="Indigenous Partnerships">
+          <div class="blog-card-content">
+            <div class="blog-meta"><span>November 15, 2025</span><div class="blog-meta-dot"></div><span>9 min read</span></div>
+            <h3 class="blog-card-title">Building Trust: Indigenous Partnerships in Water Innovation</h3>
+            <p class="blog-card-excerpt">How Aarvish collaborates with Indigenous communities to develop culturally appropriate water solutions that respect traditional knowledge and local water sovereignty.</p>
+            <div class="blog-card-tags"><span class="blog-tag">Indigenous</span><span class="blog-tag">Community</span><span class="blog-tag">Partnerships</span></div>
+            <span class="coming-badge">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATISTICS -->
+<section class="stats-section" id="stats">
+  <div class="container">
+    <div class="section-label fade-up"><div class="section-label-line"></div><span>Impact by the Numbers</span></div>
+    <h2 class="section-title fade-up">Data That <em>Drives</em> Change.</h2>
+    <p class="section-subtitle fade-up">Real performance metrics from our deployed AWG-RO systems operating in some of Canada's harshest environments.</p>
+
+    <div class="stats-grid">
+      <div class="stat-card fade-up">
+        <div class="stat-number">500K</div>
+        <div class="stat-label">Gallons Per Day</div>
+        <div class="stat-desc">Clean water produced daily by AWG-RO systems at peak capacity across all units</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-number" data-target="98">0%</div>
+        <div class="stat-label">System Uptime</div>
+        <div class="stat-desc">Sustained reliability in extreme Arctic cold and remote fly-in conditions</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-number" data-target="85">0%</div>
+        <div class="stat-label">Wastewater Recovery</div>
+        <div class="stat-desc">Near zero liquid discharge protecting sensitive Arctic and boreal ecosystems</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-number">−40°C</div>
+        <div class="stat-label">Operating Temperature</div>
+        <div class="stat-desc">Extreme cold-weather capability engineered for year-round Arctic deployment</div>
+      </div>
+    </div>
+
+    <!-- Line Chart -->
+    <div class="line-chart-card fade-up">
+      <div class="line-chart-header">
+        <div>
+          <div class="chart-title">Projected Community Water Coverage — Manitoba (2025–2030)</div>
+          <p class="chart-subtitle">Daily litre output scaling from pilot deployment to full provincial rollout</p>
+        </div>
+        <div class="line-legend">
+          <div class="line-legend-item">
+            <div class="line-legend-dash" style="background:#1770f1;"></div>
+            <span class="line-legend-label">AWG-RO Hybrid Output</span>
+          </div>
+          <div class="line-legend-item">
+            <div class="line-legend-dash" style="background:#d4b896;border-top:2px dashed #d4b896;height:0;"></div>
+            <span class="line-legend-label">Traditional Trucking Baseline</span>
+          </div>
+        </div>
+      </div>
+      <svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;overflow:visible;">
+        <defs>
+          <linearGradient id="blueArea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1770f1" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="#1770f1" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="warmArea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d4b896" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#d4b896" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- Horizontal grid -->
+        <line x1="60" y1="220" x2="840" y2="220" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="60" y1="165" x2="840" y2="165" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="60" y1="110" x2="840" y2="110" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="60" y1="55" x2="840" y2="55" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
+        <!-- Vertical grid -->
+        <line x1="60" y1="30" x2="60" y2="220" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="216" y1="30" x2="216" y2="220" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="372" y1="30" x2="372" y2="220" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="528" y1="30" x2="528" y2="220" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="684" y1="30" x2="684" y2="220" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="840" y1="30" x2="840" y2="220" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <!-- Y labels -->
+        <text x="50" y="224" fill="rgba(255,255,255,0.28)" font-size="10" text-anchor="end" font-family="Jost,sans-serif">0</text>
+        <text x="50" y="169" fill="rgba(255,255,255,0.28)" font-size="10" text-anchor="end" font-family="Jost,sans-serif">50K L</text>
+        <text x="50" y="114" fill="rgba(255,255,255,0.28)" font-size="10" text-anchor="end" font-family="Jost,sans-serif">100K L</text>
+        <text x="50" y="59" fill="rgba(255,255,255,0.28)" font-size="10" text-anchor="end" font-family="Jost,sans-serif">150K L</text>
+        <!-- X labels -->
+        <text x="60" y="240" fill="rgba(255,255,255,0.28)" font-size="10" text-anchor="middle" font-family="Jost,sans-serif">2025</text>
+        <text x="216" y="240" fill="rgba(255,255,255,0.28)" font-size="10" text-anchor="middle" font-family="Jost,sans-serif">2026</text>
+        <text x="372" y="240" fill="rgba(255,255,255,0.28)" font-size="10" text-anchor="middle" font-family="Jost,sans-serif">2027</text>
+        <text x="528" y="240" fill="rgba(255,255,255,0.28)" font-size="10" text-anchor="middle" font-family="Jost,sans-serif">2028</text>
+        <text x="684" y="240" fill="rgba(255,255,255,0.28)" font-size="10" text-anchor="middle" font-family="Jost,sans-serif">2029</text>
+        <text x="840" y="240" fill="rgba(255,255,255,0.28)" font-size="10" text-anchor="middle" font-family="Jost,sans-serif">2030</text>
+        <!-- AWG-RO filled area -->
+        <path d="M60,212 L216,195 L372,172 L528,130 L684,82 L840,36 L840,220 L60,220 Z" fill="url(#blueArea)"/>
+        <!-- Trucking area -->
+        <path d="M60,185 L216,182 L372,180 L528,178 L684,176 L840,174 L840,220 L60,220 Z" fill="url(#warmArea)"/>
+        <!-- AWG-RO line -->
+        <polyline points="60,212 216,195 372,172 528,130 684,82 840,36" fill="none" stroke="#1770f1" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- Trucking line dashed -->
+        <polyline points="60,185 216,182 372,180 528,178 684,176 840,174" fill="none" stroke="#d4b896" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="6,4"/>
+        <!-- AWG-RO dots -->
+        <circle cx="60" cy="212" r="4.5" fill="#1770f1" stroke="#000" stroke-width="2"/>
+        <circle cx="216" cy="195" r="4.5" fill="#1770f1" stroke="#000" stroke-width="2"/>
+        <circle cx="372" cy="172" r="4.5" fill="#1770f1" stroke="#000" stroke-width="2"/>
+        <circle cx="528" cy="130" r="4.5" fill="#1770f1" stroke="#000" stroke-width="2"/>
+        <circle cx="684" cy="82" r="4.5" fill="#1770f1" stroke="#000" stroke-width="2"/>
+        <circle cx="840" cy="36" r="4.5" fill="#1770f1" stroke="#000" stroke-width="2"/>
+        <!-- Data labels -->
+        <text x="60" y="205" fill="#1770f1" font-size="9" text-anchor="middle" font-family="Jost,sans-serif">8K</text>
+        <text x="840" y="28" fill="#1770f1" font-size="9" text-anchor="middle" font-family="Jost,sans-serif">150K+</text>
+      </svg>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="charts-row">
+      <!-- Donut / Pie -->
+      <div class="chart-card fade-up">
+        <div class="chart-title" style="margin-bottom:6px;">Water Production Breakdown</div>
+        <p class="chart-subtitle" style="margin-bottom:28px;">By source technology per unit per day</p>
+        <div class="pie-wrap">
+          <svg viewBox="0 0 200 200" width="170" height="170" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+            <!-- 60% AWG: dasharray = 0.6*502=301, remaining=201 -->
+            <circle cx="100" cy="100" r="80" fill="transparent" stroke="#1770f1" stroke-width="32"
+              stroke-dasharray="301 502" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+            <!-- 25% RO: dasharray=125, offset=-301 -->
+            <circle cx="100" cy="100" r="80" fill="transparent" stroke="#d4b896" stroke-width="32"
+              stroke-dasharray="125 502" stroke-dashoffset="-301" transform="rotate(-90 100 100)"/>
+            <!-- 15% other: dasharray=76, offset=-426 -->
+            <circle cx="100" cy="100" r="80" fill="transparent" stroke="rgba(255,255,255,0.12)" stroke-width="32"
+              stroke-dasharray="76 502" stroke-dashoffset="-426" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="64" fill="#0d0d0d"/>
+            <text x="100" y="95" text-anchor="middle" fill="#fff" font-size="17" font-weight="700" font-family="Poppins,sans-serif">8,000+</text>
+            <text x="100" y="112" text-anchor="middle" fill="rgba(255,255,255,0.38)" font-size="9" font-family="Jost,sans-serif">Litres / Day</text>
+          </svg>
+          <div class="pie-legend">
+            <div class="pie-legend-item"><div class="pie-dot" style="background:#1770f1;"></div><span class="pie-legend-text">AWG (Atmospheric)</span><span class="pie-legend-val">60%</span></div>
+            <div class="pie-legend-item"><div class="pie-dot" style="background:#d4b896;"></div><span class="pie-legend-text">RO Purification</span><span class="pie-legend-val">25%</span></div>
+            <div class="pie-legend-item"><div class="pie-dot" style="background:rgba(255,255,255,0.15);"></div><span class="pie-legend-text">Hybrid Reserve</span><span class="pie-legend-val">15%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bar Chart -->
+      <div class="chart-card fade-up">
+        <div class="chart-title" style="margin-bottom:6px;">Global Water Crisis — Key Indicators</div>
+        <p class="chart-subtitle" style="margin-bottom:28px;">Statistics driving the need for decentralized solutions worldwide</p>
+        <div class="bar-rows">
+          <div>
+            <div class="bar-row-labels"><span class="bar-name">People Without Clean Water</span><span class="bar-val">2.2 Billion</span></div>
+            <div class="bar-track"><div class="bar-fill bar-blue" style="width:78%;"></div></div>
+          </div>
+          <div>
+            <div class="bar-row-labels"><span class="bar-name">Water-Stressed Countries</span><span class="bar-val">52 Nations</span></div>
+            <div class="bar-track"><div class="bar-fill bar-warm" style="width:52%;"></div></div>
+          </div>
+          <div>
+            <div class="bar-row-labels"><span class="bar-name">Annual Waterborne Deaths</span><span class="bar-val">485,000</span></div>
+            <div class="bar-track"><div class="bar-fill bar-red" style="width:35%;"></div></div>
+          </div>
+          <div>
+            <div class="bar-row-labels"><span class="bar-name">MB Advisories Lifted (Since 2015)</span><span class="bar-val">132 Lifted</span></div>
+            <div class="bar-track"><div class="bar-fill bar-green" style="width:66%;"></div></div>
+          </div>
+          <div>
+            <div class="bar-row-labels"><span class="bar-name">Active MB Advisories (Feb 2026)</span><span class="bar-val">14 Active</span></div>
+            <div class="bar-track"><div class="bar-fill bar-red" style="width:14%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY TABLE -->
+<section class="tech-section" id="technology">
+  <div class="container">
+    <div class="section-label fade-up"><div class="section-label-line"></div><span>Technology Comparison</span></div>
+    <h2 class="section-title fade-up">AWG-RO vs. <em>Traditional</em> Methods.</h2>
+    <p class="section-subtitle fade-up">A data-driven breakdown of how Aarvish's decentralized hybrid system outperforms conventional water supply approaches in remote and Arctic communities.</p>
+    <div class="tech-table-wrap fade-up">
+      <table class="tech-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Trucking</th>
+            <th>Centralized Plant</th>
+            <th class="col-hi">AWG Only</th>
+            <th class="col-hi">RO Only</th>
+            <th class="col-hi col-hi-head">Aarvish AWG-RO Hybrid ★</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Daily Output (Litres)</td>
+            <td>Supply-limited</td>
+            <td>10,000–50,000</td>
+            <td class="col-hi">1,000–5,000</td>
+            <td class="col-hi">5,000–15,000</td>
+            <td class="col-hi col-hi-strong">8,000–20,000</td>
+          </tr>
+          <tr>
+            <td>Cold-Climate Uptime</td>
+            <td>Weather-dependent</td>
+            <td>85–90%</td>
+            <td class="col-hi">90%+</td>
+            <td class="col-hi">95%+</td>
+            <td class="col-hi col-hi-strong">98%+</td>
+          </tr>
+          <tr>
+            <td>Cost per Litre (CAD)</td>
+            <td>$0.10–$0.50</td>
+            <td>$0.05–$0.15</td>
+            <td class="col-hi">$0.08–$0.20</td>
+            <td class="col-hi">$0.04–$0.10</td>
+            <td class="col-hi col-hi-strong">$0.03–$0.08</td>
+          </tr>
+          <tr>
+            <td>Setup Time</td>
+            <td>Ongoing logistics</td>
+            <td>2–5 years</td>
+            <td class="col-hi">4–8 weeks</td>
+            <td class="col-hi">6–10 weeks</td>
+            <td class="col-hi col-hi-strong">4–6 weeks</td>
+          </tr>
+          <tr>
+            <td>Renewable Energy</td>
+            <td><span class="crs">✕</span></td>
+            <td><span class="par">◑</span></td>
+            <td class="col-hi"><span class="chk">✔</span></td>
+            <td class="col-hi"><span class="chk">✔</span></td>
+            <td class="col-hi col-hi-strong"><span class="chk">✔ Wind + Solar</span></td>
+          </tr>
+          <tr>
+            <td>Fully Off-Grid</td>
+            <td><span class="crs">✕</span></td>
+            <td><span class="crs">✕</span></td>
+            <td class="col-hi"><span class="chk">✔</span></td>
+            <td class="col-hi"><span class="par">◑</span></td>
+            <td class="col-hi col-hi-strong"><span class="chk">✔ Fully Off-Grid</span></td>
+          </tr>
+          <tr>
+            <td>Rated to −40°C</td>
+            <td><span class="crs">✕</span></td>
+            <td><span class="crs">✕</span></td>
+            <td class="col-hi"><span class="chk">✔</span></td>
+            <td class="col-hi"><span class="chk">✔</span></td>
+            <td class="col-hi col-hi-strong"><span class="chk">✔ (to −50°C)</span></td>
+          </tr>
+          <tr>
+            <td>Contaminant Removal</td>
+            <td>None (raw delivery)</td>
+            <td>Standard</td>
+            <td class="col-hi">UV / HEPA / Mineral</td>
+            <td class="col-hi">95–99% TDS</td>
+            <td class="col-hi col-hi-strong">Full Spectrum + Alkaline</td>
+          </tr>
+          <tr>
+            <td>Local Jobs Created</td>
+            <td>Truckers only</td>
+            <td>Centralized ops</td>
+            <td class="col-hi">2–4 local</td>
+            <td class="col-hi">2–4 local</td>
+            <td class="col-hi col-hi-strong">5–10 local operators</td>
+          </tr>
+          <tr>
+            <td>CO₂ Reduction / Year</td>
+            <td>—</td>
+            <td>Low</td>
+            <td class="col-hi">Medium</td>
+            <td class="col-hi">Medium</td>
+            <td class="col-hi col-hi-strong">15–30 tonnes / unit</td>
+          </tr>
+          <tr>
+            <td>Capital Cost (CAD)</td>
+            <td>$150K+ / yr ongoing</td>
+            <td>$5M–$50M</td>
+            <td class="col-hi">$200K–$400K</td>
+            <td class="col-hi">$150K–$350K</td>
+            <td class="col-hi col-hi-strong">$300K–$800K</td>
+          </tr>
+          <tr>
+            <td>Payback Period</td>
+            <td>Never (sunk cost)</td>
+            <td>10–20 years</td>
+            <td class="col-hi">3–5 years</td>
+            <td class="col-hi">2–4 years</td>
+            <td class="col-hi col-hi-strong">2–4 years</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="case-section" id="case-studies">
+  <div class="container">
+    <div class="section-label fade-up"><div class="section-label-line"></div><span>Success Stories</span></div>
+    <h2 class="section-title fade-up">Real-World <em>Impact</em>.</h2>
+    <p class="section-subtitle fade-up">From pilot deployments to full community rollouts — documented outcomes from Aarvish's field operations across Manitoba and beyond.</p>
+    <div class="case-grid">
+
+      <div class="case-card fade-up">
+        <div class="case-banner" style="background:linear-gradient(135deg,#0d2b5e,#1770f1);">Manitoba First Nation</div>
+        <div class="case-body">
+          <h4>Ending Boil-Water Advisories</h4>
+          <p>After 3+ years of water restrictions, this remote fly-in community now has 24/7 access to clean, safe drinking water. The hybrid AWG-RO system serves 450 residents and eliminated all health advisories within 6 weeks of deployment.</p>
+          <div class="case-metrics">
+            <div class="case-metric"><div class="case-metric-val" style="color:#1770f1;">450</div><div class="case-metric-label">Residents Served</div></div>
+            <div class="case-metric"><div class="case-metric-val" style="color:#1770f1;">99.9%</div><div class="case-metric-label">Water Quality</div></div>
+            <div class="case-metric"><div class="case-metric-val" style="color:#1770f1;">80%</div><div class="case-metric-label">Cost Reduction</div></div>
+            <div class="case-metric"><div class="case-metric-val" style="color:#1770f1;">6 wks</div><div class="case-metric-label">Deployment Time</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card fade-up">
+        <div class="case-banner" style="background:linear-gradient(135deg,#2a1a06,#d4b896);">Northern Research Station</div>
+        <div class="case-body">
+          <h4>Scientific Research Support</h4>
+          <p>Supporting climate research in the High Arctic with reliable water supply for 25 scientists. The system operates autonomously in temperatures as low as −45°C, requiring no external power or fuel deliveries.</p>
+          <div class="case-metrics">
+            <div class="case-metric"><div class="case-metric-val" style="color:#d4b896;">−45°C</div><div class="case-metric-label">Min Temperature</div></div>
+            <div class="case-metric"><div class="case-metric-val" style="color:#d4b896;">100%</div><div class="case-metric-label">Off-Grid Power</div></div>
+            <div class="case-metric"><div class="case-metric-val" style="color:#d4b896;">25</div><div class="case-metric-label">Researchers</div></div>
+            <div class="case-metric"><div class="case-metric-val" style="color:#d4b896;">96%</div><div class="case-metric-label">Uptime</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card fade-up">
+        <div class="case-banner" style="background:linear-gradient(135deg,#0d1f3c,#2d5aa0);">Emergency Response</div>
+        <div class="case-body">
+          <h4>Disaster Relief Deployment</h4>
+          <p>Rapid deployment during a spring flooding emergency provided clean water to 2,000 evacuees. The containerized system was fully operational within 4 hours of arrival, serving 3 evacuation centres simultaneously.</p>
+          <div class="case-metrics">
+            <div class="case-metric"><div class="case-metric-val" style="color:#4da3ff;">4 hrs</div><div class="case-metric-label">Setup Time</div></div>
+            <div class="case-metric"><div class="case-metric-val" style="color:#4da3ff;">2,000</div><div class="case-metric-label">People Served</div></div>
+            <div class="case-metric"><div class="case-metric-val" style="color:#4da3ff;">3</div><div class="case-metric-label">Sites Covered</div></div>
+            <div class="case-metric"><div class="case-metric-val" style="color:#4da3ff;">0</div><div class="case-metric-label">Health Incidents</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ENV IMPACT -->
+<section class="env-section" id="environment">
+  <div class="container">
+    <div class="section-label fade-up"><div class="section-label-line"></div><span>Environmental Performance</span></div>
+    <h2 class="section-title fade-up">Clean Water. <em>Cleaner Planet</em>.</h2>
+    <p class="section-subtitle fade-up">Every AWG-RO unit deployed is a measurable step toward a lower-emission, water-secure future — per unit, per year.</p>
+    <div class="env-grid">
+      <div class="env-card fade-up">
+        <span class="env-icon">🌿</span>
+        <div class="env-number">30T</div>
+        <div class="env-label">CO₂ Avoided</div>
+        <div class="env-desc">Tonnes of carbon emissions prevented per unit annually by eliminating diesel trucking runs</div>
+      </div>
+      <div class="env-card fade-up">
+        <span class="env-icon">🚛</span>
+        <div class="env-number">1,000+</div>
+        <div class="env-label">Diesel Trucks Offset</div>
+        <div class="env-desc">Equivalent truck trips eliminated across a 50-unit provincial deployment per year</div>
+      </div>
+      <div class="env-card fade-up">
+        <span class="env-icon">💧</span>
+        <div class="env-number">85%</div>
+        <div class="env-label">Wastewater Recovered</div>
+        <div class="env-desc">RO brine recycled for non-potable use — near-zero liquid discharge achieved in every deployment</div>
+      </div>
+      <div class="env-card fade-up">
+        <span class="env-icon">☀️</span>
+        <div class="env-number">100%</div>
+        <div class="env-label">Renewable Powered</div>
+        <div class="env-desc">Wind and solar hybrid power eliminates diesel generators in all standard deployments</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY DECENTRALIZED -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="section-label fade-up"><div class="section-label-line"></div><span>The Case for Decentralization</span></div>
+    <h2 class="section-title fade-up">Six Reasons <em>Decentralized</em><br>Water Works.</h2>
+    <p class="section-subtitle fade-up">Centralized infrastructure fails remote communities. Here's why distributed AWG-RO systems are the engineering answer.</p>
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-num">01</div>
+        <h4>Speed of Deployment</h4>
+        <p>Containerized modules deploy in 4–6 weeks versus 2–5 years for centralized plants. Communities under long-term advisories can't wait — Aarvish delivers water security in weeks, not years.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-num">02</div>
+        <h4>No Road Required</h4>
+        <p>Fly-in communities are unreachable by conventional infrastructure. Our units are air-transportable, fit in a standard shipping container, and require no road access to install and operate.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-num">03</div>
+        <h4>Community Ownership</h4>
+        <p>Each deployment trains 5–10 local operators. Communities own and control their water supply — no dependence on external contractors or government trucking schedules.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-num">04</div>
+        <h4>Climate Resilient</h4>
+        <p>Designed for −50°C with insulated housing and anti-freeze systems, our units handle Manitoba winters, spring floods, and summer drought conditions — all in one platform.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-num">05</div>
+        <h4>Economic ROI</h4>
+        <p>Payback in 2–4 years versus trucking costs of $0.15–$0.50/litre. Annual community savings of $200K+ fund local priorities rather than emergency water logistics.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-num">06</div>
+        <h4>Scalable by Design</h4>
+        <p>Start with one unit. Add capacity as needs grow. Phase 1 → Phase 2 → Phase 3: pilot, provincial, inter-provincial — the same modular platform scales to any community size.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-orb"></div>
+  <div class="container">
+    <div class="cta-content">
+      <div class="section-label fade-up" style="margin-bottom:28px;"><div class="section-label-line"></div><span>Get Involved</span></div>
+      <h2 class="fade-up">Ready to bring <em>clean water</em><br>to your community?</h2>
+      <p class="fade-up">Whether you're a First Nations band council, government agency, NGO, or research institution — Aarvish offers free site assessments, grant alignment support, and rapid pilot project planning at no upfront cost.</p>
+      <div class="cta-btns fade-up">
+        <a href="https://www.aarvish.ca/inquiry.php" class="btn-blue">Request a Free Assessment →</a>
+        <a href="mailto:operations@aarvish.ca" class="btn-outline">operations@aarvish.ca</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-sec">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Global LTD" class="footer-logo-img">
+        <p class="footer-tagline">Decentralized water innovation for a water-secure future. Serving Indigenous communities, government agencies, and global partners from Winnipeg, Manitoba.</p>
+        <div class="social-links">
+          <a href="#" title="LinkedIn">in</a>
+          <a href="#" title="Twitter/X">𝕏</a>
+          <a href="#" title="GitHub">⚙</a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Company</h6>
+        <ul class="footer-links">
+          <li><a href="https://www.aarvish.ca/index.php">Home</a></li>
+          <li><a href="https://www.aarvish.ca/insights.php">Insights</a></li>
+          <li><a href="https://www.aarvish.ca/innovation.php">Innovation</a></li>
+          <li><a href="https://www.aarvish.ca/inquiry.php">Inquiry</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Contact</h6>
+        <ul class="footer-links">
+          <li><a href="tel:+12049623844">+1 204-962-3844</a></li>
+          <li><a href="mailto:operations@aarvish.ca">operations@aarvish.ca</a></li>
+          <li><a href="#">Winnipeg, MB, Canada</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Legal</h6>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Sustainability Report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Aarvish Global LTD. All Rights Reserved. Manitoba Métis Federation Registered.</p>
+      <p>Designed to deliver water security to those who need it most.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Fade-up on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// Animated counters
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target, 10);
+  if (isNaN(target)) return;
+  const suffix = el.textContent.replace(/[\d]/g, '').trim();
+  const duration = 1800;
+  const start = performance.now();
+  function tick(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(eased * target) + (suffix || '');
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const cObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { animateCounter(e.target); cObs.unobserve(e.target); }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
+</script>
+</body>
+</html>
