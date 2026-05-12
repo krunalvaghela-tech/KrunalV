@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aarvish | Revolutionizing Water Security in Manitoba</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;padding:0;font-family:'Jost',sans-serif;background:#000;overflow-x:hidden;color:#fff;}
+img{max-width:100%;height:auto;}
+ul{margin:0;padding:0;}
+a{text-decoration:none;}
+h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 24px;}
+
+/* NAVBAR */
+.navbar{padding:0;position:fixed;top:30px;left:0;right:0;z-index:999;display:flex;justify-content:center;}
+.navbar-wrap{background:#00000096;padding:10px 25px;border-radius:50px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;width:calc(100% - 60px);max-width:1320px;border:1px solid rgba(255,255,255,0.06);}
+.navbar-brand img{max-width:65px;width:100%;}
+.navbar-nav{display:flex;flex-direction:row;align-items:center;gap:4px;list-style:none;margin:0;padding:0;}
+.nav-item .nav-link{padding:10px 22px;font-size:18px;font-weight:400;color:#fff;font-family:'Poppins',sans-serif;transition:color 0.3s;display:block;}
+.nav-item .nav-link:hover,.nav-item .nav-link.active{color:#1770f1;}
+
+/* HERO */
+.blog-hero{min-height:60vh;padding:160px 0 80px;position:relative;display:flex;align-items:flex-end;}
+.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(155deg,#010508 0%,#030d18 50%,#000 100%);}
+.hero-grid{position:absolute;inset:0;z-index:0;opacity:0.03;background-image:linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px);background-size:80px 80px;}
+.hero-orb{position:absolute;top:5%;right:5%;width:440px;height:440px;border-radius:50%;z-index:0;background:radial-gradient(circle,rgba(23,112,241,0.12) 0%,transparent 70%);animation:pulse 7s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.1);opacity:0.5}}
+.hero-content{position:relative;z-index:1;max-width:860px;}
+.hero-meta{display:flex;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap;}
+.hero-date{font-size:13px;color:rgba(255,255,255,0.45);font-family:'Jost',sans-serif;}
+.hero-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#1770f1;border:1px solid rgba(23,112,241,0.3);padding:3px 12px;border-radius:20px;font-family:'Jost',sans-serif;background:rgba(23,112,241,0.06);}
+.hero-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.2);}
+.hero-content h1{font-family:'Poppins',sans-serif;font-size:clamp(30px,4.5vw,62px);font-weight:700;line-height:1.1;color:#fff;margin:0 0 24px;letter-spacing:-1px;}
+.hero-author{display:flex;align-items:center;gap:16px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);}
+.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#1770f1,#0e58c3);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;font-family:'Poppins',sans-serif;flex-shrink:0;}
+.author-name{font-size:15px;color:#fff;font-weight:600;margin-bottom:2px;}
+.author-title{font-size:13px;color:rgba(255,255,255,0.42);font-family:'Jost',sans-serif;}
+
+/* ARTICLE BODY */
+.blog-body{padding:80px 0 100px;}
+.blog-layout{display:grid;grid-template-columns:1fr 300px;gap:64px;align-items:start;}
+.blog-content{min-width:0;}
+
+/* HERO IMAGE */
+.blog-hero-image{width:100%;border-radius:16px;display:block;margin-bottom:56px;border:1px solid rgba(255,255,255,0.07);}
+
+/* TYPOGRAPHY */
+.blog-content h2{font-family:'Poppins',sans-serif;font-size:clamp(22px,2.5vw,34px);font-weight:700;color:#fff;margin:56px 0 16px;line-height:1.2;}
+.blog-content h3{font-family:'Poppins',sans-serif;font-size:clamp(18px,2vw,26px);font-weight:600;color:#fff;margin:44px 0 14px;line-height:1.25;}
+.blog-content h4{font-family:'Poppins',sans-serif;font-size:clamp(16px,1.5vw,20px);font-weight:600;color:rgba(255,255,255,0.9);margin:32px 0 12px;}
+.blog-content p{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.9;margin:0 0 20px;font-weight:300;}
+.blog-content ul{margin:0 0 24px 0;padding:0;list-style:none;}
+.blog-content ul li{font-size:15px;color:rgba(255,255,255,0.62);line-height:1.85;padding:8px 0 8px 22px;position:relative;font-weight:300;border-bottom:1px solid rgba(255,255,255,0.04);}
+.blog-content ul li:last-child{border-bottom:none;}
+.blog-content ul li::before{content:'';position:absolute;left:0;top:18px;width:8px;height:1px;background:#1770f1;}
+.blog-content strong{color:#fff;font-weight:600;}
+
+/* CALLOUT BOX */
+.callout{background:linear-gradient(135deg,#0a1929 0%,#050f1f 100%);border:1px solid rgba(23,112,241,0.2);border-left:3px solid #1770f1;border-radius:12px;padding:24px 28px;margin:32px 0;}
+.callout p{color:rgba(255,255,255,0.7);margin:0;font-size:15px;line-height:1.8;font-style:italic;}
+
+/* QUOTE */
+.pull-quote{padding:32px 0;margin:40px 0;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);text-align:center;}
+.pull-quote p{font-family:'Poppins',sans-serif;font-size:clamp(18px,2vw,26px);color:rgba(255,255,255,0.7);line-height:1.5;margin:0;font-weight:300;font-style:italic;}
+.pull-quote span{display:block;font-size:12px;color:#1770f1;letter-spacing:2px;text-transform:uppercase;margin-top:16px;font-family:'Jost',sans-serif;font-style:normal;}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;margin:32px 0;border:1px solid rgba(255,255,255,0.07);border-radius:16px;overflow:hidden;}
+.data-table{width:100%;border-collapse:collapse;min-width:520px;}
+.data-table th,.data-table td{padding:14px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.05);font-family:'Jost',sans-serif;font-size:14px;}
+.data-table thead th{background:#0d0d0d;color:#1770f1;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;border-bottom:1px solid rgba(255,255,255,0.08);}
+.data-table tbody tr{background:#080808;transition:background 0.2s;}
+.data-table tbody tr:hover{background:#0e0e0e;}
+.data-table tbody tr:last-child td{border-bottom:none;}
+.data-table td{color:rgba(255,255,255,0.62);}
+.data-table td:first-child{color:rgba(255,255,255,0.85);font-weight:500;}
+
+/* KEY OUTCOMES BOX */
+.outcomes-box{background:#090909;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:32px;margin:32px 0;}
+.outcomes-box h4{font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#1770f1;margin:0 0 20px;font-weight:500;font-family:'Jost',sans-serif;}
+.outcome-item{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.outcome-item:last-child{border-bottom:none;padding-bottom:0;}
+.outcome-num{font-size:28px;font-weight:700;color:#1770f1;font-family:'Poppins',sans-serif;min-width:80px;line-height:1;}
+.outcome-text{font-size:14px;color:rgba(255,255,255,0.62);line-height:1.65;}
+
+/* INLINE CHART */
+.mini-chart{background:#090909;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:28px;margin:32px 0;}
+.mini-chart-title{font-size:14px;color:#fff;font-weight:600;margin-bottom:20px;font-family:'Poppins',sans-serif;}
+.mini-bar-row{display:flex;flex-direction:column;gap:4px;margin-bottom:16px;}
+.mini-bar-row:last-child{margin-bottom:0;}
+.mini-bar-labels{display:flex;justify-content:space-between;margin-bottom:6px;}
+.mini-bar-name{font-size:13px;color:rgba(255,255,255,0.55);}
+.mini-bar-val{font-size:13px;color:#fff;font-weight:600;}
+.mini-track{height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;}
+.mini-fill{height:100%;border-radius:4px;}
+
+/* ARTICLE IMAGE */
+.article-image{width:100%;border-radius:12px;display:block;margin:32px 0;border:1px solid rgba(255,255,255,0.06);}
+.image-caption{font-size:13px;color:rgba(255,255,255,0.35);text-align:center;margin:-20px 0 32px;font-style:italic;}
+
+/* CTA INLINE */
+.article-cta{background:linear-gradient(135deg,#010c1f,#000e20);border:1px solid rgba(23,112,241,0.2);border-radius:16px;padding:40px;margin:48px 0;text-align:center;}
+.article-cta h3{font-size:24px;color:#fff;margin:0 0 12px;font-weight:700;}
+.article-cta p{font-size:15px;color:rgba(255,255,255,0.52);line-height:1.75;margin:0 0 24px;}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:#1770f1;color:#fff;padding:13px 28px;border-radius:50px;font-size:15px;font-weight:600;font-family:'Poppins',sans-serif;transition:background 0.2s,transform 0.2s;}
+.cta-btn:hover{background:#0e58c3;transform:translateY(-2px);}
+
+/* SIDEBAR */
+.blog-sidebar{position:sticky;top:110px;}
+.sidebar-card{background:#090909;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:28px;margin-bottom:24px;}
+.sidebar-title{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#1770f1;font-weight:500;font-family:'Jost',sans-serif;margin-bottom:20px;}
+.toc-list{display:flex;flex-direction:column;gap:2px;list-style:none;padding:0;margin:0;}
+.toc-list a{display:block;font-size:13px;color:rgba(255,255,255,0.45);padding:8px 12px;border-radius:8px;transition:all 0.2s;font-family:'Jost',sans-serif;border-left:2px solid transparent;}
+.toc-list a:hover{color:#fff;background:rgba(255,255,255,0.04);border-left-color:#1770f1;}
+.tag-list{display:flex;flex-wrap:wrap;gap:8px;}
+.tag-pill{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1770f1;border:1px solid rgba(23,112,241,0.22);padding:5px 12px;border-radius:20px;font-family:'Jost',sans-serif;background:rgba(23,112,241,0.04);}
+.share-row{display:flex;gap:10px;}
+.share-btn{flex:1;padding:10px;border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:rgba(255,255,255,0.45);font-size:13px;text-align:center;transition:all 0.2s;font-family:'Jost',sans-serif;}
+.share-btn:hover{border-color:#1770f1;color:#1770f1;}
+.stat-mini{display:flex;flex-direction:column;gap:14px;}
+.stat-mini-item{display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.stat-mini-item:last-child{border-bottom:none;padding-bottom:0;}
+.stat-mini-num{font-size:22px;font-weight:700;color:#1770f1;font-family:'Poppins',sans-serif;min-width:64px;line-height:1;}
+.stat-mini-label{font-size:13px;color:rgba(255,255,255,0.45);}
+
+/* FOOTER */
+.footer-sec{background:#020202;padding:70px 0 0;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px;}
+.footer-logo-img{max-width:70px;width:100%;height:auto;display:block;margin-bottom:18px;}
+.footer-tagline{font-size:14px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.75;}
+.footer-col-title{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#1770f1;margin-bottom:20px;font-weight:500;font-family:'Jost',sans-serif;}
+.footer-links{display:flex;flex-direction:column;gap:12px;list-style:none;padding:0;margin:0;}
+.footer-links a{font-size:14px;color:rgba(255,255,255,0.38);transition:color 0.2s;font-family:'Jost',sans-serif;font-weight:300;}
+.footer-links a:hover{color:#fff;}
+.social-links{display:flex;gap:10px;margin-top:24px;}
+.social-links a{width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.38);font-size:13px;transition:all 0.2s;font-weight:600;}
+.social-links a:hover{border-color:#1770f1;color:#1770f1;background:rgba(23,112,241,0.08);}
+.footer-bottom{padding:24px 0;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.2);margin:0;font-family:'Jost',sans-serif;}
+
+/* FADE */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.fade-up.visible{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.blog-layout{grid-template-columns:1fr;}.blog-sidebar{position:static;}}
+@media(max-width:991px){.navbar{top:20px;}.navbar-wrap{padding:10px 18px;}.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:767px){.footer-grid{grid-template-columns:1fr;}}
+@media(max-width:575px){.hero-orb{display:none;}.blog-hero{padding:140px 0 60px;}.blog-body{padding:60px 0 80px;}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-wrap">
+    <a class="navbar-brand" href="https://www.aarvish.ca/index.php">
+      <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Logo">
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/index.php">Home</a></li>
+      <li class="nav-item"><a class="nav-link active" href="https://www.aarvish.ca/insights.php">Insights</a></li>
+      <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/innovation.php">Innovation</a></li>
+      <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/inquiry.php">Inquiry</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orb"></div>
+  <div class="container">
+    <div class="hero-content fade-up">
+      <div class="hero-meta">
+        <span class="hero-date">February 15, 2026</span>
+        <div class="hero-dot"></div>
+        <span class="hero-date">10 min read</span>
+        <div class="hero-dot"></div>
+        <span class="hero-tag">Water Innovation</span>
+        <span class="hero-tag">Manitoba Case Study</span>
+        <span class="hero-tag">Sustainability</span>
+      </div>
+      <h1>Revolutionizing Water Security in Manitoba's Remote Communities with Decentralized AWG-RO Innovation</h1>
+      <div class="hero-author">
+        <div class="author-avatar">K</div>
+        <div>
+          <div class="author-name">Krunal Vaghela, P.Eng., PMP</div>
+          <div class="author-title">Founder & Engineering Lead, Aarvish Global LTD · Water Innovation, Sustainability, Manitoba Case Studies</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<section class="blog-body">
+  <div class="container">
+    <div class="blog-layout">
+
+      <!-- MAIN CONTENT -->
+      <div class="blog-content">
+
+        <img src="https://www.aarvish.ca/assets/images/blog-img.png" alt="Manitoba Water Security" class="blog-hero-image fade-up">
+
+        <!-- EXECUTIVE SUMMARY -->
+        <h2 id="summary" class="fade-up">Executive Summary</h2>
+        <p class="fade-up">In Manitoba's remote northern communities, persistent drinking water advisories pose health risks, economic burdens, and daily hardships — despite federal commitments to eliminate them. As of February 2026, 5 long-term and 9 short-term advisories affect First Nations in the province, impacting thousands who rely on costly trucked or bottled water.</p>
+        <p class="fade-up">Aarvish Global LTD, an Indigenous-owned and Manitoba Métis Federation-registered company based in Winnipeg, addresses this through innovative, decentralized Atmospheric Water Generation (AWG) and Reverse Osmosis (RO) systems powered by renewables like wind and solar. This case study analyzes the Manitoba water crisis, our hybrid technology as a scalable solution, a hypothetical pilot project, and projected impacts.</p>
+
+        <!-- Key Outcomes -->
+        <div class="outcomes-box fade-up">
+          <h4>Key Outcomes at a Glance</h4>
+          <div class="outcome-item">
+            <div class="outcome-num">8,000+</div>
+            <div class="outcome-text">Litres per day of clean drinking water for 100–250 households per deployed unit</div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-num">70–80%</div>
+            <div class="outcome-text">Reduction in water trucking costs and associated carbon emissions per community</div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-num">5–10</div>
+            <div class="outcome-text">Local training positions and operator jobs created per community deployment</div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-num">4–6 wks</div>
+            <div class="outcome-text">Time from site assessment to full system operation — versus 2–5 years for centralized infrastructure</div>
+          </div>
+        </div>
+        <p class="fade-up">This innovation aligns with provincial priorities for climate-resilient infrastructure and Indigenous economic development, offering a direct path to water sovereignty.</p>
+
+        <!-- THE PROBLEM -->
+        <h2 id="problem" class="fade-up">The Problem: Manitoba's Ongoing Water Crisis</h2>
+        <p class="fade-up">Manitoba, with its 100,000+ lakes, seems water-abundant — yet remote communities, especially First Nations, face chronic shortages. Fly-in reserves in the north endure harsh winters, limited access, and aging infrastructure, leading to frequent advisories.</p>
+
+        <h3 class="fade-up">Current Statistics — February 2026</h3>
+
+        <div class="callout fade-up">
+          <p>"The water crisis is ongoing and costly, with residents in Island Lake communities paying upwards of $50 for a case of bottled water — a basic necessity unavailable from the tap."</p>
+        </div>
+
+        <h4 class="fade-up">Long-Term Advisories (Active &gt; 1 Year)</h4>
+        <ul class="fade-up">
+          <li><strong>Mathias Colomb Cree Nation</strong> — Boil water advisory since 2020, impacting 400 homes. Projected lift: undetermined.</li>
+          <li><strong>Shamattawa First Nation</strong> — Advisory since 2018, affecting 170 homes. Projected lift: Winter 2026.</li>
+          <li><strong>Tataskweyak Cree Nation</strong> — Active since 2017, impacting 371 homes. Among the longest-running in the province.</li>
+          <li><strong>Tootinaowaziibeeng Treaty Reserve</strong> — "Do not consume" advisory since 2023, 115 homes affected.</li>
+          <li><strong>Waywayseecappo First Nation</strong> — "Do not consume" advisory since 2023, 80 homes affected.</li>
+        </ul>
+
+        <h4 class="fade-up">Short-Term Advisories (9 Active as of Feb 2026)</h4>
+        <ul class="fade-up">
+          <li><strong>Bunibonibee Cree Nation</strong> (Oxford House) — Cisterns affected since August 2025.</li>
+          <li><strong>Cross Lake</strong> — Two systems affected since 2025.</li>
+          <li><strong>Fox Lake Cree Nation</strong> — Active since January 2026.</li>
+          <li><strong>Long Plain First Nation</strong> — Active since April 2025.</li>
+          <li><strong>Pauingassi First Nation</strong> — Active since March 2025.</li>
+          <li><strong>Waywayseecappo School</strong> — "Do not use" since November 2025.</li>
+        </ul>
+
+        <h4 class="fade-up">Impacts of Ongoing Advisories</h4>
+        <ul class="fade-up">
+          <li><strong>Health Risks:</strong> Exposure to waterborne illnesses; reliance on bottled water increases plastic waste and chronic dehydration risk.</li>
+          <li><strong>Economic Costs:</strong> Governments spend millions annually on emergency supplies — trucking costs $0.10–$0.50/litre, with $24 million invested in Manitoba infrastructure in recent years alone.</li>
+          <li><strong>Social Hardship:</strong> Daily burdens, especially in winter when ice roads fail, leading to evacuations and critical shortages.</li>
+        </ul>
+
+        <!-- Water crisis mini chart -->
+        <div class="mini-chart fade-up">
+          <div class="mini-chart-title">Manitoba Advisory Impact — Households Affected</div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-labels"><span class="mini-bar-name">Mathias Colomb Cree Nation</span><span class="mini-bar-val">400 homes</span></div>
+            <div class="mini-track"><div class="mini-fill" style="width:80%;background:linear-gradient(90deg,#ff6b6b,#ee5a52);"></div></div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-labels"><span class="mini-bar-name">Tataskweyak Cree Nation</span><span class="mini-bar-val">371 homes</span></div>
+            <div class="mini-track"><div class="mini-fill" style="width:74%;background:linear-gradient(90deg,#ff6b6b,#ee5a52);"></div></div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-labels"><span class="mini-bar-name">Shamattawa First Nation</span><span class="mini-bar-val">170 homes</span></div>
+            <div class="mini-track"><div class="mini-fill" style="width:34%;background:linear-gradient(90deg,#d4b896,#b8956a);"></div></div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-labels"><span class="mini-bar-name">Tootinaowaziibeeng TR</span><span class="mini-bar-val">115 homes</span></div>
+            <div class="mini-track"><div class="mini-fill" style="width:23%;background:linear-gradient(90deg,#d4b896,#b8956a);"></div></div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-labels"><span class="mini-bar-name">Waywayseecappo FN</span><span class="mini-bar-val">80 homes</span></div>
+            <div class="mini-track"><div class="mini-fill" style="width:16%;background:linear-gradient(90deg,#d4b896,#b8956a);"></div></div>
+          </div>
+        </div>
+
+        <!-- THE SOLUTION -->
+        <h2 id="solution" class="fade-up">The Solution: Aarvish's Decentralized AWG-RO Hybrid System</h2>
+        <p class="fade-up">Aarvish Global LTD's innovation: Modular, off-grid systems combining AWG for drinking water and RO for household use, integrated with renewables for year-round reliability in −50°C conditions.</p>
+
+        <h3 class="fade-up">Core System Components</h3>
+        <ul class="fade-up">
+          <li><strong>Atmospheric Water Generation (AWG):</strong> Extracts moisture from air via refrigeration/desiccant cycles, producing alkaline water (pH 9–10) with naturally occurring minerals. Optimized for low-humidity Manitoba winters through advanced desiccant boosting.</li>
+          <li><strong>Reverse Osmosis (RO):</strong> Purifies local sources (lakes, rivers, groundwater) at high volumes, removing 95–99% of total dissolved solids, bacteria, and chemical contaminants.</li>
+          <li><strong>Renewable Power Integration:</strong> Portable wind turbines and solar hybrid arrays generate electricity, reducing diesel dependency to zero in standard deployments.</li>
+          <li><strong>Storage & IoT Monitoring:</strong> Insulated water storage tanks and remote IoT sensors ensure continuous supply and real-time quality oversight from any location.</li>
+        </ul>
+
+        <!-- PERFORMANCE TABLE -->
+        <h2 id="analysis" class="fade-up">Technical Performance Analysis</h2>
+
+        <div class="data-table-wrap fade-up">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>AWG Component</th>
+                <th>RO Component</th>
+                <th>Hybrid System</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Daily Output (Litres)</td><td>1,000–5,000</td><td>5,000–15,000</td><td>8,000–20,000</td></tr>
+              <tr><td>Energy Use (kWh/Litre)</td><td>0.5–1.8</td><td>0.2–0.5</td><td>0.3–1.0</td></tr>
+              <tr><td>Cold-Climate Uptime</td><td>90%+</td><td>95%+</td><td>98%+</td></tr>
+              <tr><td>Contaminant Removal</td><td>UV / HEPA / Mineral</td><td>95–99% TDS</td><td>Full Spectrum</td></tr>
+              <tr><td>pH Range (Output)</td><td>9–10 (Alkaline)</td><td>7–8 (Neutral)</td><td>7–10 (Configurable)</td></tr>
+              <tr><td>Min Operating Temp</td><td>−40°C (desiccant)</td><td>−50°C (insulated)</td><td>−50°C</td></tr>
+              <tr><td>Setup Time</td><td>4–6 weeks</td><td>6–8 weeks</td><td>4–6 weeks</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="fade-up">Economic Analysis</h3>
+        <ul class="fade-up">
+          <li><strong>Capital Cost:</strong> $300K–$800K per unit — compared to $5M–$50M for centralized treatment plants with equal or lesser output.</li>
+          <li><strong>Operating Cost:</strong> $0.03–$0.08 per litre, versus $0.10–$0.50 per litre for trucking — a reduction of 70–80%.</li>
+          <li><strong>ROI for 200-Household Pilot:</strong> 70% reduction in emergency costs, $150K+ annual savings, and 2–4 year payback period.</li>
+          <li><strong>Funding Alignment:</strong> Eligible for federal and provincial grants for Indigenous-led clean technology and climate-resilient infrastructure.</li>
+        </ul>
+
+        <h3 class="fade-up">Environmental Analysis</h3>
+        <ul class="fade-up">
+          <li><strong>Carbon Impact:</strong> Renewables cut CO₂ by 15–30 tonnes per unit per year; minimal water waste with RO brine reusable for non-potable applications.</li>
+          <li><strong>Climate Resilience:</strong> Reduces trucking emissions; adapts to drought, flood, and freeze conditions in a single platform.</li>
+          <li><strong>Scale Impact:</strong> Province-wide scaling to 50 units: 150M+ litres/year capacity, equivalent to offsetting 1,000+ diesel truck runs annually.</li>
+        </ul>
+
+        <!-- Cost comparison chart -->
+        <div class="mini-chart fade-up">
+          <div class="mini-chart-title">Cost per Litre Comparison (CAD)</div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-labels"><span class="mini-bar-name">Remote Trucking (emergency)</span><span class="mini-bar-val">$0.50 / L</span></div>
+            <div class="mini-track"><div class="mini-fill" style="width:100%;background:linear-gradient(90deg,#ff6b6b,#ee5a52);"></div></div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-labels"><span class="mini-bar-name">Standard Trucking</span><span class="mini-bar-val">$0.15 / L</span></div>
+            <div class="mini-track"><div class="mini-fill" style="width:60%;background:linear-gradient(90deg,#d4b896,#b8956a);"></div></div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-labels"><span class="mini-bar-name">Centralized Treatment</span><span class="mini-bar-val">$0.10 / L</span></div>
+            <div class="mini-track"><div class="mini-fill" style="width:40%;background:linear-gradient(90deg,#d4b896,#b8956a);"></div></div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-labels"><span class="mini-bar-name">Aarvish AWG-RO Hybrid</span><span class="mini-bar-val">$0.05 / L</span></div>
+            <div class="mini-track"><div class="mini-fill" style="width:20%;background:linear-gradient(90deg,#4ade80,#22c55e);"></div></div>
+          </div>
+        </div>
+
+        <!-- PILOT PROJECT -->
+        <h2 id="pilot" class="fade-up">Pilot Project: Shamattawa First Nation Deployment</h2>
+        <p class="fade-up"><strong>Project Overview:</strong> A 6–12 month pilot in Shamattawa First Nation — under long-term advisory since 2018, impacting 170 homes in a fly-in-only community in northern Manitoba.</p>
+
+        <h3 class="fade-up">Implementation Steps</h3>
+        <ul class="fade-up">
+          <li><strong>Site Assessment (Week 1–2):</strong> Evaluate atmospheric humidity, wind patterns (5–8 m/s average), seasonal temperature data, and any existing water infrastructure.</li>
+          <li><strong>Deployment (Week 3–6):</strong> Air-transport and install 10kW hybrid AWG-RO unit with wind turbine array in pre-prepared container housing.</li>
+          <li><strong>Commissioning (Week 6):</strong> Produce 8,000L/day, begin serving households and the community facility; train 5 local operators in full system management.</li>
+          <li><strong>Monitoring (Ongoing):</strong> IoT dashboards track WHO-standard water quality parameters, daily yield, energy consumption, and system health remotely.</li>
+        </ul>
+
+        <h3 class="fade-up">Measurable Pilot Outcomes</h3>
+        <ul class="fade-up">
+          <li><strong>Water Security:</strong> Lift boil-water advisory dependency; provide alkaline drinking water and full household supply within 6 weeks.</li>
+          <li><strong>Cost Reduction:</strong> Slash trucking costs by 80%, representing $150K+ in annual savings redirected to community priorities.</li>
+          <li><strong>Community Benefits:</strong> Measurable health improvements from safe water access, 5 job positions created, reduced daily hardship for 170 households.</li>
+          <li><strong>Risk Mitigation:</strong> Solar backup activates when wind drops below threshold; dual-source redundancy ensures no single point of failure.</li>
+        </ul>
+
+        <div class="pull-quote fade-up">
+          <p>"A focused, measurable pilot approach — demonstrating reliability and community impact before provincial scaling."</p>
+          <span>Aarvish Engineering Assessment, 2026</span>
+        </div>
+
+        <!-- BROADER IMPACTS -->
+        <h2 id="impact" class="fade-up">Broader Impacts and Future Pathway</h2>
+        <ul class="fade-up">
+          <li><strong>Social Impact:</strong> Empowers Indigenous communities with water sovereignty — aligning with Aarvish's MMF registration and mission of Indigenous-led economic development.</li>
+          <li><strong>Policy Alignment:</strong> Supports federal goals (132 long-term advisories lifted since 2015, but significant gaps remain across northern provinces). Advances Manitoba's climate action priorities.</li>
+          <li><strong>Phase 1:</strong> Pilot success at Shamattawa — data collection, community training, optimization.</li>
+          <li><strong>Phase 2:</strong> Expand to 10+ communities under active advisories across northern Manitoba.</li>
+          <li><strong>Phase 3:</strong> Scale to neighbouring provinces with similar Indigenous water challenges — Saskatchewan, Ontario, Nunavut.</li>
+        </ul>
+
+        <div class="data-table-wrap fade-up">
+          <table class="data-table">
+            <thead>
+              <tr><th>Scaling Phase</th><th>Units Deployed</th><th>Communities Served</th><th>Annual Capacity</th><th>Jobs Created</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Phase 1 — Pilot</td><td>1</td><td>1 (Shamattawa)</td><td>2.9M litres</td><td>5–10</td></tr>
+              <tr><td>Phase 2 — Manitoba</td><td>10</td><td>8–12 communities</td><td>29M litres</td><td>50–100</td></tr>
+              <tr><td>Phase 3 — Regional</td><td>50</td><td>40–60 communities</td><td>150M+ litres</td><td>250–500</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- CONCLUSION -->
+        <h2 id="conclusion" class="fade-up">Conclusion: Engineering a Thirst-Free Manitoba</h2>
+        <p class="fade-up">Manitoba's water crisis persists, but Aarvish's decentralized innovation offers a resilient, sustainable, and community-driven path forward. By harvesting water from air and renewables, we turn environmental challenges into opportunities — delivering clean, safe water where it's needed most, at a fraction of the cost of conventional approaches.</p>
+        <p class="fade-up">The AWG-RO hybrid system isn't just an engineering solution — it's a pathway to Indigenous water sovereignty, economic self-determination, and long-term climate resilience for communities that have waited far too long.</p>
+
+        <!-- CTA -->
+        <div class="article-cta fade-up">
+          <h3>Ready to pilot this in your community?</h3>
+          <p>Contact Aarvish Global LTD for a free site assessment, grant alignment review, and rapid project planning — at no upfront cost to your community.</p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+            <a href="mailto:operations@aarvish.ca" class="cta-btn">operations@aarvish.ca →</a>
+            <a href="tel:+12049623844" class="cta-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff;">+1 (204) 962-3844</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="blog-sidebar">
+
+        <div class="sidebar-card fade-up">
+          <div class="sidebar-title">Table of Contents</div>
+          <ul class="toc-list">
+            <li><a href="#summary">Executive Summary</a></li>
+            <li><a href="#problem">The Problem</a></li>
+            <li><a href="#solution">The Solution</a></li>
+            <li><a href="#analysis">Technical Analysis</a></li>
+            <li><a href="#pilot">Pilot Project</a></li>
+            <li><a href="#impact">Broader Impacts</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card fade-up">
+          <div class="sidebar-title">Key Stats</div>
+          <div class="stat-mini">
+            <div class="stat-mini-item"><div class="stat-mini-num">14</div><div class="stat-mini-label">Active MB advisories as of Feb 2026</div></div>
+            <div class="stat-mini-item"><div class="stat-mini-num">8K L</div><div class="stat-mini-label">Clean water per day per unit</div></div>
+            <div class="stat-mini-item"><div class="stat-mini-num">80%</div><div class="stat-mini-label">Trucking cost reduction</div></div>
+            <div class="stat-mini-item"><div class="stat-mini-num">−50°C</div><div class="stat-mini-label">Minimum operating temperature</div></div>
+            <div class="stat-mini-item"><div class="stat-mini-num">98%</div><div class="stat-mini-label">System uptime in cold conditions</div></div>
+          </div>
+        </div>
+
+        <div class="sidebar-card fade-up">
+          <div class="sidebar-title">Tags</div>
+          <div class="tag-list">
+            <span class="tag-pill">Water Innovation</span>
+            <span class="tag-pill">AWG-RO</span>
+            <span class="tag-pill">Manitoba</span>
+            <span class="tag-pill">Indigenous</span>
+            <span class="tag-pill">Sustainability</span>
+            <span class="tag-pill">Off-Grid</span>
+            <span class="tag-pill">Engineering</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card fade-up">
+          <div class="sidebar-title">Share This Article</div>
+          <div class="share-row">
+            <a href="#" class="share-btn">LinkedIn</a>
+            <a href="#" class="share-btn">Twitter/X</a>
+            <a href="#" class="share-btn">Email</a>
+          </div>
+        </div>
+
+        <div class="sidebar-card fade-up" style="background:linear-gradient(135deg,#0a1929,#050f1f);border-color:rgba(23,112,241,0.2);">
+          <div class="sidebar-title">Get a Free Assessment</div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.52);line-height:1.7;margin:0 0 16px;">Bring clean water to your community. No upfront cost.</p>
+          <a href="https://www.aarvish.ca/inquiry.php" style="display:block;text-align:center;background:#1770f1;color:#fff;padding:11px 16px;border-radius:10px;font-size:13px;font-weight:600;font-family:'Poppins',sans-serif;transition:background 0.2s;" onmouseover="this.style.background='#0e58c3'" onmouseout="this.style.background='#1770f1'">Contact Aarvish →</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-sec">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Global LTD" class="footer-logo-img">
+        <p class="footer-tagline">Decentralized water innovation for a water-secure future. Serving Indigenous communities, government agencies, and global partners from Winnipeg, Manitoba.</p>
+        <div class="social-links">
+          <a href="#" title="LinkedIn">in</a>
+          <a href="#" title="Twitter/X">𝕏</a>
+          <a href="#" title="GitHub">⚙</a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Company</h6>
+        <ul class="footer-links">
+          <li><a href="https://www.aarvish.ca/index.php">Home</a></li>
+          <li><a href="https://www.aarvish.ca/insights.php">Insights</a></li>
+          <li><a href="https://www.aarvish.ca/innovation.php">Innovation</a></li>
+          <li><a href="https://www.aarvish.ca/inquiry.php">Inquiry</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Contact</h6>
+        <ul class="footer-links">
+          <li><a href="tel:+12049623844">+1 204-962-3844</a></li>
+          <li><a href="mailto:operations@aarvish.ca">operations@aarvish.ca</a></li>
+          <li><a href="#">Winnipeg, MB, Canada</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Legal</h6>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Sustainability Report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Aarvish Global LTD. All Rights Reserved. Manitoba Métis Federation Registered.</p>
+      <p>Designed to deliver water security to those who need it most.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
