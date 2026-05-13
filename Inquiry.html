@@ -260,9 +260,15 @@ footer { padding: 60px 5vw 24px; border-top: 1px solid var(--line); background: 
   .navbar-nav { gap: 0; }
   .nav-link { padding: 10px 14px; font-size: 16px; }
 }
+/* ===== CUSTOM CURSOR ===== */
+.cursor{width:20px;height:20px;border-radius:100%;border:1px solid #fff;transition:all 200ms ease-out;position:fixed;pointer-events:none;left:0;top:0;transform:translate(calc(-50% + 15px),-50%);z-index:9999;mix-blend-mode:difference;}
+.cursor2{width:5px;height:5px;border-radius:100%;background-color:#fff;opacity:.3;position:fixed;transform:translate(-50%,-50%);pointer-events:none;transition:width .3s,height .3s,opacity .3s;z-index:9999;}
+.cursorinnerhover{width:50px;height:50px;opacity:.5;}
 </style>
 </head>
 <body>
+<div class="cursor"></div>
+<div class="cursor2"></div>
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -462,6 +468,25 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
 }, { threshold: 0.12 });
 fadeEls.forEach(el => io.observe(el));
+</script>
+<script>
+// Custom cursor
+(function(){
+  var cursor = document.querySelector('.cursor');
+  var cursorinner = document.querySelector('.cursor2');
+  if(!cursor || !cursorinner) return;
+  document.addEventListener('mousemove', function(e){
+    cursor.style.transform = 'translate3d(calc('+e.clientX+'px - 50%),calc('+e.clientY+'px - 50%),0)';
+    cursorinner.style.left = e.clientX+'px';
+    cursorinner.style.top = e.clientY+'px';
+  });
+  document.addEventListener('mousedown', function(){ cursor.classList.add('click'); cursorinner.classList.add('cursorinnerhover'); });
+  document.addEventListener('mouseup', function(){ cursor.classList.remove('click'); cursorinner.classList.remove('cursorinnerhover'); });
+  document.querySelectorAll('a,button,[role="button"]').forEach(function(a){
+    a.addEventListener('mouseover', function(){ cursor.classList.add('hover'); });
+    a.addEventListener('mouseleave', function(){ cursor.classList.remove('hover'); });
+  });
+})();
 </script>
 </body>
 </html>
