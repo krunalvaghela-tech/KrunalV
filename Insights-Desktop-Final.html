@@ -99,9 +99,9 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
 .pie-legend-text{font-size:13px;color:rgba(255,255,255,0.7);flex:1;}
 .pie-legend-val{font-size:13px;color:#fff;font-weight:600;}
 .bar-rows{display:flex;flex-direction:column;gap:20px;}
-.bar-row-labels{display:flex;justify-content:space-between;margin-bottom:6px;}
-.bar-name{font-size:13px;color:rgba(255,255,255,0.65);}
-.bar-val{font-size:13px;color:#fff;font-weight:600;}
+.bar-row-labels{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6px;gap:12px;}
+.bar-name{font-size:13px;color:rgba(255,255,255,0.65);flex:1;min-width:0;line-height:1.45;}
+.bar-val{font-size:13px;color:#fff;font-weight:600;white-space:nowrap;flex-shrink:0;}
 .bar-track{height:10px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;}
 .bar-fill{height:100%;border-radius:6px;}
 .bar-blue{background:linear-gradient(90deg,#1770f1,#0e58c3);}
@@ -109,11 +109,74 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
 .bar-red{background:linear-gradient(90deg,#ff6b6b,#ee5a52);}
 .bar-green{background:linear-gradient(90deg,#4ade80,#22c55e);}
 
+/* FUNDING SECTION */
+.funding-section{padding:100px 0;background:#000;border-top:1px solid rgba(255,255,255,0.04);position:relative;overflow:hidden;}
+.funding-section::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(74,222,128,0.06) 0%,transparent 70%);pointer-events:none;}
+.funding-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;margin-bottom:28px;}
+.fund-card{background:linear-gradient(135deg,#0d0d0d 0%,#070707 100%);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px;position:relative;}
+.fund-total-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:linear-gradient(135deg,rgba(23,112,241,0.08),rgba(74,222,128,0.04));border:1px solid rgba(23,112,241,0.18);border-radius:18px;overflow:hidden;margin-bottom:32px;}
+.fund-total-cell{padding:28px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.05);}
+.fund-total-cell:last-child{border-right:none;}
+.fund-total-num{font-family:'Poppins',sans-serif;font-size:34px;font-weight:700;color:#1770f1;line-height:1;margin-bottom:6px;}
+.fund-total-label{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+.grant-rows{display:flex;flex-direction:column;gap:18px;}
+.grant-row-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:8px;gap:16px;}
+.grant-row-name{font-size:13.5px;color:rgba(255,255,255,0.78);flex:1;min-width:0;line-height:1.45;font-weight:500;}
+.grant-row-name small{display:block;font-size:11px;color:rgba(255,255,255,0.35);font-weight:300;margin-top:3px;letter-spacing:0.3px;}
+.grant-row-val{font-size:15px;color:#fff;font-weight:700;font-family:'Poppins',sans-serif;white-space:nowrap;flex-shrink:0;}
+.grant-track{height:12px;background:rgba(255,255,255,0.05);border-radius:8px;overflow:hidden;position:relative;}
+.grant-fill{height:100%;border-radius:8px;position:relative;overflow:hidden;}
+.grant-fill::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18),transparent);animation:shimmer 2.6s ease-in-out infinite;}
+@keyframes shimmer{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+.gf-blue{background:linear-gradient(90deg,#1770f1,#3a8df5);}
+.gf-green{background:linear-gradient(90deg,#4ade80,#22c55e);}
+.gf-warm{background:linear-gradient(90deg,#d4b896,#b8956a);}
+.gf-purple{background:linear-gradient(90deg,#a78bfa,#8b5cf6);}
+.gf-cyan{background:linear-gradient(90deg,#22d3ee,#06b6d4);}
+.fund-side-list{display:flex;flex-direction:column;gap:14px;margin-top:24px;}
+.fund-side-item{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:14px;transition:border-color 0.25s,background 0.25s;}
+.fund-side-item:hover{border-color:rgba(23,112,241,0.22);background:rgba(23,112,241,0.04);}
+.fund-side-icon{width:42px;height:42px;border-radius:12px;background:rgba(23,112,241,0.12);border:1px solid rgba(23,112,241,0.22);display:flex;align-items:center;justify-content:center;color:#4da3ff;font-size:18px;flex-shrink:0;font-weight:600;font-family:'Poppins',sans-serif;}
+.fund-side-body h5{font-size:14px;color:#fff;margin:0 0 4px;font-weight:600;font-family:'Poppins',sans-serif;}
+.fund-side-body p{font-size:12px;color:rgba(255,255,255,0.42);margin:0;line-height:1.55;}
+.fund-side-body .v{font-size:14px;color:#4ade80;font-weight:600;display:block;margin-top:4px;font-family:'Poppins',sans-serif;}
+
+/* DEPLOYMENT BREAKDOWN — stacked donut + breakdown */
+.deploy-breakdown{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;align-items:center;}
+.deploy-legend{display:flex;flex-direction:column;gap:14px;}
+.deploy-leg-item{display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:12px;}
+.deploy-leg-color{width:14px;height:14px;border-radius:4px;flex-shrink:0;}
+.deploy-leg-text{flex:1;font-size:13px;color:rgba(255,255,255,0.78);font-weight:500;}
+.deploy-leg-text small{display:block;font-size:11px;color:rgba(255,255,255,0.35);font-weight:300;margin-top:2px;}
+.deploy-leg-val{font-size:15px;color:#fff;font-weight:700;font-family:'Poppins',sans-serif;}
+
+/* TIMELINE */
+.timeline-card{background:linear-gradient(135deg,#0d0d0d 0%,#070707 100%);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px;}
+.tl-track{position:relative;padding:32px 0 12px;}
+.tl-line{position:absolute;top:50%;left:6%;right:6%;height:2px;background:linear-gradient(90deg,#1770f1,#4ade80);border-radius:2px;transform:translateY(-50%);}
+.tl-points{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;position:relative;}
+.tl-point{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;}
+.tl-dot{width:18px;height:18px;border-radius:50%;background:#1770f1;border:3px solid #000;box-shadow:0 0 0 2px rgba(23,112,241,0.5),0 0 18px rgba(23,112,241,0.4);position:relative;z-index:2;margin-bottom:14px;}
+.tl-point.done .tl-dot{background:#4ade80;box-shadow:0 0 0 2px rgba(74,222,128,0.5),0 0 18px rgba(74,222,128,0.4);}
+.tl-point.future .tl-dot{background:rgba(255,255,255,0.1);box-shadow:0 0 0 2px rgba(255,255,255,0.18);}
+.tl-date{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#1770f1;font-weight:600;margin-bottom:6px;font-family:'Jost',sans-serif;}
+.tl-point.done .tl-date{color:#4ade80;}
+.tl-point.future .tl-date{color:rgba(255,255,255,0.35);}
+.tl-label{font-size:13px;color:#fff;font-weight:600;margin-bottom:4px;line-height:1.3;font-family:'Poppins',sans-serif;}
+.tl-sub{font-size:11px;color:rgba(255,255,255,0.42);line-height:1.5;}
+
+/* RADIAL COST GAUGE */
+.gauge-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px;}
+.gauge-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:24px 20px;text-align:center;}
+.gauge-svg{width:140px;height:140px;margin:0 auto 14px;}
+.gauge-label{font-size:13px;color:#fff;font-weight:600;margin-bottom:4px;}
+.gauge-sub{font-size:11px;color:rgba(255,255,255,0.4);}
+
 /* TECH TABLE */
 .tech-section{padding:100px 0;background:#000;}
 .tech-table-wrap{border:1px solid rgba(255,255,255,0.07);border-radius:20px;overflow:hidden;overflow-x:auto;}
 .tech-table{width:100%;border-collapse:collapse;min-width:800px;}
-.tech-table th,.tech-table td{padding:16px 20px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.05);font-family:'Jost',sans-serif;}
+.tech-table th,.tech-table td{padding:16px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.05);font-family:'Jost',sans-serif;word-break:break-word;}
 .tech-table thead th{background:#0c0c0c;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1770f1;font-weight:500;border-bottom:1px solid rgba(255,255,255,0.08);}
 .tech-table thead th:first-child{color:rgba(255,255,255,0.35);}
 .tech-table tbody tr{background:#090909;transition:background 0.2s;}
@@ -208,6 +271,14 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
   .charts-row{grid-template-columns:1fr;}
   .why-grid{grid-template-columns:repeat(2,1fr);}
   .footer-grid{grid-template-columns:1fr 1fr;}
+  .funding-grid{grid-template-columns:1fr;}
+  .deploy-breakdown{grid-template-columns:1fr;gap:24px;}
+  .fund-total-strip{grid-template-columns:repeat(2,1fr);}
+  .fund-total-cell:nth-child(2){border-right:none;}
+  .fund-total-cell:nth-child(1),.fund-total-cell:nth-child(2){border-bottom:1px solid rgba(255,255,255,0.05);}
+  .tl-points{grid-template-columns:1fr;gap:24px;}
+  .tl-line{display:none;}
+  .gauge-row{grid-template-columns:1fr;}
 }
 @media(max-width:767px){
   .insights-grid{grid-template-columns:1fr;}
@@ -538,6 +609,192 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
   </div>
 </section>
 
+<!-- FUNDING & GRANT LANDSCAPE -->
+<section class="funding-section" id="funding">
+  <div class="container">
+    <div class="section-label fade-up"><div class="section-label-line"></div><span>Funding Landscape · Grant Opportunities</span></div>
+    <h2 class="section-title fade-up">A Decade of <em>Federal Investment</em> in Indigenous Water.</h2>
+    <p class="section-subtitle fade-up">Canada has committed historic funding to ending long-term drinking-water advisories. Aarvish helps communities access these programs and translate dollars into deployed infrastructure.</p>
+
+    <!-- TOTAL FUNDING STRIP -->
+    <div class="fund-total-strip fade-up">
+      <div class="fund-total-cell"><div class="fund-total-num" data-target="10" data-suffix=".5B">0</div><div class="fund-total-label">Total Federal Pool (CAD)</div></div>
+      <div class="fund-total-cell"><div class="fund-total-num" style="color:#4ade80;" data-target="143">0</div><div class="fund-total-label">Active Grant Programs</div></div>
+      <div class="fund-total-cell"><div class="fund-total-num" style="color:#d4b896;" data-target="146">0</div><div class="fund-total-label">Communities Funded To Date</div></div>
+      <div class="fund-total-cell"><div class="fund-total-num" style="color:#a78bfa;" data-target="2030">0</div><div class="fund-total-label">Sustainable Goals Target Year</div></div>
+    </div>
+
+    <div class="funding-grid">
+      <!-- LEFT: GRANT BREAKDOWN BARS -->
+      <div class="fund-card fade-up">
+        <div class="chart-title" style="margin-bottom:6px;">Available Funding Pool by Program</div>
+        <p class="chart-subtitle" style="margin-bottom:32px;">Aggregated federal &amp; provincial grant streams supporting decentralized water infrastructure (2025–2030 commitment cycle)</p>
+        <div class="grant-rows">
+          <div>
+            <div class="grant-row-head">
+              <div class="grant-row-name">Indigenous Services Canada — Safe Water Initiative<small>Long-term advisory elimination · multi-year envelope</small></div>
+              <div class="grant-row-val">$5.20 B</div>
+            </div>
+            <div class="grant-track"><div class="grant-fill gf-blue" style="width:100%;"></div></div>
+          </div>
+          <div>
+            <div class="grant-row-head">
+              <div class="grant-row-name">Investing in Canada Infrastructure Program (ICIP)<small>Green Infrastructure stream · provincial co-investment</small></div>
+              <div class="grant-row-val">$3.40 B</div>
+            </div>
+            <div class="grant-track"><div class="grant-fill gf-green" style="width:65%;"></div></div>
+          </div>
+          <div>
+            <div class="grant-row-head">
+              <div class="grant-row-name">First Nations Infrastructure Fund (FNIF)<small>Community-driven projects · Indigenous-led delivery</small></div>
+              <div class="grant-row-val">$620 M</div>
+            </div>
+            <div class="grant-track"><div class="grant-fill gf-warm" style="width:42%;"></div></div>
+          </div>
+          <div>
+            <div class="grant-row-head">
+              <div class="grant-row-name">Manitoba Climate &amp; Green Plan Fund<small>Provincial resilience grants · Northern priority zones</small></div>
+              <div class="grant-row-val">$890 M</div>
+            </div>
+            <div class="grant-track"><div class="grant-fill gf-purple" style="width:55%;"></div></div>
+          </div>
+          <div>
+            <div class="grant-row-head">
+              <div class="grant-row-name">Federation of Canadian Municipalities (FCM)<small>Green Municipal Fund · disaster mitigation grants</small></div>
+              <div class="grant-row-val">$410 M</div>
+            </div>
+            <div class="grant-track"><div class="grant-fill gf-cyan" style="width:32%;"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: GRANT-AT-A-GLANCE QUICK FACTS -->
+      <div class="fund-card fade-up">
+        <div class="chart-title" style="margin-bottom:6px;">How Aarvish Helps You Apply</div>
+        <p class="chart-subtitle" style="margin-bottom:0;">Grant alignment is a core service — at no upfront cost.</p>
+        <div class="fund-side-list">
+          <div class="fund-side-item">
+            <div class="fund-side-icon">01</div>
+            <div class="fund-side-body">
+              <h5>Eligibility Mapping</h5>
+              <p>Match your community's profile to active federal &amp; provincial grant streams within 5 business days.</p>
+              <span class="v">Avg. 3 program matches</span>
+            </div>
+          </div>
+          <div class="fund-side-item">
+            <div class="fund-side-icon">02</div>
+            <div class="fund-side-body">
+              <h5>Technical Engineering Pack</h5>
+              <p>Pre-built site studies, cost models, and load profiles — required by most grant submissions.</p>
+              <span class="v">Saves 60–90 days</span>
+            </div>
+          </div>
+          <div class="fund-side-item">
+            <div class="fund-side-icon">03</div>
+            <div class="fund-side-body">
+              <h5>Application Co-Submission</h5>
+              <p>Aarvish co-signs technical sections and provides delivery commitment letters.</p>
+              <span class="v">82% approval rate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEPLOYMENT GRANT BREAKDOWN -->
+    <div class="fund-card fade-up" style="margin-bottom:28px;">
+      <div class="chart-title" style="margin-bottom:6px;">Where a $1M Deployment Grant Goes</div>
+      <p class="chart-subtitle" style="margin-bottom:32px;">Standard cost allocation for one full AWG-RO hybrid water station — 5-year operating envelope</p>
+      <div class="deploy-breakdown">
+        <svg viewBox="0 0 240 240" width="240" height="240" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto;display:block;">
+          <!-- 42% Equipment: 0.42*502=211 -->
+          <circle cx="120" cy="120" r="80" fill="transparent" stroke="#1770f1" stroke-width="36" stroke-dasharray="211 502" stroke-dashoffset="0" transform="rotate(-90 120 120)"/>
+          <!-- 22% Logistics: 0.22*502=110, offset=-211 -->
+          <circle cx="120" cy="120" r="80" fill="transparent" stroke="#4ade80" stroke-width="36" stroke-dasharray="110 502" stroke-dashoffset="-211" transform="rotate(-90 120 120)"/>
+          <!-- 14% Training: 70, offset=-321 -->
+          <circle cx="120" cy="120" r="80" fill="transparent" stroke="#d4b896" stroke-width="36" stroke-dasharray="70 502" stroke-dashoffset="-321" transform="rotate(-90 120 120)"/>
+          <!-- 12% Maintenance: 60, offset=-391 -->
+          <circle cx="120" cy="120" r="80" fill="transparent" stroke="#a78bfa" stroke-width="36" stroke-dasharray="60 502" stroke-dashoffset="-391" transform="rotate(-90 120 120)"/>
+          <!-- 10% Operations: 50, offset=-451 -->
+          <circle cx="120" cy="120" r="80" fill="transparent" stroke="#22d3ee" stroke-width="36" stroke-dasharray="50 502" stroke-dashoffset="-451" transform="rotate(-90 120 120)"/>
+          <circle cx="120" cy="120" r="62" fill="#0d0d0d"/>
+          <text x="120" y="115" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="Poppins,sans-serif">$1.0M</text>
+          <text x="120" y="135" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="10" font-family="Jost,sans-serif">5-year envelope</text>
+        </svg>
+        <div class="deploy-legend">
+          <div class="deploy-leg-item">
+            <div class="deploy-leg-color" style="background:#1770f1;"></div>
+            <div class="deploy-leg-text">Equipment &amp; Containerization<small>AWG, RO, solar, storage, cold-pack</small></div>
+            <div class="deploy-leg-val">42%</div>
+          </div>
+          <div class="deploy-leg-item">
+            <div class="deploy-leg-color" style="background:#4ade80;"></div>
+            <div class="deploy-leg-text">Logistics &amp; Site Prep<small>Air-lift, foundation pad, integration</small></div>
+            <div class="deploy-leg-val">22%</div>
+          </div>
+          <div class="deploy-leg-item">
+            <div class="deploy-leg-color" style="background:#d4b896;"></div>
+            <div class="deploy-leg-text">Local Training Program<small>5–10 community operators certified</small></div>
+            <div class="deploy-leg-val">14%</div>
+          </div>
+          <div class="deploy-leg-item">
+            <div class="deploy-leg-color" style="background:#a78bfa;"></div>
+            <div class="deploy-leg-text">5-Yr Maintenance Reserve<small>Filters, pumps, field service</small></div>
+            <div class="deploy-leg-val">12%</div>
+          </div>
+          <div class="deploy-leg-item">
+            <div class="deploy-leg-color" style="background:#22d3ee;"></div>
+            <div class="deploy-leg-text">Operations &amp; Monitoring<small>Remote telemetry, water testing</small></div>
+            <div class="deploy-leg-val">10%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEPLOYMENT TIMELINE -->
+    <div class="timeline-card fade-up">
+      <div class="chart-title" style="margin-bottom:6px;">Aarvish Deployment Roadmap — Pilot to Provincial</div>
+      <p class="chart-subtitle" style="margin-bottom:18px;">Five years of staged community rollout with grant-funded scaling milestones</p>
+      <div class="tl-track">
+        <div class="tl-line"></div>
+        <div class="tl-points">
+          <div class="tl-point done">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Q1 2025</div>
+            <div class="tl-label">Pilot Launch</div>
+            <div class="tl-sub">First MB First Nation deployment · 8K L/day</div>
+          </div>
+          <div class="tl-point done">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Q4 2025</div>
+            <div class="tl-label">5 Communities</div>
+            <div class="tl-sub">40K L/day · 2,250 residents served</div>
+          </div>
+          <div class="tl-point">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Q3 2026</div>
+            <div class="tl-label">12 Communities</div>
+            <div class="tl-sub">100K L/day · grant-funded scaling</div>
+          </div>
+          <div class="tl-point future">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Q4 2027</div>
+            <div class="tl-label">Provincial Coverage</div>
+            <div class="tl-sub">All MB advisories addressed · 30+ units</div>
+          </div>
+          <div class="tl-point future">
+            <div class="tl-dot"></div>
+            <div class="tl-date">2030</div>
+            <div class="tl-label">Inter-Provincial</div>
+            <div class="tl-sub">SK · ON · NU expansion · 100+ units</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- TECHNOLOGY TABLE -->
 <section class="tech-section" id="technology">
   <div class="container">
@@ -862,7 +1119,8 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 function animateCounter(el) {
   const target = parseInt(el.dataset.target, 10);
   if (isNaN(target)) return;
-  const suffix = el.textContent.replace(/[\d]/g, '').trim();
+  const explicitSuffix = el.dataset.suffix;
+  const suffix = (explicitSuffix !== undefined) ? explicitSuffix : el.textContent.replace(/[\d]/g, '').trim();
   const duration = 1800;
   const start = performance.now();
   function tick(now) {
