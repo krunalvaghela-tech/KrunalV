@@ -152,18 +152,21 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
 
 /* TIMELINE */
 .timeline-card{background:linear-gradient(135deg,#0d0d0d 0%,#070707 100%);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px;}
-.tl-track{position:relative;padding:32px 0 12px;}
-.tl-line{position:absolute;top:50%;left:6%;right:6%;height:2px;background:linear-gradient(90deg,#1770f1,#4ade80);border-radius:2px;transform:translateY(-50%);}
-.tl-points{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;position:relative;}
-.tl-point{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;}
-.tl-dot{width:18px;height:18px;border-radius:50%;background:#1770f1;border:3px solid #000;box-shadow:0 0 0 2px rgba(23,112,241,0.5),0 0 18px rgba(23,112,241,0.4);position:relative;z-index:2;margin-bottom:14px;}
-.tl-point.done .tl-dot{background:#4ade80;box-shadow:0 0 0 2px rgba(74,222,128,0.5),0 0 18px rgba(74,222,128,0.4);}
-.tl-point.future .tl-dot{background:rgba(255,255,255,0.1);box-shadow:0 0 0 2px rgba(255,255,255,0.18);}
-.tl-date{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#1770f1;font-weight:600;margin-bottom:6px;font-family:'Jost',sans-serif;}
-.tl-point.done .tl-date{color:#4ade80;}
-.tl-point.future .tl-date{color:rgba(255,255,255,0.35);}
-.tl-label{font-size:13px;color:#fff;font-weight:600;margin-bottom:4px;line-height:1.3;font-family:'Poppins',sans-serif;}
-.tl-sub{font-size:11px;color:rgba(255,255,255,0.42);line-height:1.5;}
+/* ROADMAP TIMELINE */
+.tl-track{position:relative;}
+.tl-bar{position:absolute;left:10%;right:10%;top:48px;height:2px;background:linear-gradient(90deg,#1770f1 0%,#1770f1 36%,rgba(255,255,255,0.1) 68%);border-radius:2px;}
+.tl-cols{display:flex;}
+.tl-col{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 8px;}
+.tl-col-date{height:28px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;font-family:'Jost',sans-serif;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+.tl-col-dot{width:24px;height:24px;border-radius:50%;flex-shrink:0;position:relative;z-index:2;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;font-family:'Poppins',sans-serif;margin-bottom:14px;}
+.tl-col-label{font-size:13px;font-weight:600;color:#fff;line-height:1.3;margin-bottom:5px;font-family:'Poppins',sans-serif;}
+.tl-col-sub{font-size:11px;color:rgba(255,255,255,0.42);line-height:1.5;}
+.tl-col.near .tl-col-date{color:#1770f1;}
+.tl-col.near .tl-col-dot{background:#1770f1;color:#fff;box-shadow:0 0 0 3px rgba(23,112,241,0.2),0 0 18px rgba(23,112,241,0.45);}
+.tl-col.mid .tl-col-date{color:#a78bfa;}
+.tl-col.mid .tl-col-dot{background:#a78bfa;color:#fff;box-shadow:0 0 0 3px rgba(167,139,250,0.18),0 0 14px rgba(167,139,250,0.35);}
+.tl-col.future .tl-col-date{color:rgba(255,255,255,0.28);}
+.tl-col.future .tl-col-dot{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.25);border:1.5px solid rgba(255,255,255,0.12);}
 
 /* RADIAL COST GAUGE */
 .gauge-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px;}
@@ -222,7 +225,7 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
 .why-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,#1770f1,transparent);opacity:0;transition:opacity 0.3s;}
 .why-card:hover{transform:translateY(-5px);border-color:rgba(23,112,241,0.22);}
 .why-card:hover::before{opacity:1;}
-.why-num{font-size:72px;font-weight:800;color:rgba(23,112,241,0.08);font-family:'Poppins',sans-serif;line-height:1;margin-bottom:16px;}
+.why-num{font-size:72px;font-weight:800;color:rgba(23,112,241,0.32);font-family:'Poppins',sans-serif;line-height:1;margin-bottom:16px;}
 .why-card h4{font-size:19px;color:#fff;margin:0 0 12px;font-weight:600;font-family:'Poppins',sans-serif;}
 .why-card p{font-size:14px;color:rgba(255,255,255,0.52);line-height:1.8;margin:0;}
 
@@ -275,8 +278,13 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
   .fund-total-strip{grid-template-columns:repeat(2,1fr);}
   .fund-total-cell:nth-child(2){border-right:none;}
   .fund-total-cell:nth-child(1),.fund-total-cell:nth-child(2){border-bottom:1px solid rgba(255,255,255,0.05);}
-  .tl-points{grid-template-columns:1fr;gap:24px;}
-  .tl-line{display:none;}
+  .tl-bar{display:none;}
+  .tl-cols{flex-direction:column;gap:10px;}
+  .tl-col{flex-direction:row;align-items:center;text-align:left;padding:14px 16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;gap:14px;}
+  .tl-col-date{width:68px;flex-shrink:0;height:auto;margin:0;font-size:9px;justify-content:flex-start;}
+  .tl-col-dot{margin:0;flex-shrink:0;}
+  .tl-col-label,.tl-col-sub{text-align:left;}
+  .tl-col-label{margin-bottom:2px;}
   .gauge-row{grid-template-columns:1fr;}
 }
 @media(max-width:767px){
@@ -333,22 +341,22 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
     <div class="banner-stats-row fade-up">
       <div>
         <div class="banner-stat-num" data-target="8000">0</div>
-        <div class="banner-stat-label">Litres / Day Per Unit</div>
+        <div class="banner-stat-label">Litres / Day (Per Unit)</div>
       </div>
       <div class="banner-divider"></div>
       <div>
         <div class="banner-stat-num" data-target="98">0</div>
-        <div class="banner-stat-label">% System Uptime</div>
+        <div class="banner-stat-label">% Design Uptime Target</div>
       </div>
       <div class="banner-divider"></div>
       <div>
         <div class="banner-stat-num" data-target="14">0</div>
-        <div class="banner-stat-label">Active MB Advisories</div>
+        <div class="banner-stat-label">Active MB Advisories (2026)</div>
       </div>
       <div class="banner-divider"></div>
       <div>
         <div class="banner-stat-num" data-target="80">0</div>
-        <div class="banner-stat-label">% Trucking Cost Cut</div>
+        <div class="banner-stat-label">% Projected Cost Reduction</div>
       </div>
     </div>
   </div>
@@ -405,24 +413,24 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
 
     <div class="stats-grid">
       <div class="stat-card fade-up">
-        <div class="stat-number">500K</div>
-        <div class="stat-label">Gallons Per Day</div>
-        <div class="stat-desc">Clean water produced daily by AWG-RO systems at peak capacity across all units</div>
+        <div class="stat-number">8K</div>
+        <div class="stat-label">Litres / Day (Per Unit)</div>
+        <div class="stat-desc">Engineered output capacity per AWG-RO unit — scalable to 50K L/day with modular stacking across communities</div>
       </div>
       <div class="stat-card fade-up">
         <div class="stat-number" data-target="98">0%</div>
-        <div class="stat-label">System Uptime</div>
-        <div class="stat-desc">Sustained reliability in extreme Arctic cold and remote fly-in conditions</div>
+        <div class="stat-label">Design Uptime Target</div>
+        <div class="stat-desc">Based on industry AWG-RO benchmarks and Aarvish's redundant component architecture for remote deployments</div>
       </div>
       <div class="stat-card fade-up">
         <div class="stat-number" data-target="85">0%</div>
         <div class="stat-label">Wastewater Recovery</div>
-        <div class="stat-desc">Near zero liquid discharge protecting sensitive Arctic and boreal ecosystems</div>
+        <div class="stat-desc">Near-zero liquid discharge — engineered to protect sensitive Arctic and boreal ecosystems from brine runoff</div>
       </div>
       <div class="stat-card fade-up">
-        <div class="stat-number">−40°C</div>
-        <div class="stat-label">Operating Temperature</div>
-        <div class="stat-desc">Extreme cold-weather capability engineered for year-round Arctic deployment</div>
+        <div class="stat-number">−45°C</div>
+        <div class="stat-label">Design Temperature Floor</div>
+        <div class="stat-desc">Thermally insulated housing, anti-freeze glycol loops, and heated membrane modules for extreme cold operation</div>
       </div>
     </div>
 
@@ -705,39 +713,39 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4{font-family:'Poppins',sans-serif;}
     <!-- DEPLOYMENT TIMELINE -->
     <div class="timeline-card fade-up">
       <div class="chart-title" style="margin-bottom:6px;">Aarvish Deployment Roadmap — Pilot to Provincial</div>
-      <p class="chart-subtitle" style="margin-bottom:18px;">Five years of staged community rollout with grant-funded scaling milestones</p>
+      <p class="chart-subtitle" style="margin-bottom:22px;">Projected five-year staged rollout based on Aarvish research, grant alignment, and engineering capacity — all numbers represent capability targets</p>
       <div class="tl-track">
-        <div class="tl-line"></div>
-        <div class="tl-points">
-          <div class="tl-point done">
-            <div class="tl-dot"></div>
-            <div class="tl-date">Q1 2025</div>
-            <div class="tl-label">Pilot Launch</div>
-            <div class="tl-sub">First MB First Nation deployment · 8K L/day</div>
+        <div class="tl-bar"></div>
+        <div class="tl-cols">
+          <div class="tl-col near">
+            <div class="tl-col-date">Q2 2025</div>
+            <div class="tl-col-dot">P1</div>
+            <div class="tl-col-label">Pilot Launch</div>
+            <div class="tl-col-sub">First MB First Nation · 8K L/day per unit</div>
           </div>
-          <div class="tl-point done">
-            <div class="tl-dot"></div>
-            <div class="tl-date">Q4 2025</div>
-            <div class="tl-label">5 Communities</div>
-            <div class="tl-sub">40K L/day · 2,250 residents served</div>
+          <div class="tl-col near">
+            <div class="tl-col-date">Q1 2026</div>
+            <div class="tl-col-dot">P2</div>
+            <div class="tl-col-label">5 Communities</div>
+            <div class="tl-col-sub">40K L/day projected · 2,250 residents</div>
           </div>
-          <div class="tl-point">
-            <div class="tl-dot"></div>
-            <div class="tl-date">Q3 2026</div>
-            <div class="tl-label">12 Communities</div>
-            <div class="tl-sub">100K L/day · grant-funded scaling</div>
+          <div class="tl-col mid">
+            <div class="tl-col-date">Q3 2026</div>
+            <div class="tl-col-dot">P3</div>
+            <div class="tl-col-label">12 Communities</div>
+            <div class="tl-col-sub">100K L/day · grant-funded expansion</div>
           </div>
-          <div class="tl-point future">
-            <div class="tl-dot"></div>
-            <div class="tl-date">Q4 2027</div>
-            <div class="tl-label">Provincial Coverage</div>
-            <div class="tl-sub">All MB advisories addressed · 30+ units</div>
+          <div class="tl-col future">
+            <div class="tl-col-date">Q4 2027</div>
+            <div class="tl-col-dot">P4</div>
+            <div class="tl-col-label">Provincial Coverage</div>
+            <div class="tl-col-sub">All MB advisories addressed · 30+ units</div>
           </div>
-          <div class="tl-point future">
-            <div class="tl-dot"></div>
-            <div class="tl-date">2030</div>
-            <div class="tl-label">Inter-Provincial</div>
-            <div class="tl-sub">SK · ON · NU expansion · 100+ units</div>
+          <div class="tl-col future">
+            <div class="tl-col-date">2030</div>
+            <div class="tl-col-dot">P5</div>
+            <div class="tl-col-label">Inter-Provincial</div>
+            <div class="tl-col-sub">SK · ON · NU expansion · 100+ units</div>
           </div>
         </div>
       </div>
