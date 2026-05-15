@@ -554,9 +554,21 @@ footer {
   .matrix { display: grid; grid-template-columns: 1fr 1fr; }
   .hero h1 { font-size: 48px; }
 }
+/* ===== WATER CURSOR ===== */
+*{cursor:none!important;}
+.wc-ring{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(23,112,241,0.55);background:radial-gradient(circle,rgba(23,112,241,0.07) 0%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none;z-index:99999;transition:width .35s cubic-bezier(.25,.46,.45,.94),height .35s cubic-bezier(.25,.46,.45,.94),border-color .3s,background .3s,border-radius .35s;}
+.wc-dot{position:fixed;width:5px;height:5px;border-radius:50%;background:#4da3ff;transform:translate(-50%,-50%);pointer-events:none;z-index:100000;box-shadow:0 0 6px rgba(77,163,255,0.95),0 0 18px rgba(23,112,241,0.6),0 0 32px rgba(23,112,241,0.25);transition:width .2s,height .2s,box-shadow .2s;}
+.wc-ring.hover{width:56px;height:56px;border-color:rgba(23,112,241,0.85);background:radial-gradient(circle,rgba(23,112,241,0.12) 0%,transparent 70%);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;}
+.wc-ring.click{width:64px;height:64px;border-color:rgba(77,163,255,1);background:radial-gradient(circle,rgba(23,112,241,0.18) 0%,transparent 70%);}
+.wc-dot.click{width:9px;height:9px;box-shadow:0 0 10px rgba(77,163,255,1),0 0 28px rgba(23,112,241,0.8),0 0 50px rgba(23,112,241,0.35);}
+.wc-trail{position:fixed;border-radius:50%;background:#1770f1;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);}
+@keyframes wcRipple{0%{transform:translate(-50%,-50%) scale(1);opacity:0.55;}100%{transform:translate(-50%,-50%) scale(3.2);opacity:0;}}
+.wc-ripple{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(77,163,255,0.7);pointer-events:none;z-index:99997;animation:wcRipple 0.65s ease-out forwards;}
 </style>
 </head>
 <body>
+<div class="wc-ring"></div>
+<div class="wc-dot"></div>
 
 <!-- ========= NAV ========= -->
 <header class="nav">
@@ -970,6 +982,55 @@ const spy = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
 sections.forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+</script>
+<script>
+(function(){
+  var ring=document.querySelector('.wc-ring');
+  var dot=document.querySelector('.wc-dot');
+  if(!ring||!dot)return;
+  var TRAIL=5;
+  var trail=[];
+  for(var i=0;i<TRAIL;i++){
+    var t=document.createElement('div');
+    t.className='wc-trail';
+    var sz=(4.5-i*0.7);
+    t.style.cssText='width:'+sz+'px;height:'+sz+'px;opacity:'+(0.32-i*0.055)+';';
+    document.body.appendChild(t);
+    trail.push({el:t,x:window.innerWidth/2,y:window.innerHeight/2});
+  }
+  var mx=window.innerWidth/2,my=window.innerHeight/2;
+  var rx=mx,ry=my;
+  document.addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+  });
+  function lerp(a,b,n){return(1-n)*a+n*b;}
+  function tick(){
+    rx=lerp(rx,mx,0.11);ry=lerp(ry,my,0.11);
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    var px=mx,py=my;
+    trail.forEach(function(t,i){
+      t.x=lerp(t.x,px,0.19-i*0.025);
+      t.y=lerp(t.y,py,0.19-i*0.025);
+      t.el.style.left=t.x+'px';t.el.style.top=t.y+'px';
+      px=t.x;py=t.y;
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
+  document.addEventListener('mousedown',function(e){
+    ring.classList.add('click');dot.classList.add('click');
+    var r=document.createElement('div');r.className='wc-ripple';
+    r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';
+    document.body.appendChild(r);
+    setTimeout(function(){if(r.parentNode)r.parentNode.removeChild(r);},700);
+  });
+  document.addEventListener('mouseup',function(){ring.classList.remove('click');dot.classList.remove('click');});
+  document.querySelectorAll('a,button,[role="button"]').forEach(function(el){
+    el.addEventListener('mouseenter',function(){ring.classList.add('hover');});
+    el.addEventListener('mouseleave',function(){ring.classList.remove('hover');});
+  });
+})();
 </script>
 </body>
 </html>
