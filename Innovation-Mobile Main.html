@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<title>Aarvish | Innovation</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Jost', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 600; line-height: 1.15; }
+em { font-style: italic; color: rgba(255,255,255,0.5); font-weight: 300; }
+
+:root {
+  --blue: #1770f1;
+  --bg: #000;
+  --bg-alt: #050505;
+  --bg-card: #080808;
+  --line: rgba(255,255,255,0.07);
+  --muted: rgba(255,255,255,0.55);
+  --muted-2: rgba(255,255,255,0.4);
+}
+
+/* ============ NAV ============ */
+.nav {
+  position: fixed; top: 12px; left: 12px; right: 12px;
+  z-index: 100; background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-radius: 40px; padding: 8px 8px 8px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.nav-brand img {
+  height: 32px; width: auto; display: block;
+}
+.nav-toggle {
+  width: 36px; height: 36px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  background: transparent; border: none; cursor: pointer; padding: 0;
+}
+.nav-toggle span {
+  display: block; width: 20px; height: 2px; background: #fff;
+  transition: transform 0.25s, opacity 0.2s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-menu {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.97); backdrop-filter: blur(16px);
+  padding: 80px 24px 32px;
+  transform: translateY(-100%);
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1), visibility 0s linear 0.35s;
+  z-index: 99;
+  border-bottom: 1px solid var(--line);
+  pointer-events: none;
+  visibility: hidden;
+}
+.nav-menu.open {
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1), visibility 0s linear 0s;
+}
+.nav-menu a {
+  display: block; padding: 14px 0;
+  font-size: 18px; font-family: 'Poppins', sans-serif; font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  border-bottom: 1px solid var(--line);
+  letter-spacing: 0.4px;
+}
+.nav-menu a.active { color: var(--blue); }
+.nav-menu .nav-cta {
+  margin-top: 20px; background: var(--blue); color: #fff;
+  text-align: center; border-radius: 30px; border: none;
+  padding: 14px; font-weight: 500;
+}
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 92vh;
+  padding: 100px 22px 50px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(23,112,241,0.15) 0%, transparent 60%),
+    linear-gradient(180deg, #020815 0%, #000 80%);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, #000 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, #000 0%, transparent 80%);
+  opacity: 0.7;
+}
+.hero-orb {
+  position: absolute; top: 15%; right: -80px; width: 240px; height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(23,112,241,0.18) 0%, transparent 70%);
+  animation: pulse 6s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.15); opacity: 0.5; } }
+
+.hero-content { position: relative; z-index: 1; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase;
+  color: var(--blue); font-weight: 500; margin-bottom: 18px;
+}
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--blue); }
+
+.hero h1 {
+  font-size: 38px; line-height: 1.08; margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+.hero-sub {
+  font-size: 15px; line-height: 1.65; color: var(--muted);
+  margin-bottom: 28px; font-weight: 300;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 14px 22px; border-radius: 30px;
+  font-size: 13px; font-weight: 500; letter-spacing: 0.5px;
+  text-transform: uppercase; font-family: 'Jost', sans-serif;
+  width: 100%; min-height: 48px;
+}
+.btn-primary { background: linear-gradient(135deg, var(--blue) 0%, #0e58c3 100%); color: #fff; box-shadow: 0 8px 22px rgba(23,112,241,0.12); transition: transform 0.25s, box-shadow 0.25s; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(23,112,241,0.12); }
+.btn-ghost { border: 1px solid rgba(255,255,255,0.12); color: #fff; margin-top: 10px; background: rgba(255,255,255,0.02); transition: background 0.2s, transform 0.2s; }
+.btn-ghost:hover { background: rgba(23,112,241,0.04); transform: translateY(-2px); }
+
+/* ============ TECH TAB SCROLLER ============ */
+.tech-scroller {
+  display: flex; gap: 10px;
+  padding: 18px 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.tech-scroller::-webkit-scrollbar { display: none; }
+.tech-scroller { scrollbar-width: none; }
+.tech-chip {
+  flex: 0 0 auto; scroll-snap-align: start;
+  padding: 10px 16px; border: 1px solid rgba(23,112,241,0.2);
+  border-radius: 30px; background: rgba(23,112,241,0.04);
+  font-size: 12px; color: rgba(255,255,255,0.75);
+  font-family: 'Poppins', sans-serif; font-weight: 500;
+  letter-spacing: 0.4px; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.tech-chip .chip-num { color: var(--blue); font-size: 10px; opacity: 0.7; }
+.tech-chip { transition: transform 0.25s, box-shadow 0.25s, background 0.2s; }
+.tech-chip:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
+.tech-chip.active { background: var(--blue); color: #fff; border-color: var(--blue); box-shadow: 0 14px 34px rgba(23,112,241,0.12); }
+.tech-chip.active .chip-num { color: rgba(255,255,255,0.7); }
+
+/* ============ SECTION ============ */
+.section {
+  padding: 60px 22px;
+  position: relative;
+}
+.section.alt { background: #030303; }
+.section + .section { border-top: 1px solid var(--line); }
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase;
+  color: var(--blue); font-weight: 500; margin-bottom: 14px;
+}
+.section-label::before { content: ''; width: 22px; height: 1px; background: var(--blue); }
+.section h2 {
+  font-size: 30px; line-height: 1.12; margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+.section h2 small {
+  display: block; font-size: 26px; font-weight: 300; color: rgba(255,255,255,0.5);
+  font-style: italic; margin-top: 2px;
+}
+.section-desc {
+  font-size: 14px; line-height: 1.7; color: var(--muted);
+  font-weight: 300; margin-bottom: 22px;
+}
+.product-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--blue); padding: 6px 12px;
+  border: 1px solid rgba(23,112,241,0.2); border-radius: 30px;
+  background: rgba(23,112,241,0.05); margin-bottom: 14px;
+  font-family: 'Poppins', sans-serif; font-weight: 500;
+}
+.product-badge { transition: transform 0.22s, box-shadow 0.22s, background 0.18s; }
+.product-badge:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(23,112,241,0.08); background: rgba(23,112,241,0.08); }
+.product-badge::before {
+  content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--blue);
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* ============ MEDIA WRAP ============ */
+.media-wrap {
+  position: relative; border-radius: 14px; overflow: hidden;
+  border: 1px solid var(--line); background: var(--bg-card);
+  margin-bottom: 22px;
+}
+.media-wrap img.media-fill {
+  width: 100%; height: 240px; object-fit: cover; display: block; background: #000; transform: scale(1.02);
+}
+.media-wrap { transition: transform 0.28s, box-shadow 0.28s; }
+.media-wrap:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(0,0,0,0.5); }
+.media-tag {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(0,0,0,0.85); border: 1px solid rgba(23,112,241,0.25);
+  padding: 5px 11px; border-radius: 20px;
+  font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--blue); font-weight: 500;
+}
+
+/* YouTube facade */
+.yt-facade {
+  position: relative; width: 100%; height: 240px;
+  cursor: pointer; overflow: hidden; background: #000;
+  display: flex; align-items: center; justify-content: center;
+}
+.yt-facade .yt-thumb {
+  width: 100%; height: 100%; object-fit: contain;
+  filter: brightness(0.85);
+}
+.yt-facade::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.3));
+  pointer-events: none;
+}
+.yt-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.5));
+  z-index: 2;
+}
+.yt-facade iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* ============ FEATURES LIST ============ */
+.features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 26px; }
+.features li {
+  display: flex; gap: 12px; font-size: 13.5px;
+  color: rgba(255,255,255,0.75); line-height: 1.65;
+  font-weight: 300;
+}
+.features li::before {
+  content: ''; flex-shrink: 0; width: 5px; height: 5px;
+  border-radius: 50%; background: var(--blue); margin-top: 8px;
+}
+
+/* ============ SPECS GRID ============ */
+.specs {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--line); border-radius: 12px;
+  overflow: hidden; margin-bottom: 18px;
+}
+.spec {
+  padding: 18px 14px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.spec:nth-child(2n) { border-right: none; }
+.spec:nth-last-child(-n+2) { border-bottom: none; }
+.spec-label {
+  font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 6px; font-weight: 500;
+}
+.spec-value {
+  font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 600;
+  color: #fff; line-height: 1.05;
+}
+.spec-value span {
+  display: inline-block; font-size: 11px; font-weight: 400;
+  color: var(--blue); font-family: 'Jost', sans-serif;
+  margin-left: 3px;
+}
+
+/* ============ FILTRATION STAGES ============ */
+.filtration {
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 20px 18px; background: var(--bg-card);
+}
+.filtration-title {
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 14px;
+  font-family: 'Courier New', monospace;
+}
+.fstage {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 0;
+}
+.fstage-num {
+  width: 26px; height: 26px; flex-shrink: 0;
+  border: 1px solid rgba(23,112,241,0.3); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: var(--blue); font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+.fstage-bar {
+  flex: 0 0 24px; height: 1px;
+  background: linear-gradient(to right, rgba(23,112,241,0.4), transparent);
+}
+.fstage-name { font-size: 12.5px; color: rgba(255,255,255,0.7); font-weight: 300; }
+
+/* ============ CLOSED-LOOP ============ */
+.loop-card {
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 22px 18px; background: var(--bg-card); margin-bottom: 14px;
+}
+.loop-eyebrow {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 18px;
+  font-family: 'Courier New', monospace;
+}
+.loop-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--blue); }
+.loop-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.loop-node {
+  padding: 14px 8px;
+  border: 1px solid rgba(23,112,241,0.18);
+  border-radius: 10px; background: rgba(23,112,241,0.04);
+  display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;
+}
+.loop-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(23,112,241,0.3);
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.5);
+}
+.loop-label {
+  font-size: 11px; line-height: 1.3;
+  color: rgba(255,255,255,0.75);
+  font-family: 'Poppins', sans-serif; font-weight: 500;
+}
+.loop-return {
+  margin-top: 16px; text-align: center;
+  font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--blue); font-family: 'Courier New', monospace;
+}
+.rstats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+}
+.rstat {
+  padding: 18px 8px; text-align: center;
+  border-right: 1px solid var(--line);
+}
+.rstat:last-child { border-right: none; }
+.rstat-value {
+  font-family: 'Poppins', sans-serif; font-size: 22px;
+  font-weight: 600; color: var(--blue); line-height: 1; margin-bottom: 5px;
+}
+.rstat-label {
+  font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ============ HOW IT WORKS ============ */
+.system-video {
+  position: relative; width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line); border-radius: 14px;
+  overflow: hidden; background: var(--bg-card);
+  margin-bottom: 16px; padding: 0; margin: 0;
+}
+.system-video .yt-facade {
+  height: 100%; width: 100%; overflow: hidden; margin: 0; padding: 0;
+}
+.system-video .yt-facade .yt-thumb {
+  width: 100%; height: 100%; object-fit: cover; margin: 0; padding: 0; transform: scale(1.15);
+}
+.system-caption {
+  font-size: 10px; letter-spacing: 0.6px;
+  color: rgba(255,255,255,0.3); font-family: 'Courier New', monospace;
+  margin-bottom: 28px; line-height: 1.6;
+}
+
+.process { display: flex; flex-direction: column; gap: 10px; }
+.process-step {
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 18px 16px; background: var(--bg-card);
+  display: flex; gap: 14px;
+}
+.process-step .step-icon {
+  width: 38px; height: 38px; flex-shrink: 0;
+  border: 1px solid rgba(23,112,241,0.25);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.process-step .step-content { flex: 1; }
+.process-step .step-num {
+  font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--blue); opacity: 0.6; margin-bottom: 4px;
+  font-family: 'Poppins', sans-serif; font-weight: 500;
+}
+.process-step h4 {
+  font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 5px;
+}
+.process-step p {
+  font-size: 12.5px; color: rgba(255,255,255,0.55);
+  line-height: 1.6; font-weight: 300;
+}
+
+/* ============ TECH MATRIX ============ */
+.matrix {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.matrix-card {
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 20px 18px; background: var(--bg-card);
+  position: relative;
+}
+.matrix-card { transition: transform 0.28s, box-shadow 0.28s, background 0.25s; }
+.matrix-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(23,112,241,0.06); background: rgba(23,112,241,0.03); }
+.matrix-card .card-tag {
+  position: absolute; top: 14px; right: 14px;
+  font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase;
+  color: rgba(23,112,241,0.65);
+  border: 1px solid rgba(23,112,241,0.18);
+  padding: 3px 7px; border-radius: 4px;
+}
+.matrix-card .card-icon {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(23,112,241,0.22); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.matrix-card h4 {
+  font-size: 15px; font-weight: 600; color: #fff;
+  margin-bottom: 6px; padding-right: 70px;
+}
+.matrix-card p {
+  font-size: 12.5px; color: rgba(255,255,255,0.55);
+  line-height: 1.65; font-weight: 300;
+}
+
+/* ============ PILLS ============ */
+.pills-strip { padding: 50px 22px; background: var(--bg-alt); }
+.pills-strip h3 {
+  font-size: 24px; line-height: 1.2; margin-bottom: 10px;
+}
+.pills-strip p {
+  font-size: 13.5px; color: rgba(255,255,255,0.5); line-height: 1.65;
+  margin-bottom: 20px; font-weight: 300;
+}
+.pills { display: flex; flex-wrap: wrap; gap: 7px; }
+.pill {
+  border: 1px solid rgba(255,255,255,0.13);
+  padding: 7px 13px; border-radius: 30px;
+  font-size: 11.5px; color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.02);
+}
+.pill.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+/* ============ CTA ============ */
+.cta {
+  margin: 0 14px 60px; padding: 40px 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; position: relative; overflow: hidden;
+  background: radial-gradient(ellipse at top right, rgba(23,112,241,0.1), transparent 70%);
+}
+.cta h2 { font-size: 24px; line-height: 1.2; margin-bottom: 10px; }
+.cta p {
+  font-size: 13px; color: rgba(255,255,255,0.55);
+  line-height: 1.65; margin-bottom: 22px; font-weight: 300;
+}
+.cta .btn { margin-bottom: 10px; }
+.cta-note {
+  font-size: 11px; color: rgba(255,255,255,0.3);
+  text-align: center; margin-top: 8px;
+}
+
+/* ============ FOOTER ============ */
+footer {
+  padding: 40px 22px 24px;
+  border-top: 1px solid var(--line);
+  background: #020202;
+}
+.footer-brand {
+  font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700;
+  margin-bottom: 6px;
+}
+.footer-tag {
+  font-size: 13px; color: rgba(255,255,255,0.5);
+  font-weight: 300; margin-bottom: 18px;
+}
+.footer-addr {
+  font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.7;
+  margin-bottom: 26px;
+}
+.footer-col {
+  margin-bottom: 24px; padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.footer-col:last-of-type { border-bottom: none; }
+.footer-col h4 {
+  font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 12px; font-weight: 500;
+}
+.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul a {
+  font-size: 13px; color: rgba(255,255,255,0.6);
+}
+.social-links { display: flex; gap: 10px; margin-top: 14px; }
+.social-links a {
+  width: 38px; height: 38px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px; font-weight: 600;
+}
+.footer-bottom {
+  margin-top: 14px; padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.footer-bottom p {
+  font-size: 11px; color: rgba(255,255,255,0.3);
+}
+
+/* ============ FADE ============ */
+.fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* === Tablet up (still mobile-first, but breathe a bit) === */
+@media (min-width: 600px) {
+  .specs { grid-template-columns: repeat(4, 1fr); }
+  .spec { border-bottom: none; }
+  .spec:last-child { border-right: none; }
+  .matrix { display: grid; grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========= NAV ========= -->
+<header class="nav">
+  <a href="https://www.aarvish.ca/index.php" class="nav-brand"><img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Logo" style="max-width: 50px; height: auto;"></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="nav-menu" id="navMenu">
+  <a href="https://www.aarvish.ca/index.php">Home</a>
+  <a href="https://www.aarvish.ca/insights.php">Insights</a>
+  <a href="#" class="active">Innovation</a>
+  <a href="https://www.aarvish.ca/inquiry.php">Inquiry</a>
+  <a href="https://www.aarvish.ca/inquiry.php" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- ========= HERO ========= -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-content">
+    <div class="eyebrow fade-up">Real Innovation · Climate-Real Impact</div>
+    <h1 class="fade-up">Engineering <em>water</em><br>from nothing.</h1>
+    <p class="hero-sub fade-up">Breakthrough technologies that extract, purify, and deliver clean water — independent of rivers, aquifers, or fragile infrastructure. Built for the world's most demanding environments.</p>
+    <div class="fade-up">
+      <a href="#awg" class="btn btn-primary">Explore Technologies →</a>
+      <a href="#how-it-works" class="btn btn-ghost">See How It Works</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========= TECH SCROLLER ========= -->
+<div class="tech-scroller">
+  <a href="#awg" class="tech-chip active" data-tab="awg"><span class="chip-num">01</span> AWG System</a>
+  <a href="#windmill" class="tech-chip" data-tab="windmill"><span class="chip-num">02</span> Windmill</a>
+  <a href="#ro" class="tech-chip" data-tab="ro"><span class="chip-num">03</span> RO Purification</a>
+  <a href="#reclamation" class="tech-chip" data-tab="reclamation"><span class="chip-num">04</span> Reclamation</a>
+  <a href="#how-it-works" class="tech-chip" data-tab="how-it-works"><span class="chip-num">05</span> Integrated System</a>
+</div>
+
+<!-- ========= AWG ========= -->
+<section class="section" id="awg">
+  <div class="section-label fade-up">Technology 01 — Atmospheric Water Generation</div>
+  <div class="product-badge fade-up">Core Technology</div>
+  <h2 class="fade-up">Atmospheric Water<br><em>Generator</em></h2>
+  <p class="section-desc fade-up">Our AWG is a breakthrough innovation that extracts moisture directly from ambient air and converts it into safe, purified drinking water — functioning in humidity as low as 20% and temperatures approaching −40°C.</p>
+
+  <div class="media-wrap fade-up">
+    <div class="yt-facade" data-id="Lz_uOXCsckk" data-params="autoplay=1&rel=0&modestbranding=1" role="button" tabindex="0" aria-label="Play AWG Unit Demo video">
+      <img class="yt-thumb" src="https://i.ytimg.com/vi/Lz_uOXCsckk/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Lz_uOXCsckk/hqdefault.jpg';" alt="AWG Unit Demo — tap to play">
+      <div class="yt-play"><svg viewBox="0 0 68 48" width="58" height="40"><path d="M66.52 7.74a8.25 8.25 0 0 0-5.81-5.85C55.63.5 34 .5 34 .5s-21.63 0-26.71 1.39A8.25 8.25 0 0 0 1.48 7.74 86.5 86.5 0 0 0 .1 24a86.5 86.5 0 0 0 1.38 16.26 8.25 8.25 0 0 0 5.81 5.85C12.37 47.5 34 47.5 34 47.5s21.63 0 26.71-1.39a8.25 8.25 0 0 0 5.81-5.85A86.5 86.5 0 0 0 67.9 24a86.5 86.5 0 0 0-1.38-16.26z" fill="#1770f1"/><path d="M27 34l18-10-18-10z" fill="#fff"/></svg></div>
+    </div>
+    <div class="media-tag">AWG — Unit Demo</div>
+  </div>
+
+  <ul class="features fade-up">
+    <li>Condensation-based extraction with multi-stage UV + carbon filtration delivering WHO-standard output</li>
+    <li>Operates in extreme cold: Arctic-grade insulation and thermal management for year-round function</li>
+    <li>Fully off-grid capable — integrates with solar and wind power sources</li>
+    <li>Modular container design: deployable by road, air, or water without specialist crews</li>
+  </ul>
+
+  <div class="specs fade-up">
+    <div class="spec"><div class="spec-label">Water Output</div><div class="spec-value">500K<span>gal/day</span></div></div>
+    <div class="spec"><div class="spec-label">Min. Humidity</div><div class="spec-value">20%<span>RH</span></div></div>
+    <div class="spec"><div class="spec-label">Operating Temp</div><div class="spec-value">−40°C<span>to +50°C</span></div></div>
+    <div class="spec"><div class="spec-label">Water Quality</div><div class="spec-value">WHO<span>Standard</span></div></div>
+  </div>
+</section>
+
+<!-- ========= WINDMILL ========= -->
+<section class="section alt" id="windmill">
+  <div class="section-label fade-up">Technology 02 — Renewable Energy</div>
+  <div class="product-badge fade-up">Renewable Power</div>
+  <h2 class="fade-up">Portable <em>Windmill</em><br><small>— Off-Grid Energy</small></h2>
+  <p class="section-desc fade-up">An innovative, compact renewable energy solution engineered for mobility and reliability in remote environments. Harnesses wind energy to power our water systems wherever the grid cannot reach.</p>
+
+  <div class="media-wrap fade-up">
+    <img class="media-fill" src="WINDMILL.PNG" alt="Aarvish portable windmill field deployment">
+    <div class="media-tag">Windmill — Field Demo</div>
+  </div>
+
+  <ul class="features fade-up">
+    <li>Rapid field assembly — single operator deployment in under 4 hours, no heavy equipment required</li>
+    <li>Designed for low wind-speed environments common to Northern Canada's boreal and Arctic zones</li>
+    <li>Integrated battery storage ensures continuous power delivery during calm periods</li>
+    <li>Works in tandem with wind and solar energy for full hybrid renewable energy redundancy</li>
+  </ul>
+
+  <div class="specs fade-up">
+    <div class="spec"><div class="spec-label">Cut-in Wind Speed</div><div class="spec-value">2.5<span>m/s</span></div></div>
+    <div class="spec"><div class="spec-label">Rated Power</div><div class="spec-value">5 kW<span>peak</span></div></div>
+    <div class="spec"><div class="spec-label">Deploy Time</div><div class="spec-value">&lt;4<span>hours</span></div></div>
+    <div class="spec"><div class="spec-label">Design Life</div><div class="spec-value">20+<span>years</span></div></div>
+  </div>
+</section>
+
+<!-- ========= RO ========= -->
+<section class="section" id="ro">
+  <div class="section-label fade-up">Technology 03 — Reverse Osmosis Purification</div>
+  <div class="product-badge fade-up">Purification Core</div>
+  <h2 class="fade-up">Reverse <em>Osmosis</em><br><small>— Pure at the Source</small></h2>
+  <p class="section-desc fade-up">Our advanced RO system provides a final multi-barrier purification stage — removing dissolved solids, heavy metals, pathogens, and chemical contaminants to deliver consistently safe drinking water.</p>
+
+  <div class="media-wrap fade-up">
+    <img class="media-fill" src="RO.PNG" alt="Aarvish reverse osmosis system">
+    <div class="media-tag">RO System</div>
+  </div>
+
+  <ul class="features fade-up">
+    <li>High-rejection membranes remove 99.9% of dissolved contaminants including arsenic, lead, and nitrates</li>
+    <li>Pre-treatment sediment and carbon stages extend membrane life in turbid source water</li>
+    <li>Pressure-optimized for energy efficiency on minimal renewable power input</li>
+    <li>Inline sensors log TDS, pH, and pressure — remote monitoring via satellite link</li>
+  </ul>
+
+  <div class="specs fade-up">
+    <div class="spec"><div class="spec-label">Rejection Rate</div><div class="spec-value">99.9%<span>contaminants</span></div></div>
+    <div class="spec"><div class="spec-label">Flow Rate</div><div class="spec-value">10K+<span>L/day</span></div></div>
+    <div class="spec"><div class="spec-label">Membrane Life</div><div class="spec-value">1–2<span>years</span></div></div>
+    <div class="spec"><div class="spec-label">Standards Met</div><div class="spec-value">WHO<span>+ Health Canada</span></div></div>
+  </div>
+
+  <div class="filtration fade-up" style="margin-top:18px;">
+    <div class="filtration-title">Filtration Stages — 5 Barrier Process</div>
+    <div class="fstage"><div class="fstage-num">1</div><div class="fstage-bar"></div><div class="fstage-name">Sediment Pre-Filter (5μm)</div></div>
+    <div class="fstage"><div class="fstage-num">2</div><div class="fstage-bar"></div><div class="fstage-name">Carbon Block Filter</div></div>
+    <div class="fstage"><div class="fstage-num">3</div><div class="fstage-bar"></div><div class="fstage-name">RO Membrane (0.0001μm)</div></div>
+    <div class="fstage"><div class="fstage-num">4</div><div class="fstage-bar"></div><div class="fstage-name">UV Sterilization</div></div>
+    <div class="fstage"><div class="fstage-num">5</div><div class="fstage-bar"></div><div class="fstage-name">Post-Carbon + Remineralization</div></div>
+  </div>
+</section>
+
+<!-- ========= RECLAMATION ========= -->
+<section class="section alt" id="reclamation">
+  <div class="section-label fade-up">Technology 04 — Wastewater Reclamation</div>
+  <div class="product-badge fade-up">Closed-Loop System</div>
+  <h2 class="fade-up">Wastewater<br><em>Reclamation</em><br><small>— Nothing Wasted</small></h2>
+  <p class="section-desc fade-up">Our reclamation module recovers and reprocesses greywater and process wastewater back into potable quality — dramatically extending system output while eliminating liquid waste discharge in sensitive environments.</p>
+
+  <div class="loop-card fade-up">
+    <div class="loop-eyebrow">Closed-Loop Recovery</div>
+    <div class="loop-grid">
+      <div class="loop-node">
+        <div class="loop-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><path d="M12 2v6M12 22v-6M2 12h6M22 12h-6"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="loop-label">Greywater<br>Capture</div>
+      </div>
+      <div class="loop-node">
+        <div class="loop-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg></div>
+        <div class="loop-label">Bio +<br>Membrane</div>
+      </div>
+      <div class="loop-node">
+        <div class="loop-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg></div>
+        <div class="loop-label">RO<br>Polish</div>
+      </div>
+      <div class="loop-node">
+        <div class="loop-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg></div>
+        <div class="loop-label">Reused<br>Output</div>
+      </div>
+    </div>
+    <div class="loop-return">↻ Continuous closed-loop · Zero liquid discharge</div>
+  </div>
+
+  <div class="rstats fade-up">
+    <div class="rstat"><div class="rstat-value">85%</div><div class="rstat-label">Recovery</div></div>
+    <div class="rstat"><div class="rstat-value">Zero</div><div class="rstat-label">Discharge</div></div>
+    <div class="rstat"><div class="rstat-value">100%</div><div class="rstat-label">Off-Grid</div></div>
+  </div>
+
+  <ul class="features fade-up" style="margin-top:22px;">
+    <li>Multi-stage biological and membrane treatment recovers up to 85% of all wastewater for reuse</li>
+    <li>Zero liquid discharge: zero environmental contamination of Arctic soils and waterways</li>
+    <li>Integrates directly with AWG and RO modules for a single closed-loop system footprint</li>
+    <li>Automated backwash and self-cleaning cycles minimize operator intervention and maintenance</li>
+  </ul>
+</section>
+
+<!-- ========= HOW IT WORKS ========= -->
+<section class="section" id="how-it-works">
+  <div class="section-label fade-up">Integrated System — How It Works</div>
+  <h2 class="fade-up">Five technologies.<br><em>One unified</em> water system.</h2>
+  <p class="section-desc fade-up">Each Aarvish deployment integrates all technologies into a single containerized, off-grid water production station. Here's how they work together:</p>
+
+  <div class="system-video fade-up">
+    <div class="yt-facade" data-id="DeCpa29M1w8" data-params="autoplay=1&mute=1&loop=1&playlist=DeCpa29M1w8&controls=1&modestbranding=1&rel=0&playsinline=1" role="button" tabindex="0" aria-label="Play Aarvish Integrated Water System video">
+      <img class="yt-thumb" src="https://i.ytimg.com/vi/DeCpa29M1w8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/DeCpa29M1w8/hqdefault.jpg';" alt="Aarvish Integrated Water System — tap to play">
+      <div class="yt-play"><svg viewBox="0 0 68 48" width="58" height="40"><path d="M66.52 7.74a8.25 8.25 0 0 0-5.81-5.85C55.63.5 34 .5 34 .5s-21.63 0-26.71 1.39A8.25 8.25 0 0 0 1.48 7.74 86.5 86.5 0 0 0 .1 24a86.5 86.5 0 0 0 1.38 16.26 8.25 8.25 0 0 0 5.81 5.85C12.37 47.5 34 47.5 34 47.5s21.63 0 26.71-1.39a8.25 8.25 0 0 0 5.81-5.85A86.5 86.5 0 0 0 67.9 24a86.5 86.5 0 0 0-1.38-16.26z" fill="#1770f1"/><path d="M27 34l18-10-18-10z" fill="#fff"/></svg></div>
+    </div>
+  </div>
+
+  <div class="process fade-up">
+    <div class="process-step">
+      <div class="step-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><path d="M12 2C8 2 4 6 4 10c0 5.25 8 12 8 12s8-6.75 8-12c0-4-4-8-8-8z"/></svg></div>
+      <div class="step-content">
+        <div class="step-num">Step 01</div>
+        <h4>Air Intake</h4>
+        <p>The AWG unit draws ambient air through intake filters. Moisture is condensed via cooling coils, collecting raw water for treatment.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg></div>
+      <div class="step-content">
+        <div class="step-num">Step 02</div>
+        <h4>Renewable Power</h4>
+        <p>The Portable Windmill and solar panels supply all electrical power — keeping the entire system off-grid and eliminating fuel dependency.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <div class="step-content">
+        <div class="step-num">Step 03</div>
+        <h4>Purification Box</h4>
+        <p>The junction unit routes water through sediment, carbon, and adsorption pre-filters, removing particulates and organic compounds.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="step-content">
+        <div class="step-num">Step 04</div>
+        <h4>RO Membrane</h4>
+        <p>High-rejection RO membranes strip dissolved solids, metals, and pathogens to 0.0001μm — delivering WHO-grade purity output.</p>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><circle cx="12" cy="12" r="0.5" fill="#1770f1"/></svg></div>
+      <div class="step-content">
+        <div class="step-num">Step 05</div>
+        <h4>Storage &amp; Distribution</h4>
+        <p>Purified water is stored in UV-protected tanks and distributed. Reclamation modules recover wastewater back into the cycle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= TECH MATRIX ========= -->
+<section class="section alt" id="matrix">
+  <div class="section-label fade-up">Full Technology Stack</div>
+  <h2 class="fade-up">Precision-<em>engineered</em><br>for every environment.</h2>
+  <p class="section-desc fade-up">A complete portfolio of integrated technologies — built to perform together as one system, anywhere on Earth.</p>
+
+  <div class="matrix">
+    <div class="matrix-card fade-up">
+      <div class="card-tag">AWG</div>
+      <div class="card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><path d="M12 2C8 2 4 6 4 10c0 5.25 8 12 8 12s8-6.75 8-12c0-4-4-8-8-8z"/></svg></div>
+      <h4>Atmospheric Condensation</h4>
+      <p>Air-to-water extraction via chilled surface condensation, functioning in humidity as low as 20% and temperatures down to −40°C.</p>
+    </div>
+    <div class="matrix-card fade-up">
+      <div class="card-tag">Filtration</div>
+      <div class="card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg></div>
+      <h4>Adsorption Filtration</h4>
+      <p>Activated carbon and molecular sieve adsorption removes organic compounds, chloramines, and taste-odour contaminants.</p>
+    </div>
+    <div class="matrix-card fade-up">
+      <div class="card-tag">RO</div>
+      <div class="card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg></div>
+      <h4>Reverse Osmosis</h4>
+      <p>Semi-permeable membranes at 0.0001μm reject 99.9% of dissolved solids, heavy metals, nitrates, and biological agents.</p>
+    </div>
+    <div class="matrix-card fade-up">
+      <div class="card-tag">Energy</div>
+      <div class="card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <h4>Hybrid Renewable Power</h4>
+      <p>Wind + solar hybrid power with battery buffer ensures 24/7 operation without fuel dependency, engineered for variable conditions.</p>
+    </div>
+    <div class="matrix-card fade-up">
+      <div class="card-tag">Recovery</div>
+      <div class="card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 013.51 15"/></svg></div>
+      <h4>Wastewater Reclamation</h4>
+      <p>Closed-loop reclamation recovers 85% of process wastewater, achieving zero liquid discharge in environmentally sensitive regions.</p>
+    </div>
+    <div class="matrix-card fade-up">
+      <div class="card-tag">Monitoring</div>
+      <div class="card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1770f1" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h4>Remote Monitoring</h4>
+      <p>Satellite-linked sensors track water quality, system health, and energy production in real time — from anywhere in the world.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========= PILLS ========= -->
+<div class="pills-strip">
+  <div class="section-label fade-up">Modular Deployment</div>
+  <h3 class="fade-up">Configurable for <em>any</em> scale.</h3>
+  <p class="fade-up">From a single-community pilot to a regional grid — our systems stack and scale without redesign. Every module ships in a standard container.</p>
+  <div class="pills fade-up">
+    <span class="pill active">AWG Systems</span>
+    <span class="pill">Reverse Osmosis</span>
+    <span class="pill">Adsorption Filtration</span>
+    <span class="pill">Wastewater Reclamation</span>
+    <span class="pill">Solar Integration</span>
+    <span class="pill">Wind Power</span>
+    <span class="pill">Remote Monitoring</span>
+    <span class="pill">Containerized Deploy</span>
+    <span class="pill">Off-Grid Power</span>
+    <span class="pill">Arctic-Grade Build</span>
+  </div>
+</div>
+
+<!-- ========= CTA ========= -->
+<section class="cta">
+  <h2>Ready to deploy <em>water security</em> for your community?</h2>
+  <p>Whether you represent an Indigenous band council, a government agency, or an impact investor — our engineering team is ready to design a system for you.</p>
+  <a href="https://www.aarvish.ca/inquiry.php" class="btn btn-primary">Start an Inquiry →</a>
+  <a href="tel:+12049623844" class="btn btn-ghost">+1 204-962-3844</a>
+  <div class="cta-note">Winnipeg-based · Globally deployed</div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer>
+  <div class="footer-brand"><img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Logo" style="max-width: 60px; height: auto; display: block; margin-bottom: 16px;"></div>
+  <div class="footer-tag">Innovative water &amp; renewable technologies.</div>
+  <div class="footer-addr">175 Pulberry St, Winnipeg,<br>Manitoba R2M 3X6, Canada</div>
+
+  <div class="footer-col">
+    <h4>Technologies</h4>
+    <ul>
+      <li><a href="#awg">AWG System</a></li>
+      <li><a href="#windmill">Portable Windmill</a></li>
+      <li><a href="#ro">RO Purification</a></li>
+      <li><a href="#reclamation">Wastewater Reclamation</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="https://www.aarvish.ca/index.php">Home</a></li>
+      <li><a href="https://www.aarvish.ca/insights.php">Insights</a></li>
+      <li><a href="https://www.aarvish.ca/inquiry.php">Inquiry</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#fdb28d988f9c899492938ebd9c9c8f8b948e95d39e9c">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Connect</h4>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/company/aarvish/" title="LinkedIn" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43c-1.14 0-2.06-.93-2.06-2.06 0-1.14.92-2.06 2.06-2.06s2.06.92 2.06 2.06c0 1.13-.92 2.06-2.06 2.06zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a href="https://youtube.com/@aarvishgloballtd" title="YouTube" aria-label="YouTube">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/aarvish.ca" title="Instagram" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="mailto:operations@aarvish.ca" title="Email" aria-label="Email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+      <a href="tel:+12049623844" title="Phone" aria-label="Phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aarvish Global LTD. All rights reserved.</p>
+    <p><a href="mailto:operations@aarvish.ca">operations@aarvish.ca</a> · +1 204-962-3844</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Nav toggle
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('open');
+  navMenu.classList.toggle('open');
+});
+navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navToggle.classList.remove('open'); navMenu.classList.remove('open');
+}));
+
+// YouTube facade — auto-load on page load with delay for stability
+document.querySelectorAll('.yt-facade').forEach(facade => {
+  function load() {
+    const id = facade.dataset.id;
+    const params = facade.dataset.params || 'autoplay=1&rel=0';
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + id + '?' + params;
+    iframe.title = facade.getAttribute('aria-label') || 'YouTube video';
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    facade.innerHTML = '';
+    facade.appendChild(iframe);
+  }
+  // Auto-load with delay for DOM readiness
+  setTimeout(load, 500);
+  // Keep click listener as fallback
+  facade.addEventListener('click', load);
+  facade.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); } });
+});
+
+// Fade-up
+const fadeEls = document.querySelectorAll('.fade-up');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => io.observe(el));
+
+// Scroll spy for tech chips
+const chips = document.querySelectorAll('.tech-chip');
+const sections = ['awg','windmill','ro','reclamation','how-it-works'];
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      chips.forEach(c => c.classList.remove('active'));
+      const active = document.querySelector(`.tech-chip[data-tab="${e.target.id}"]`);
+      if (active) {
+        active.classList.add('active');
+        active.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+      }
+    }
+  });
+}, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
+sections.forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+</script>
+</body>
+</html>
