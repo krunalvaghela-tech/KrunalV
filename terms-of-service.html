@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Aarvish Global LTD</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:#000;color:#fff;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.15;}
+:root{--blue:#1770f1;--line:rgba(255,255,255,0.07);--muted:rgba(255,255,255,0.55);}
+.container{width:100%;max-width:900px;margin:0 auto;padding:0 24px;}
+
+.navbar{padding:0;position:fixed;top:30px;left:0;right:0;z-index:999;display:flex;justify-content:center;}
+.navbar-wrap{background:#00000096;padding:10px 25px;border-radius:50px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;width:calc(100% - 60px);max-width:1320px;border:1px solid rgba(255,255,255,0.06);transition:background 0.3s,box-shadow 0.3s;}
+.navbar-wrap.scrolled{background:rgba(0,0,0,0.97);box-shadow:0 2px 20px rgba(0,0,0,0.6);}
+.navbar-brand img{max-width:65px;width:100%;}
+.navbar-nav{display:flex;flex-direction:row;align-items:center;gap:4px;list-style:none;margin:0;padding:0;}
+.nav-item .nav-link{padding:10px 22px;font-size:18px;font-weight:400;color:#fff;font-family:'Poppins',sans-serif;transition:color 0.3s;display:block;}
+.nav-item .nav-link:hover{color:#1770f1;}
+@media(max-width:991px){.navbar{top:20px;}.navbar-wrap{padding:10px 18px;}.nav-item .nav-link{padding:8px 14px;font-size:15px;}}
+
+.page-hero{padding:160px 24px 80px;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(23,112,241,0.12) 0%,transparent 60%),linear-gradient(180deg,#020815 0%,#000 80%);}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,#000 0%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,#000 0%,transparent 80%);opacity:0.6;}
+.page-hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:20px;position:relative;z-index:1;}
+.page-hero .eyebrow::before,.page-hero .eyebrow::after{content:'';width:24px;height:1px;background:var(--blue);}
+.page-hero h1{font-size:clamp(36px,6vw,64px);line-height:1.05;letter-spacing:-1px;margin-bottom:16px;position:relative;z-index:1;}
+.page-hero .updated{font-size:13px;color:var(--muted);position:relative;z-index:1;}
+
+.legal-body{padding:80px 0 120px;}
+.legal-toc{background:rgba(23,112,241,0.05);border:1px solid rgba(23,112,241,0.15);border-radius:16px;padding:32px 36px;margin-bottom:64px;}
+.legal-toc h3{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:20px;font-family:'Jost',sans-serif;}
+.legal-toc ol{list-style:decimal;padding-left:20px;display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;}
+.legal-toc li{font-size:14px;color:rgba(255,255,255,0.7);padding:2px 0;}
+.legal-toc a{color:rgba(255,255,255,0.7);transition:color 0.2s;}
+.legal-toc a:hover{color:var(--blue);}
+@media(max-width:600px){.legal-toc ol{grid-template-columns:1fr;}}
+
+.legal-section{margin-bottom:60px;scroll-margin-top:120px;}
+.legal-section h2{font-size:22px;font-weight:600;color:#fff;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;}
+.legal-section h2 .sec-num{font-size:12px;color:var(--blue);font-family:'Jost',sans-serif;font-weight:500;letter-spacing:1px;background:rgba(23,112,241,0.1);padding:3px 10px;border-radius:20px;}
+.legal-section p{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.72);margin-bottom:14px;font-weight:300;}
+.legal-section ul{list-style:none;margin:14px 0 20px;}
+.legal-section ul li{font-size:15px;line-height:1.75;color:rgba(255,255,255,0.72);padding:6px 0 6px 22px;position:relative;font-weight:300;}
+.legal-section ul li::before{content:'';position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--blue);opacity:0.7;}
+.legal-section h3{font-size:16px;font-weight:600;color:#fff;margin:28px 0 12px;font-family:'Jost',sans-serif;}
+.callout{background:rgba(23,112,241,0.06);border-left:3px solid var(--blue);border-radius:0 12px 12px 0;padding:18px 22px;margin:20px 0;}
+.callout p{margin:0;font-size:14px;color:rgba(255,255,255,0.8);}
+.warning-callout{background:rgba(255,160,0,0.05);border-left:3px solid rgba(255,160,0,0.5);border-radius:0 12px 12px 0;padding:18px 22px;margin:20px 0;}
+.warning-callout p{margin:0;font-size:14px;color:rgba(255,255,255,0.75);}
+
+.footer-sec{background:#000;border-top:1px solid rgba(255,255,255,0.06);padding:80px 0 0;position:relative;}
+.footer-sec::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(23,112,241,0.4),transparent);}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px;}
+.footer-logo-img{max-width:70px;margin-bottom:18px;}
+.footer-tagline{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.38);max-width:240px;}
+.social-links{display:flex;gap:10px;margin-top:24px;}
+.social-links a{width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.38);font-size:13px;transition:all 0.2s;font-weight:600;}
+.social-links a:hover{border-color:#1770f1;color:#1770f1;background:rgba(23,112,241,0.08);}
+.footer-col-title{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:20px;font-weight:500;}
+.footer-links{display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:14px;color:rgba(255,255,255,0.5);transition:color 0.2s;}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding:28px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.25);}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:36px;}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}}
+
+*{cursor:none!important;}
+.wc-ring{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(23,112,241,0.55);background:radial-gradient(circle,rgba(23,112,241,0.07) 0%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none;z-index:99999;transition:width .35s cubic-bezier(.25,.46,.45,.94),height .35s cubic-bezier(.25,.46,.45,.94),border-color .3s,background .3s,border-radius .35s;}
+.wc-dot{position:fixed;width:5px;height:5px;border-radius:50%;background:#4da3ff;transform:translate(-50%,-50%);pointer-events:none;z-index:100000;box-shadow:0 0 6px rgba(77,163,255,0.95),0 0 18px rgba(23,112,241,0.6),0 0 32px rgba(23,112,241,0.25);}
+.wc-ring.hover{width:56px;height:56px;border-color:rgba(23,112,241,0.85);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;}
+.wc-trail{position:fixed;border-radius:50%;background:#1770f1;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);}
+@keyframes wcRipple{0%{transform:translate(-50%,-50%) scale(1);opacity:0.55;}100%{transform:translate(-50%,-50%) scale(3.2);opacity:0;}}
+.wc-ripple{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(77,163,255,0.7);pointer-events:none;z-index:99997;animation:wcRipple 0.65s ease-out forwards;}
+</style>
+</head>
+<body>
+<div class="wc-ring" id="wcRing"></div>
+<div class="wc-dot" id="wcDot"></div>
+
+<nav class="navbar">
+  <div class="navbar-wrap" id="navbarWrap">
+    <a class="navbar-brand" href="https://www.aarvish.ca/index.php">
+      <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Logo">
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/index.php">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="Insights-Desktop-Main.html">Insights</a></li>
+      <li class="nav-item"><a class="nav-link" href="Innovation - destop final Main.html">Innovation</a></li>
+      <li class="nav-item"><a class="nav-link" href="Inquiry Destop Main.html">Inquiry</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">Legal &amp; Compliance</div>
+  <h1>Terms of Service</h1>
+  <p class="updated">Effective Date: January 1, 2025 &nbsp;·&nbsp; Last Updated: May 1, 2026</p>
+</div>
+
+<section class="legal-body">
+  <div class="container">
+
+    <div class="legal-toc">
+      <h3>Table of Contents</h3>
+      <ol>
+        <li><a href="#s1">Acceptance of Terms</a></li>
+        <li><a href="#s2">Use of the Site</a></li>
+        <li><a href="#s3">Intellectual Property</a></li>
+        <li><a href="#s4">Technology &amp; Forward-Looking Statements</a></li>
+        <li><a href="#s5">User Submissions</a></li>
+        <li><a href="#s6">Third-Party Links</a></li>
+        <li><a href="#s7">Disclaimer of Warranties</a></li>
+        <li><a href="#s8">Limitation of Liability</a></li>
+        <li><a href="#s9">Indemnification</a></li>
+        <li><a href="#s10">Governing Law &amp; Jurisdiction</a></li>
+        <li><a href="#s11">Changes to Terms</a></li>
+        <li><a href="#s12">Contact</a></li>
+      </ol>
+    </div>
+
+    <div class="legal-section" id="s1">
+      <h2><span class="sec-num">01</span> Acceptance of Terms</h2>
+      <p>By accessing or using the Aarvish Global LTD website (the "Site"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Site.</p>
+      <p>These Terms apply to all visitors, users, and others who access or use the Site. They govern your use of all content, services, and information available through this website operated by Aarvish Global LTD, a company incorporated in Manitoba, Canada.</p>
+      <div class="callout"><p>These Terms constitute a legally binding agreement between you and Aarvish Global LTD. Please read them carefully before using this Site.</p></div>
+    </div>
+
+    <div class="legal-section" id="s2">
+      <h2><span class="sec-num">02</span> Use of the Site</h2>
+      <p>You may use this Site for lawful purposes related to learning about Aarvish's water technology, contacting our team, or exploring partnership opportunities. You agree not to:</p>
+      <ul>
+        <li>Use the Site in any way that violates applicable Canadian federal, provincial, or local law or regulation</li>
+        <li>Reproduce, distribute, or commercially exploit Site content without prior written permission</li>
+        <li>Attempt to gain unauthorized access to any part of the Site or its related systems</li>
+        <li>Transmit any unsolicited advertising, spam, or automated data collection scripts</li>
+        <li>Impersonate Aarvish Global LTD, its employees, or any other person or entity</li>
+        <li>Use the Site in any manner that could disable, overburden, or impair the Site's functionality</li>
+        <li>Engage in any conduct that restricts or inhibits anyone's use or enjoyment of the Site</li>
+      </ul>
+      <p>Aarvish reserves the right to terminate or restrict access to the Site for users who violate these Terms.</p>
+    </div>
+
+    <div class="legal-section" id="s3">
+      <h2><span class="sec-num">03</span> Intellectual Property</h2>
+      <p>All content on this Site — including but not limited to text, graphics, logos, images, diagrams, data visualizations, engineering schematics, case study materials, and the overall design — is the exclusive property of Aarvish Global LTD or its licensors and is protected under Canadian copyright law, trademark law, and applicable international treaties.</p>
+      <h3>What You May Do</h3>
+      <ul>
+        <li>View, download, and print individual pages for personal, non-commercial reference</li>
+        <li>Share links to this Site on social media or in communications</li>
+        <li>Reference factual information with proper attribution to Aarvish Global LTD</li>
+      </ul>
+      <h3>What You May Not Do</h3>
+      <ul>
+        <li>Reproduce, modify, or create derivative works from Site content without written permission</li>
+        <li>Use Aarvish's name, logo, or trademarks in any advertising or commercial material</li>
+        <li>Use engineering data, process diagrams, or technical specifications for commercial product development</li>
+        <li>Reverse engineer any technology described on this Site</li>
+      </ul>
+      <p>To request permission for any use not covered above, contact <a href="mailto:operations@aarvish.ca" style="color:#1770f1;">operations@aarvish.ca</a>.</p>
+    </div>
+
+    <div class="legal-section" id="s4">
+      <h2><span class="sec-num">04</span> Technology &amp; Forward-Looking Statements</h2>
+      <p>This Site contains descriptions of Aarvish's water treatment technology, including design specifications, projected performance metrics, deployment timelines, and cost estimates. These forward-looking statements are based on engineering research and analysis and are subject to change.</p>
+      <div class="warning-callout"><p><strong>Important:</strong> Performance figures, output volumes, and cost projections presented on this Site represent design targets and engineering specifications, not guaranteed outcomes. Actual results will vary depending on site conditions, regulatory requirements, community needs, and deployment context.</p></div>
+      <p>Nothing on this Site constitutes a warranty, guarantee, or contractual commitment regarding the performance of Aarvish's technology. Formal specifications and performance warranties are provided only through executed contracts with Aarvish Global LTD.</p>
+    </div>
+
+    <div class="legal-section" id="s5">
+      <h2><span class="sec-num">05</span> User Submissions</h2>
+      <p>When you submit information through our contact or inquiry forms, you represent that:</p>
+      <ul>
+        <li>The information you provide is accurate and complete to the best of your knowledge</li>
+        <li>You have authority to submit information on behalf of any organization you represent</li>
+        <li>Your submission does not violate any third-party rights, confidentiality obligations, or applicable laws</li>
+      </ul>
+      <p>By submitting information, you grant Aarvish Global LTD a non-exclusive, royalty-free right to use that information to respond to your inquiry and evaluate a potential business relationship. We will handle your information in accordance with our <a href="privacy-policy.html" style="color:#1770f1;">Privacy Policy</a>.</p>
+      <p>Aarvish does not solicit or accept unsolicited proprietary ideas through this Site. Any ideas, suggestions, or proposals submitted become the property of Aarvish Global LTD unless a separate confidentiality agreement is in place.</p>
+    </div>
+
+    <div class="legal-section" id="s6">
+      <h2><span class="sec-num">06</span> Third-Party Links</h2>
+      <p>This Site may contain links to third-party websites, including government agencies, research institutions, partner organizations, and social media platforms. These links are provided for convenience and informational purposes only.</p>
+      <p>Aarvish Global LTD does not endorse, control, or assume responsibility for the content, privacy practices, or availability of any third-party website. Your use of third-party sites is governed by their own terms and privacy policies. We encourage you to review those policies before providing any personal information.</p>
+    </div>
+
+    <div class="legal-section" id="s7">
+      <h2><span class="sec-num">07</span> Disclaimer of Warranties</h2>
+      <p>THIS SITE AND ALL CONTENT ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.</p>
+      <p>To the fullest extent permitted by applicable law, Aarvish Global LTD disclaims all warranties including but not limited to:</p>
+      <ul>
+        <li>Implied warranties of merchantability, fitness for a particular purpose, and non-infringement</li>
+        <li>Warranties that the Site will be uninterrupted, error-free, or free of viruses or other harmful components</li>
+        <li>Warranties regarding the accuracy, completeness, or timeliness of any content on the Site</li>
+      </ul>
+    </div>
+
+    <div class="legal-section" id="s8">
+      <h2><span class="sec-num">08</span> Limitation of Liability</h2>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE CANADIAN LAW, AARVISH GLOBAL LTD, ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM:</p>
+      <ul>
+        <li>Your use of or inability to use the Site</li>
+        <li>Reliance on any content or information presented on the Site</li>
+        <li>Unauthorized access to or alteration of your transmissions or data</li>
+        <li>Any other matter relating to the Site</li>
+      </ul>
+      <p>In no event shall Aarvish's total liability exceed CAD $100.00 for claims arising from your use of the Site. Some jurisdictions do not allow limitations on implied warranties or exclusion of incidental damages, so the above limitations may not apply to you.</p>
+    </div>
+
+    <div class="legal-section" id="s9">
+      <h2><span class="sec-num">09</span> Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless Aarvish Global LTD and its officers, directors, employees, agents, and successors from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in connection with:</p>
+      <ul>
+        <li>Your use of or access to the Site</li>
+        <li>Your violation of these Terms</li>
+        <li>Your violation of any third-party rights, including intellectual property or privacy rights</li>
+        <li>Any content you submit through the Site that causes harm to a third party</li>
+      </ul>
+    </div>
+
+    <div class="legal-section" id="s10">
+      <h2><span class="sec-num">10</span> Governing Law &amp; Jurisdiction</h2>
+      <p>These Terms are governed by and construed in accordance with the laws of the Province of Manitoba and the federal laws of Canada applicable therein, without regard to conflict of law provisions.</p>
+      <p>Any dispute arising from these Terms or your use of the Site shall be subject to the exclusive jurisdiction of the courts of Manitoba, Canada. You consent to the personal jurisdiction of such courts and waive any objection to the exercise of jurisdiction over you by such courts.</p>
+      <div class="callout"><p>Aarvish Global LTD is headquartered in Winnipeg, Manitoba, Canada and operates under Canadian federal and provincial law.</p></div>
+    </div>
+
+    <div class="legal-section" id="s11">
+      <h2><span class="sec-num">11</span> Changes to Terms</h2>
+      <p>Aarvish Global LTD reserves the right to modify these Terms at any time. Changes will be effective immediately upon posting to the Site, indicated by an updated "Last Updated" date. Material changes will be highlighted where practical.</p>
+      <p>Your continued use of the Site following the posting of revised Terms constitutes your acceptance of the changes. If you do not agree to the revised Terms, you must stop using the Site.</p>
+    </div>
+
+    <div class="legal-section" id="s12">
+      <h2><span class="sec-num">12</span> Contact</h2>
+      <p>Questions about these Terms of Service should be directed to:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:operations@aarvish.ca" style="color:#1770f1;">operations@aarvish.ca</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+12049623844" style="color:#1770f1;">+1 204-962-3844</a></li>
+        <li><strong>Address:</strong> Aarvish Global LTD, Winnipeg, Manitoba, Canada</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer-sec">
+  <div class="container" style="max-width:1280px;">
+    <div class="footer-grid">
+      <div>
+        <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Global LTD" class="footer-logo-img">
+        <p class="footer-tagline">Decentralized water innovation for a water-secure future. Serving Indigenous communities, government agencies, and global partners from Winnipeg, Manitoba.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/aarvish/" title="LinkedIn" target="_blank" rel="noopener">in</a>
+          <a href="https://www.instagram.com/aarvish.ca" title="Instagram" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://youtube.com/@aarvishgloballtd" title="YouTube" target="_blank" rel="noopener">▶</a>
+          <a href="mailto:operations@aarvish.ca" title="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></a>
+          <a href="tel:+12049623844" title="Phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12 19.79 19.79 0 010.95 3.38 2 2 0 012.93 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.07-1.07a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Company</h6>
+        <div class="footer-links">
+          <a href="https://www.aarvish.ca/index.php">About Aarvish</a>
+          <a href="Innovation - destop final Main.html">Innovation</a>
+          <a href="Insights-Desktop-Main.html">Insights</a>
+          <a href="Inquiry Destop Main.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Contact</h6>
+        <div class="footer-links">
+          <a href="tel:+12049623844">+1 204-962-3844</a>
+          <a href="mailto:operations@aarvish.ca">operations@aarvish.ca</a>
+          <a href="#">Winnipeg, MB, Canada</a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Legal</h6>
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="sustainability-report.html">Sustainability Report</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Aarvish Global LTD. All Rights Reserved. Manitoba Métis Federation Registered.</p>
+      <p>Designed to deliver water security to those who need it most.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ring=document.getElementById('wcRing'),dot=document.getElementById('wcDot');
+  var rx=window.innerWidth/2,ry=window.innerHeight/2,mx=rx,my=ry;
+  var trails=[];
+  for(var i=0;i<5;i++){var t=document.createElement('div');t.className='wc-trail';var s=3.5-i*0.5;t.style.cssText='width:'+s+'px;height:'+s+'px;opacity:'+(0.55-i*0.09)+';';document.body.appendChild(t);trails.push({el:t,x:rx,y:ry});}
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  document.addEventListener('mousedown',function(e){var r=document.createElement('div');r.className='wc-ripple';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';document.body.appendChild(r);setTimeout(function(){if(r.parentNode)r.parentNode.removeChild(r);},700);});
+  document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){ring.classList.add('hover');});el.addEventListener('mouseleave',function(){ring.classList.remove('hover');});});
+  function animate(){
+    rx+=(mx-rx)*0.11;ry+=(my-ry)*0.11;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    var px=mx,py=my;
+    trails.forEach(function(t){t.x+=(px-t.x)*0.18;t.y+=(py-t.y)*0.18;t.el.style.left=t.x+'px';t.el.style.top=t.y+'px';px=t.x;py=t.y;});
+    requestAnimationFrame(animate);
+  }
+  animate();
+  window.addEventListener('scroll',function(){document.getElementById('navbarWrap').classList.toggle('scrolled',window.scrollY>40);});
+})();
+</script>
+</body>
+</html>
