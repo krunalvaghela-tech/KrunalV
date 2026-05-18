@@ -41,6 +41,12 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.12;}
 .banner-title{font-size:clamp(40px,5.5vw,76px);line-height:1.05;letter-spacing:-1.5px;margin-bottom:30px;}
 .banner-sub{font-size:17px;line-height:1.7;color:var(--muted);font-weight:300;margin-bottom:36px;max-width:520px;}
 .banner-cta{display:flex;gap:14px;flex-wrap:wrap;}
+.trust-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.trust-tags span{font-size:11px;color:rgba(255,255,255,0.38);letter-spacing:0.4px;padding:6px 14px;border:1px solid rgba(255,255,255,0.07);border-radius:30px;background:rgba(255,255,255,0.02);}
+.scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;}
+.scroll-cue-text{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);font-weight:500;}
+.scroll-cue-line{width:1px;height:44px;background:linear-gradient(180deg,rgba(255,255,255,0.25),transparent);animation:scrollLine 2.2s ease-in-out infinite;}
+@keyframes scrollLine{0%,100%{opacity:0.3;transform:scaleY(0.8);}50%{opacity:1;transform:scaleY(1);}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:all 0.3s;}
 .btn-primary{background:linear-gradient(135deg,#1770f1 0%,#0e58c3 100%);color:#fff;box-shadow:0 12px 30px rgba(23,112,241,0.18);}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(23,112,241,0.28);}
@@ -52,12 +58,17 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.12;}
 @media(max-width:991px){.banner-inner{grid-template-columns:1fr;gap:50px;}}
 
 /* ABOUT */
-.about-sec{padding:120px 0;text-align:center;background:#020202;border-bottom:1px solid var(--line);}
-.about-inner{max-width:780px;margin:0 auto;}
-.about-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:22px;}
-.about-eyebrow::before,.about-eyebrow::after{content:'';width:28px;height:1px;background:var(--blue);}
-.about-text{font-size:clamp(20px,2.5vw,28px);line-height:1.5;color:rgba(255,255,255,0.85);font-weight:300;}
-.about-text strong{color:#fff;font-weight:500;}
+.about-sec{padding:130px 0;text-align:center;background:radial-gradient(ellipse 80% 50% at 50% 50%,rgba(23,112,241,0.06) 0%,transparent 65%),#000;border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
+.about-sec::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:70px 70px;mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 0%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 0%,transparent 80%);opacity:0.5;pointer-events:none;}
+.about-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;}
+.about-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:28px;}
+.about-eyebrow::before,.about-eyebrow::after{content:'';width:32px;height:1px;background:var(--blue);}
+.about-quote{font-size:100px;line-height:0.7;color:rgba(23,112,241,0.12);font-family:'Poppins',sans-serif;font-weight:700;display:block;margin-bottom:12px;user-select:none;}
+.about-text{font-size:clamp(21px,2.6vw,30px);line-height:1.6;color:rgba(255,255,255,0.88);font-weight:300;letter-spacing:-0.2px;}
+.about-text .blue{color:#1770f1;font-weight:400;}
+.about-divider{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:40px;}
+.about-divider span{width:4px;height:4px;border-radius:50%;background:rgba(23,112,241,0.5);}
+.about-divider span:nth-child(2){background:rgba(23,112,241,0.8);width:6px;height:6px;}
 
 /* INNOVATION */
 .innovation-sec{position:relative;padding:140px 0;overflow:hidden;background:linear-gradient(180deg,#000 0%,#020815 50%,#000 100%);}
@@ -85,11 +96,13 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.12;}
 .performance-head{text-align:center;margin-bottom:80px;}
 .performance-head .section-eyebrow{justify-content:center;}
 .counter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-radius:20px;overflow:hidden;border:1px solid var(--line);}
-.counter-box{background:linear-gradient(135deg,#070707 0%,#030303 100%);padding:48px 32px;text-align:center;position:relative;transition:transform 0.3s,background 0.3s;}
-.counter-box:hover{background:linear-gradient(135deg,#0a0a0a 0%,#050505 100%);}
-.counter-num{font-family:'Poppins',sans-serif;font-size:clamp(40px,4vw,56px);font-weight:700;line-height:1;margin-bottom:8px;color:#fff;letter-spacing:-1px;}
-.counter-num .unit{color:var(--blue);font-size:0.6em;font-weight:600;margin-left:4px;}
-.counter-label{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;margin-top:14px;font-weight:400;}
+.counter-box{background:linear-gradient(135deg,#060606 0%,#030303 100%);padding:52px 32px;text-align:center;position:relative;transition:transform 0.3s,background 0.3s,box-shadow 0.3s;overflow:hidden;}
+.counter-box::before{content:'';position:absolute;top:0;left:15%;right:15%;height:2px;background:linear-gradient(90deg,transparent,rgba(23,112,241,0.5),transparent);transition:opacity 0.3s;}
+.counter-box::after{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(23,112,241,0.07) 0%,transparent 70%);pointer-events:none;}
+.counter-box:hover{background:linear-gradient(135deg,#0b0b0b 0%,#060606 100%);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.5);}
+.counter-num{font-family:'Poppins',sans-serif;font-size:clamp(44px,4.5vw,62px);font-weight:700;line-height:1;letter-spacing:-1.5px;position:relative;z-index:1;background:linear-gradient(135deg,#fff 30%,rgba(77,163,255,0.9) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.counter-num .unit{-webkit-text-fill-color:#4da3ff;color:#4da3ff;font-size:0.58em;font-weight:600;margin-left:4px;}
+.counter-label{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.55;margin-top:16px;font-weight:400;position:relative;z-index:1;}
 @media(max-width:991px){.counter-grid{grid-template-columns:1fr 1fr;}}
 
 /* WHY AARVISH (HORIZONTAL CARDS) */
@@ -168,7 +181,7 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.12;}
   <div class="container">
     <div class="banner-inner">
       <div class="fade-up">
-        <div class="banner-eyebrow">Aarvish Global LTD</div>
+        <div class="banner-eyebrow">Water Innovation · Manitoba, Canada</div>
         <h1 class="banner-title">
           Innovative water and renewable
           <span class="fw-light">technologies</span><span class="text-primary">.</span>
@@ -178,6 +191,11 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.12;}
           <a href="Innovation - destop final Main.html" class="btn btn-primary">Explore Innovation →</a>
           <a href="Inquiry Destop Main.html" class="btn btn-ghost">Get in Touch</a>
         </div>
+        <div class="trust-tags">
+          <span>Manitoba Métis Federation Registered</span>
+          <span>Climate-Ready Engineering</span>
+          <span>Indigenous Community First</span>
+        </div>
       </div>
       <div class="right-video-wrap fade-up">
         <video autoplay muted loop playsinline>
@@ -186,6 +204,10 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.12;}
       </div>
     </div>
   </div>
+  <div class="scroll-cue">
+    <span class="scroll-cue-text">Scroll</span>
+    <div class="scroll-cue-line"></div>
+  </div>
 </section>
 
 <!-- ============ ABOUT ============ -->
@@ -193,7 +215,11 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.12;}
   <div class="container">
     <div class="about-inner fade-up">
       <div class="about-eyebrow">Our Vision</div>
-      <p class="about-text">At <strong>Aarvish Global LTD</strong>, our vision is to transform the way the world thinks about water. We believe that access to <strong>clean, safe, and sustainable water</strong> is not a privilege but a fundamental human right.</p>
+      <span class="about-quote">"</span>
+      <p class="about-text">Clean water is not a scarcity problem — it is an <span class="blue">infrastructure problem</span>. Aarvish exists to close that gap, with technology built for the harshest climates, the most remote communities, and a world that can no longer afford to wait.</p>
+      <div class="about-divider">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </div>
 </section>
@@ -245,7 +271,7 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.12;}
   <div class="container">
     <div class="performance-head fade-up">
       <div class="section-eyebrow">Performance Overview</div>
-      <h2 class="section-title">Performance <span class="fw-light">Overview</span><span class="text-primary">.</span></h2>
+      <h2 class="section-title">By the <span class="fw-light">Numbers</span><span class="text-primary">.</span></h2>
     </div>
     <div class="counter-grid fade-up">
       <div class="counter-box">
