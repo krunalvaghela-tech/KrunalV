@@ -43,32 +43,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 { font-family: 'Poppins', sans-serif
 .cursorinnerhover { width: 50px; height: 50px; opacity: .5; }
 
 /* ===== NAVBAR ===== */
-.navbar {
-  padding: 0; position: fixed; top: 30px;
-  left: 0; right: 0; z-index: 999;
-  display: flex; justify-content: center;
-}
-.navbar-wrap {
-  background: #00000096; padding: 10px 25px;
-  border-radius: 50px; backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  display: flex; align-items: center; justify-content: space-between;
-  width: calc(100% - 60px); max-width: 1320px;
-}
-.navbar-brand img { max-width: 65px; width: 100%; }
-.nav-item .nav-link {
-  padding: 10px 22px !important; font-size: 18px;
-  font-weight: 400; color: #fff; font-family: 'Poppins', sans-serif;
-  transition: color 0.3s;
-}
-.nav-item .nav-link:hover, .nav-item .nav-link.active { color: #1770f1; }
-.navbar-toggler {
-  width: 35px; height: 30px; padding: 5px 5px 5px 4px;
-  line-height: normal; display: flex; align-items: center;
-  justify-content: space-between; gap: 4px; flex-direction: column;
-  border: none; background: transparent; cursor: pointer;
-}
-.navbar-toggler .toggler-icon { width: 100%; height: 2px; background: #fff; display: block; }
+.navbar{padding:0;position:fixed;top:30px;left:0;right:0;z-index:999;display:flex;justify-content:center;}
+.navbar-wrap{background:#00000096;padding:10px 25px;border-radius:50px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;width:calc(100% - 60px);max-width:1320px;border:1px solid rgba(255,255,255,0.06);}
+.navbar-brand img{max-width:65px;width:100%;}
+.navbar-nav{display:flex;flex-direction:row;align-items:center;gap:4px;list-style:none;margin:0;padding:0;}
+.nav-item .nav-link{padding:10px 22px;font-size:18px;font-weight:400;color:#fff;font-family:'Poppins',sans-serif;transition:color 0.3s;display:block;}
+.nav-item .nav-link:hover,.nav-item .nav-link.active{color:#1770f1;}
+@media(max-width:991px){.navbar{top:20px;}.navbar-wrap{padding:10px 18px;}}
 
 /* ===== INNOVATION BANNER ===== */
 .innovation-banner {
@@ -667,45 +648,21 @@ section, .tech-overview, [id] {
 .btn-outline-site:hover { border-color: #1770f1; color: #1770f1; }
 
 /* ===== FOOTER ===== */
-.footer-sec {
-  background: #000; padding: 80px 5vw 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-.footer-logo-text {
-  font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 700;
-  color: #fff; margin-bottom: 6px; display: block;
-}
-.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.35); font-weight: 300; font-family: 'Jost', sans-serif; }
-.footer-col-title {
-  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
-  color: #1770f1; margin-bottom: 18px; font-weight: 500; font-family: 'Jost', sans-serif;
-}
-.footer-links-list { display: flex; flex-direction: column; gap: 10px; }
-.footer-links-list a {
-  font-size: 14px; color: rgba(255,255,255,0.45); transition: color 0.2s;
-  font-family: 'Jost', sans-serif; font-weight: 300;
-}
-.footer-links-list a:hover { color: #fff; }
-.social-links { display: flex; gap: 10px; margin-top: 20px; }
-.social-links a {
-  width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.45); font-size: 13px; transition: all 0.2s; font-weight: 500;
-  font-family: 'Jost', sans-serif;
-}
-.social-links a:hover { border-color: #1770f1; color: #1770f1; background: rgba(23,112,241,0.08); }
-.footer-bottom {
-  padding: 24px 0; margin-top: 60px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 12px;
-}
-.footer-bottom p {
-  font-size: 13px; color: rgba(255,255,255,0.2); margin: 0;
-  font-family: 'Jost', sans-serif; font-weight: 300;
-}
-.footer-bottom a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
-.footer-bottom a:hover { color: #fff; }
+.footer-sec{background:#020202;padding:70px 0 0;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px;}
+.footer-logo-img{max-width:70px;width:100%;height:auto;display:block;margin-bottom:18px;}
+.footer-tagline{font-size:14px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.75;}
+.footer-col-title{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#1770f1;margin-bottom:20px;font-weight:500;font-family:'Jost',sans-serif;}
+.footer-links{display:flex;flex-direction:column;gap:12px;}
+.footer-links a{font-size:14px;color:rgba(255,255,255,0.38);transition:color 0.2s;font-family:'Jost',sans-serif;font-weight:300;}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{padding:24px 0;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.2);margin:0;font-family:'Jost',sans-serif;}
+.social-links{display:flex;gap:10px;margin-top:20px;}
+.social-links a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);font-size:13px;font-weight:600;text-decoration:none;transition:border-color 0.2s,color 0.2s;}
+.social-links a:hover{border-color:#1770f1;color:#1770f1;}
+@media(max-width:991px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px;}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr;}}
 
 /* ===== FADE IN ===== */
 .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.75s ease, transform 0.75s ease; }
@@ -764,6 +721,15 @@ section, .tech-overview, [id] {
 .wc-trail{position:fixed;border-radius:50%;background:#1770f1;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);}
 @keyframes wcRipple{0%{transform:translate(-50%,-50%) scale(1);opacity:0.55;}100%{transform:translate(-50%,-50%) scale(3.2);opacity:0;}}
 .wc-ripple{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(77,163,255,0.7);pointer-events:none;z-index:99997;animation:wcRipple 0.65s ease-out forwards;}
+/* Navbar scroll glow */
+.navbar-wrap{transition:box-shadow 0.3s,background 0.3s;}
+.navbar-wrap.scrolled{background:rgba(0,0,0,0.92);box-shadow:0 4px 30px rgba(0,0,0,0.6);}
+/* Footer top accent */
+.footer-sec{position:relative;}
+.footer-sec::before{content:'';position:absolute;top:0;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,rgba(23,112,241,0.4),transparent);}
+/* Nav active underline */
+.nav-link.active{position:relative;}
+.nav-link.active::after{content:'';position:absolute;bottom:4px;left:22px;right:22px;height:1.5px;background:#1770f1;border-radius:2px;}
 </style>
 </head>
 <body>
@@ -775,24 +741,17 @@ section, .tech-overview, [id] {
 <div class="cursor2"></div>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid navbar-wrap">
+<nav class="navbar">
+  <div class="navbar-wrap">
     <a class="navbar-brand" href="https://www.aarvish.ca/index.php">
       <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Logo">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-      <span class="toggler-icon"></span>
-      <span class="toggler-icon"></span>
-      <span class="toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center gap-1">
-        <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/index.php">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/insights.php">Insights</a></li>
-        <li class="nav-item"><a class="nav-link active" href="https://www.aarvish.ca/innovation.php">Innovation</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/inquiry.php">Inquiry</a></li>
-      </ul>
-    </div>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/index.php">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="Insights-Desktop-Main.html">Insights</a></li>
+      <li class="nav-item"><a class="nav-link active" href="Innovation - destop final Main.html">Innovation</a></li>
+      <li class="nav-item"><a class="nav-link" href="Inquiry Destop Main.html">Inquiry</a></li>
+    </ul>
   </div>
 </nav>
 
@@ -1252,56 +1211,49 @@ section, .tech-overview, [id] {
 
 <!-- ═══ FOOTER ═══ -->
 <footer class="footer-sec">
-  <div class="row g-5 pb-5">
-    <div class="col-lg-4 col-md-6">
-      <a href="https://www.aarvish.ca/index.php">
-        <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish" style="max-width:80px;margin-bottom:16px;display:block;">
-      </a>
-      <div class="footer-tagline" style="margin-bottom:6px;">Innovative water &amp; renewable technologies.</div>
-      <p style="font-size:13px;color:rgba(255,255,255,0.25);line-height:1.7;font-family:'Jost',sans-serif;font-weight:300;margin-top:16px;max-width:220px;">
-        175 Pulberry St, Winnipeg,<br>Manitoba R2M 3X6, Canada
-      </p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/company/aarvish/" title="LinkedIn">in</a>
-        <a href="https://youtube.com/@aarvishgloballtd" title="YouTube">▶</a>
-        <a href="https://www.instagram.com/aarvish.ca" title="Instagram" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="mailto:operations@aarvish.ca" title="Email" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
-        <a href="tel:+12049623844" title="Phone" aria-label="Phone"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Global LTD" class="footer-logo-img">
+        <p class="footer-tagline">Decentralized water innovation for a water-secure future. Serving Indigenous communities, government agencies, and global partners from Winnipeg, Manitoba.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/aarvish/" title="LinkedIn" target="_blank" rel="noopener">in</a>
+          <a href="https://www.instagram.com/aarvish.ca" title="Instagram" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://youtube.com/@aarvishgloballtd" title="YouTube" target="_blank" rel="noopener">▶</a>
+          <a href="mailto:operations@aarvish.ca" title="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></a>
+          <a href="tel:+12049623844" title="Phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12 19.79 19.79 0 010.95 3.38 2 2 0 012.93 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.07-1.07a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Company</h6>
+        <ul class="footer-links">
+          <li><a href="https://www.aarvish.ca/index.php">Home</a></li>
+          <li><a href="Insights-Desktop-Main.html">Insights</a></li>
+          <li><a href="Innovation - destop final Main.html">Innovation</a></li>
+          <li><a href="Inquiry Destop Main.html">Inquiry</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Contact</h6>
+        <ul class="footer-links">
+          <li><a href="tel:+12049623844">+1 204-962-3844</a></li>
+          <li><a href="mailto:operations@aarvish.ca">operations@aarvish.ca</a></li>
+          <li><a href="#">Winnipeg, MB, Canada</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Legal</h6>
+        <ul class="footer-links">
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="sustainability-report.html">Sustainability Report</a></li>
+        </ul>
       </div>
     </div>
-    <div class="col-lg-2 col-md-6 col-6">
-      <div class="footer-col-title">Technologies</div>
-      <div class="footer-links-list">
-        <a href="#awg">AWG System</a>
-        <a href="#windmill">Portable Windmill</a>
-        <a href="#ro">RO Purification</a>
-        <a href="#reclamation">Wastewater Reclamation</a>
-        <a href="#how-it-works">How It Works</a>
-      </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Aarvish Global LTD. All Rights Reserved. Manitoba Métis Federation Registered.</p>
+      <p>Designed to deliver water security to those who need it most.</p>
     </div>
-    <div class="col-lg-2 col-md-6 col-6">
-      <div class="footer-col-title">Company</div>
-      <div class="footer-links-list">
-        <a href="https://www.aarvish.ca/index.php">Home</a>
-        <a href="https://www.aarvish.ca/insights.php">Insights</a>
-        <a href="https://www.aarvish.ca/innovation.php">Innovation</a>
-        <a href="https://www.aarvish.ca/inquiry.php">Inquiry</a>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6">
-      <div class="footer-col-title">Connect</div>
-      <div class="footer-links-list">
-        <a href="https://www.linkedin.com/company/aarvish/">LinkedIn</a>
-        <a href="https://youtube.com/@aarvishgloballtd">YouTube</a>
-        <a href="https://www.instagram.com/aarvish.ca">Instagram</a>
-        <a href="mailto:operations@aarvish.ca">operations@aarvish.ca</a>
-        <a href="tel:+12049623844">+1 204-962-3844</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 <a href="https://www.aarvish.ca/index.php">Aarvish Global LTD</a>. All rights reserved.</p>
-    <p><a href="mailto:operations@aarvish.ca">operations@aarvish.ca</a> · +1 204-962-3844</p>
   </div>
 </footer>
 
@@ -1415,6 +1367,15 @@ document.querySelectorAll('a').forEach(function(a) {
   document.querySelectorAll('a,button,[role="button"]').forEach(function(el){
     el.addEventListener('mouseenter',function(){ring.classList.add('hover');});
     el.addEventListener('mouseleave',function(){ring.classList.remove('hover');});
+  });
+})();
+</script>
+<script>
+(function(){
+  var wrap = document.querySelector('.navbar-wrap');
+  if(!wrap) return;
+  window.addEventListener('scroll', function(){
+    wrap.classList.toggle('scrolled', window.scrollY > 40);
   });
 })();
 </script>

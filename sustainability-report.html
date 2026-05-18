@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sustainability Report 2026 — Aarvish Global LTD</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:#000;color:#fff;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.15;}
+:root{--blue:#1770f1;--gold:#d4b896;--green:#4ade80;--line:rgba(255,255,255,0.07);--muted:rgba(255,255,255,0.55);}
+.container{width:100%;max-width:1100px;margin:0 auto;padding:0 24px;}
+
+.navbar{padding:0;position:fixed;top:30px;left:0;right:0;z-index:999;display:flex;justify-content:center;}
+.navbar-wrap{background:#00000096;padding:10px 25px;border-radius:50px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;width:calc(100% - 60px);max-width:1320px;border:1px solid rgba(255,255,255,0.06);transition:background 0.3s,box-shadow 0.3s;}
+.navbar-wrap.scrolled{background:rgba(0,0,0,0.97);box-shadow:0 2px 20px rgba(0,0,0,0.6);}
+.navbar-brand img{max-width:65px;width:100%;}
+.navbar-nav{display:flex;flex-direction:row;align-items:center;gap:4px;list-style:none;margin:0;padding:0;}
+.nav-item .nav-link{padding:10px 22px;font-size:18px;font-weight:400;color:#fff;font-family:'Poppins',sans-serif;transition:color 0.3s;display:block;}
+.nav-item .nav-link:hover{color:#1770f1;}
+@media(max-width:991px){.navbar{top:20px;}.navbar-wrap{padding:10px 18px;}.nav-item .nav-link{padding:8px 14px;font-size:15px;}}
+
+/* HERO */
+.page-hero{padding:160px 24px 90px;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(74,222,128,0.1) 0%,rgba(23,112,241,0.08) 40%,transparent 70%),linear-gradient(180deg,#020a05 0%,#000 80%);}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,#000 0%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,#000 0%,transparent 80%);opacity:0.6;}
+.page-hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:20px;position:relative;z-index:1;}
+.page-hero .eyebrow::before,.page-hero .eyebrow::after{content:'';width:24px;height:1px;background:var(--green);}
+.page-hero h1{font-size:clamp(36px,6vw,64px);line-height:1.05;letter-spacing:-1px;margin-bottom:16px;position:relative;z-index:1;}
+.page-hero h1 span{color:var(--green);}
+.page-hero .sub{font-size:16px;color:var(--muted);max-width:600px;margin:0 auto 32px;line-height:1.7;position:relative;z-index:1;font-weight:300;}
+.year-badge{display:inline-block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);color:var(--green);padding:8px 20px;border-radius:30px;position:relative;z-index:1;}
+
+/* IMPACT STRIP */
+.impact-strip{background:#050505;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:60px 0;}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+.impact-cell{background:#050505;padding:40px 24px;text-align:center;}
+.impact-num{font-family:'Poppins',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1;margin-bottom:8px;}
+.impact-num.green{color:var(--green);}
+.impact-num.blue{color:var(--blue);}
+.impact-num.gold{color:var(--gold);}
+.impact-label{font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:0.5px;line-height:1.5;}
+@media(max-width:768px){.impact-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:440px){.impact-grid{grid-template-columns:1fr;}}
+
+/* SECTION */
+.report-section{padding:80px 0;border-bottom:1px solid var(--line);}
+.report-section:last-of-type{border-bottom:none;}
+.sec-header{margin-bottom:48px;}
+.sec-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:16px;}
+.sec-eyebrow::before{content:'';width:22px;height:1px;background:var(--green);}
+.sec-header h2{font-size:clamp(28px,4vw,44px);line-height:1.08;letter-spacing:-0.5px;margin-bottom:14px;}
+.sec-header p{font-size:16px;line-height:1.75;color:var(--muted);font-weight:300;max-width:720px;}
+
+/* PILLARS GRID */
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.pillar-card{background:linear-gradient(135deg,#080808 0%,#050505 100%);border:1px solid var(--line);border-radius:20px;padding:36px 32px;position:relative;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;}
+.pillar-card::before{content:'';position:absolute;top:-60%;left:-20%;width:200%;height:200%;background:radial-gradient(circle at 30% 30%,rgba(74,222,128,0.06),transparent 60%);opacity:0;transition:opacity 0.3s;}
+.pillar-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.5);}
+.pillar-card:hover::before{opacity:1;}
+.pillar-icon{width:52px;height:52px;border-radius:14px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:22px;}
+.pillar-card h3{font-size:18px;margin-bottom:12px;font-family:'Poppins',sans-serif;}
+.pillar-card p{font-size:14px;line-height:1.7;color:var(--muted);font-weight:300;}
+@media(max-width:768px){.pillars-grid{grid-template-columns:1fr;}}
+
+/* SDG GRID */
+.sdg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
+.sdg-card{background:rgba(255,255,255,0.02);border:1px solid var(--line);border-radius:14px;padding:24px 20px;display:flex;gap:16px;align-items:flex-start;transition:border-color 0.2s;}
+.sdg-card:hover{border-color:rgba(74,222,128,0.3);}
+.sdg-num{font-family:'Poppins',sans-serif;font-size:32px;font-weight:700;color:var(--green);line-height:1;flex-shrink:0;}
+.sdg-info h4{font-size:13px;font-weight:600;margin-bottom:4px;font-family:'Jost',sans-serif;}
+.sdg-info p{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5;font-weight:300;}
+
+/* COMMITMENT TABLE */
+.commit-table{width:100%;border-collapse:collapse;margin-top:8px;}
+.commit-table th{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.35);padding:14px 20px;text-align:left;border-bottom:1px solid var(--line);font-weight:500;}
+.commit-table td{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.04);font-size:14px;color:rgba(255,255,255,0.75);vertical-align:top;}
+.commit-table tr:last-child td{border-bottom:none;}
+.commit-table tr:hover td{background:rgba(255,255,255,0.01);}
+.tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;}
+.tag-green{background:rgba(74,222,128,0.1);color:var(--green);border:1px solid rgba(74,222,128,0.2);}
+.tag-blue{background:rgba(23,112,241,0.1);color:var(--blue);border:1px solid rgba(23,112,241,0.2);}
+.tag-gold{background:rgba(212,184,150,0.1);color:var(--gold);border:1px solid rgba(212,184,150,0.2);}
+
+/* PROGRESS BARS */
+.progress-list{display:flex;flex-direction:column;gap:24px;}
+.progress-item{}
+.progress-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
+.progress-label{font-size:14px;font-weight:500;}
+.progress-pct{font-size:13px;color:var(--green);font-family:'Poppins',sans-serif;font-weight:600;}
+.progress-bar{height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,rgba(23,112,241,0.8),var(--green));transition:width 1.2s cubic-bezier(.25,.46,.45,.94);}
+.progress-note{font-size:12px;color:rgba(255,255,255,0.4);margin-top:6px;}
+
+/* TWO-COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+@media(max-width:768px){.two-col{grid-template-columns:1fr;gap:40px;}}
+
+/* CALLOUT */
+.green-callout{background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.15);border-radius:16px;padding:32px 36px;margin:40px 0;}
+.green-callout h3{font-size:18px;color:var(--green);margin-bottom:12px;font-family:'Jost',sans-serif;font-weight:600;}
+.green-callout p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.75;font-weight:300;margin:0;}
+
+/* FOOTER */
+.footer-sec{background:#000;border-top:1px solid rgba(255,255,255,0.06);padding:80px 0 0;position:relative;}
+.footer-sec::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(74,222,128,0.35),transparent);}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px;}
+.footer-logo-img{max-width:70px;margin-bottom:18px;}
+.footer-tagline{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.38);max-width:240px;}
+.social-links{display:flex;gap:10px;margin-top:24px;}
+.social-links a{width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.38);font-size:13px;transition:all 0.2s;font-weight:600;}
+.social-links a:hover{border-color:#1770f1;color:#1770f1;background:rgba(23,112,241,0.08);}
+.footer-col-title{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:20px;font-weight:500;}
+.footer-links{display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:14px;color:rgba(255,255,255,0.5);transition:color 0.2s;}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding:28px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.25);}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:36px;}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}}
+
+/* FADE-IN */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade-up.visible{opacity:1;transform:none;}
+
+*{cursor:none!important;}
+.wc-ring{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(74,222,128,0.45);background:radial-gradient(circle,rgba(74,222,128,0.06) 0%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none;z-index:99999;transition:width .35s cubic-bezier(.25,.46,.45,.94),height .35s cubic-bezier(.25,.46,.45,.94),border-color .3s,background .3s,border-radius .35s;}
+.wc-dot{position:fixed;width:5px;height:5px;border-radius:50%;background:#4ade80;transform:translate(-50%,-50%);pointer-events:none;z-index:100000;box-shadow:0 0 6px rgba(74,222,128,0.95),0 0 18px rgba(74,222,128,0.5),0 0 32px rgba(74,222,128,0.2);}
+.wc-ring.hover{width:56px;height:56px;border-color:rgba(74,222,128,0.8);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;}
+.wc-trail{position:fixed;border-radius:50%;background:#4ade80;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);}
+@keyframes wcRipple{0%{transform:translate(-50%,-50%) scale(1);opacity:0.55;}100%{transform:translate(-50%,-50%) scale(3.2);opacity:0;}}
+.wc-ripple{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(74,222,128,0.6);pointer-events:none;z-index:99997;animation:wcRipple 0.65s ease-out forwards;}
+</style>
+</head>
+<body>
+<div class="wc-ring" id="wcRing"></div>
+<div class="wc-dot" id="wcDot"></div>
+
+<nav class="navbar">
+  <div class="navbar-wrap" id="navbarWrap">
+    <a class="navbar-brand" href="https://www.aarvish.ca/index.php">
+      <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Logo">
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/index.php">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="Insights-Desktop-Main.html">Insights</a></li>
+      <li class="nav-item"><a class="nav-link" href="Innovation - destop final Main.html">Innovation</a></li>
+      <li class="nav-item"><a class="nav-link" href="Inquiry Destop Main.html">Inquiry</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">Environmental Responsibility</div>
+  <h1>Sustainability<br><span>Report 2026</span></h1>
+  <p class="sub">Our commitment to clean water access, Indigenous community partnerships, and responsible engineering — from Winnipeg, Manitoba to the world.</p>
+  <div class="year-badge">Annual Report · Fiscal Year 2025–2026</div>
+</div>
+
+<section class="impact-strip">
+  <div class="container">
+    <div class="impact-grid">
+      <div class="impact-cell fade-up">
+        <div class="impact-num green">8K<small style="font-size:0.5em;"> L</small></div>
+        <div class="impact-label">Litres per unit per day<br>design target</div>
+      </div>
+      <div class="impact-cell fade-up">
+        <div class="impact-num blue">6</div>
+        <div class="impact-label">UN Sustainable<br>Development Goals aligned</div>
+      </div>
+      <div class="impact-cell fade-up">
+        <div class="impact-num gold">$0.08</div>
+        <div class="impact-label">Projected cost per litre<br>vs $0.30–$1.20 trucking</div>
+      </div>
+      <div class="impact-cell fade-up">
+        <div class="impact-num green">96%</div>
+        <div class="impact-label">Design uptime target<br>annual availability</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: MISSION -->
+<section class="report-section">
+  <div class="container">
+    <div class="two-col">
+      <div class="sec-header fade-up">
+        <div class="sec-eyebrow">Our Mission</div>
+        <h2>Water is a right,<br>not a privilege.</h2>
+        <p>Aarvish Global LTD was founded on a single conviction: that clean, safe water should be accessible to every person regardless of geography, income, or infrastructure. We build decentralized water treatment systems — engineered to operate in Canada's most challenging environments — to make that conviction real.</p>
+        <p style="margin-top:16px;">Our work is rooted in Manitoba, where we have registered with the Manitoba Métis Federation and prioritize deployment partnerships with First Nations, Métis communities, and remote northern settlements that have historically been underserved by centralized water infrastructure.</p>
+      </div>
+      <div class="fade-up">
+        <div class="green-callout">
+          <h3>Why Decentralized?</h3>
+          <p>Centralized water systems require billions in infrastructure and years of construction — time and money that remote communities cannot afford to wait for. A single Aarvish unit can be deployed in under 4 hours, serve up to 2,000 people, and operate without a permanent grid connection. Decentralization is not a compromise — it is the future of equitable water access.</p>
+        </div>
+        <div style="margin-top:24px;padding:28px 32px;background:rgba(255,255,255,0.02);border:1px solid var(--line);border-radius:16px;">
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:12px;letter-spacing:1px;text-transform:uppercase;font-size:11px;">Registered &amp; Recognized</p>
+          <p style="font-size:15px;color:rgba(255,255,255,0.75);line-height:1.7;font-weight:300;">Manitoba Métis Federation Registered · Winnipeg, Manitoba · Canada Business Corporations Act</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: PILLARS -->
+<section class="report-section" style="background:#030303;">
+  <div class="container">
+    <div class="sec-header fade-up" style="text-align:center;max-width:680px;margin:0 auto 48px;">
+      <div class="sec-eyebrow" style="justify-content:center;">Sustainability Pillars</div>
+      <h2>Three foundations of responsible water innovation</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card fade-up">
+        <div class="pillar-icon">💧</div>
+        <h3>Environmental Stewardship</h3>
+        <p>Our systems are designed for minimal environmental footprint — low energy consumption, zero discharge to source water bodies, and modular construction that avoids large-scale land disturbance. We prioritize solar and hybrid power integration to reduce reliance on diesel generation in remote areas.</p>
+      </div>
+      <div class="pillar-card fade-up">
+        <div class="pillar-icon">🤝</div>
+        <h3>Indigenous Partnership</h3>
+        <p>We do not deploy into communities — we deploy with them. Aarvish engages in meaningful consultation with band councils, community health authorities, and Indigenous leadership before any deployment scoping begins. We prioritize training local operators and ensuring technology ownership remains with the community.</p>
+      </div>
+      <div class="pillar-card fade-up">
+        <div class="pillar-icon">⚙️</div>
+        <h3>Responsible Engineering</h3>
+        <p>Every specification we publish reflects honest engineering — projected targets backed by research, not marketing claims. We apply rigorous materials selection for food-grade safety, NSF/ANSI 61 compliance targets, and cold-weather engineering standards suited to Manitoba and northern Canada's climate extremes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: SDG ALIGNMENT -->
+<section class="report-section">
+  <div class="container">
+    <div class="sec-header fade-up">
+      <div class="sec-eyebrow">UN SDG Alignment</div>
+      <h2>Global Goals, Local Action</h2>
+      <p>Aarvish's technology and operations align with six United Nations Sustainable Development Goals. These are not aspirational checkboxes — they are embedded in our engineering design process, community engagement protocols, and business model.</p>
+    </div>
+    <div class="sdg-grid">
+      <div class="sdg-card fade-up">
+        <div class="sdg-num">6</div>
+        <div class="sdg-info"><h4>Clean Water &amp; Sanitation</h4><p>Core mission: clean water for underserved communities at $0.08/L design target.</p></div>
+      </div>
+      <div class="sdg-card fade-up">
+        <div class="sdg-num">3</div>
+        <div class="sdg-info"><h4>Good Health &amp; Wellbeing</h4><p>Eliminating waterborne illness risk in communities on boil-water advisories.</p></div>
+      </div>
+      <div class="sdg-card fade-up">
+        <div class="sdg-num">10</div>
+        <div class="sdg-info"><h4>Reduced Inequalities</h4><p>Prioritizing First Nations and remote communities historically excluded from infrastructure investment.</p></div>
+      </div>
+      <div class="sdg-card fade-up">
+        <div class="sdg-num">11</div>
+        <div class="sdg-info"><h4>Sustainable Communities</h4><p>Modular, community-scale infrastructure that grows with local needs.</p></div>
+      </div>
+      <div class="sdg-card fade-up">
+        <div class="sdg-num">13</div>
+        <div class="sdg-info"><h4>Climate Action</h4><p>Low-carbon water delivery replacing diesel-heavy trucking and generator-dependent systems.</p></div>
+      </div>
+      <div class="sdg-card fade-up">
+        <div class="sdg-num">17</div>
+        <div class="sdg-info"><h4>Partnerships for Goals</h4><p>Collaborating with governments, NGOs, and Indigenous organizations to scale impact.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: COMMITMENTS -->
+<section class="report-section" style="background:#030303;">
+  <div class="container">
+    <div class="sec-header fade-up">
+      <div class="sec-eyebrow">2026 Commitments</div>
+      <h2>What We Are Working Toward</h2>
+      <p>The following commitments represent Aarvish's active priorities for fiscal year 2026. Progress is tracked internally and will be updated in future annual reports.</p>
+    </div>
+    <div class="fade-up">
+      <table class="commit-table">
+        <thead>
+          <tr>
+            <th>Commitment</th>
+            <th>Target</th>
+            <th>Timeline</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pilot deployment — Manitoba community water system</td>
+            <td>1 unit, up to 500 residents served</td>
+            <td>Q4 2026</td>
+            <td><span class="tag tag-blue">In Development</span></td>
+          </tr>
+          <tr>
+            <td>NSF/ANSI 61 certification process initiation</td>
+            <td>Third-party lab testing of materials &amp; output</td>
+            <td>Q3 2026</td>
+            <td><span class="tag tag-blue">Scoping</span></td>
+          </tr>
+          <tr>
+            <td>Indigenous community consultation framework</td>
+            <td>Formal protocol for pre-deployment engagement</td>
+            <td>Q2 2026</td>
+            <td><span class="tag tag-green">Active</span></td>
+          </tr>
+          <tr>
+            <td>Solar hybrid power integration</td>
+            <td>Off-grid operation with solar + battery backup</td>
+            <td>Q1 2027</td>
+            <td><span class="tag tag-gold">Research</span></td>
+          </tr>
+          <tr>
+            <td>Remote telemetry &amp; water quality monitoring</td>
+            <td>Real-time dashboard for operators &amp; health authorities</td>
+            <td>Q2 2027</td>
+            <td><span class="tag tag-gold">Research</span></td>
+          </tr>
+          <tr>
+            <td>Emergency response fleet — 3 rapid-deploy units</td>
+            <td>Ready for deployment within 4 hours of activation</td>
+            <td>Q3 2027</td>
+            <td><span class="tag tag-blue">In Development</span></td>
+          </tr>
+          <tr>
+            <td>Operator training program — local community members</td>
+            <td>Certified local operators for every deployed unit</td>
+            <td>Q4 2026</td>
+            <td><span class="tag tag-green">Active</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: PROGRESS INDICATORS -->
+<section class="report-section">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <div class="sec-header fade-up">
+          <div class="sec-eyebrow">Technology Readiness</div>
+          <h2>Engineering Milestones</h2>
+        </div>
+        <div class="progress-list fade-up">
+          <div class="progress-item">
+            <div class="progress-header"><span class="progress-label">Core filtration design</span><span class="progress-pct">85%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:85%;"></div></div>
+            <div class="progress-note">Multi-stage membrane + UV treatment — design validation ongoing</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span class="progress-label">Cold-weather enclosure engineering</span><span class="progress-pct">70%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:70%;"></div></div>
+            <div class="progress-note">Rated to −40°C ambient with active insulation systems</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span class="progress-label">Remote monitoring software</span><span class="progress-pct">45%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:45%;"></div></div>
+            <div class="progress-note">IoT sensor integration + satellite uplink capability</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span class="progress-label">Regulatory compliance (Health Canada)</span><span class="progress-pct">30%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:30%;"></div></div>
+            <div class="progress-note">Pre-consultation with provincial drinking water authorities underway</div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span class="progress-label">Field pilot readiness</span><span class="progress-pct">20%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:20%;"></div></div>
+            <div class="progress-note">Community partnership agreements in early-stage negotiation</div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Community Impact</div>
+          <h2>Why This Matters Now</h2>
+        </div>
+        <p style="font-size:15px;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:20px;">As of 2025, over 30 First Nations communities in Canada remain under long-term drinking water advisories. In Manitoba alone, remote communities have faced boil-water notices for decades — not because the solutions don't exist, but because the systems were never designed for their geography or scale.</p>
+        <p style="font-size:15px;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:28px;">Emergency trucking of clean water to remote northern communities costs between $0.30 and $1.20 per litre — over 10× the cost of Aarvish's projected on-site production. A single 30-day emergency event serving 2,000 people can cost $1.4–$1.8M in trucked water alone. Our technology is designed to make that calculus obsolete.</p>
+        <div style="background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.15);border-radius:12px;padding:24px 28px;">
+          <p style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-bottom:10px;font-weight:500;">Projected 10-Year Impact</p>
+          <p style="font-size:22px;font-family:'Poppins',sans-serif;font-weight:700;color:#fff;line-height:1.3;">$18M–$48M<br><span style="font-size:14px;font-weight:300;color:var(--muted);">projected savings across a 10-unit fleet vs. trucked water over a decade</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: CLOSING -->
+<section class="report-section" style="background:#030303;text-align:center;">
+  <div class="container">
+    <div class="fade-up" style="max-width:720px;margin:0 auto;">
+      <div class="sec-eyebrow" style="justify-content:center;">A Message from Our Team</div>
+      <h2 style="margin-bottom:24px;">We are at the beginning.</h2>
+      <p style="font-size:17px;line-height:1.85;color:var(--muted);font-weight:300;margin-bottom:32px;">Aarvish Global LTD is an early-stage company. We do not have deployments to report — we have designs, research, and a deep commitment to the communities we intend to serve. This report is not a record of achievement; it is a declaration of intent and accountability.</p>
+      <p style="font-size:17px;line-height:1.85;color:var(--muted);font-weight:300;margin-bottom:40px;">We will update this report annually as our milestones progress. Every number we publish is backed by our engineering work. Every community relationship we build is founded on respect and genuine consultation. That is the only kind of water company we want to be.</p>
+      <a href="Inquiry Destop Main.html" style="display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:linear-gradient(135deg,rgba(74,222,128,0.15),rgba(23,112,241,0.1));border:1px solid rgba(74,222,128,0.25);border-radius:50px;font-size:14px;font-weight:500;color:#fff;letter-spacing:0.5px;transition:all 0.3s;" onmouseenter="this.style.background='linear-gradient(135deg,rgba(74,222,128,0.22),rgba(23,112,241,0.16))'" onmouseleave="this.style.background='linear-gradient(135deg,rgba(74,222,128,0.15),rgba(23,112,241,0.1))'">Partner With Us →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-sec">
+  <div class="container" style="max-width:1280px;">
+    <div class="footer-grid">
+      <div>
+        <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Global LTD" class="footer-logo-img">
+        <p class="footer-tagline">Decentralized water innovation for a water-secure future. Serving Indigenous communities, government agencies, and global partners from Winnipeg, Manitoba.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/aarvish/" title="LinkedIn" target="_blank" rel="noopener">in</a>
+          <a href="https://www.instagram.com/aarvish.ca" title="Instagram" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://youtube.com/@aarvishgloballtd" title="YouTube" target="_blank" rel="noopener">▶</a>
+          <a href="mailto:operations@aarvish.ca" title="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></a>
+          <a href="tel:+12049623844" title="Phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12 19.79 19.79 0 010.95 3.38 2 2 0 012.93 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.07-1.07a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Company</h6>
+        <div class="footer-links">
+          <a href="https://www.aarvish.ca/index.php">About Aarvish</a>
+          <a href="Innovation - destop final Main.html">Innovation</a>
+          <a href="Insights-Desktop-Main.html">Insights</a>
+          <a href="Inquiry Destop Main.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Contact</h6>
+        <div class="footer-links">
+          <a href="tel:+12049623844">+1 204-962-3844</a>
+          <a href="mailto:operations@aarvish.ca">operations@aarvish.ca</a>
+          <a href="#">Winnipeg, MB, Canada</a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Legal</h6>
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="sustainability-report.html">Sustainability Report</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Aarvish Global LTD. All Rights Reserved. Manitoba Métis Federation Registered.</p>
+      <p>Designed to deliver water security to those who need it most.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ring=document.getElementById('wcRing'),dot=document.getElementById('wcDot');
+  var rx=window.innerWidth/2,ry=window.innerHeight/2,mx=rx,my=ry;
+  var trails=[];
+  for(var i=0;i<5;i++){var t=document.createElement('div');t.className='wc-trail';var s=3.5-i*0.5;t.style.cssText='width:'+s+'px;height:'+s+'px;opacity:'+(0.55-i*0.09)+';';document.body.appendChild(t);trails.push({el:t,x:rx,y:ry});}
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  document.addEventListener('mousedown',function(e){var r=document.createElement('div');r.className='wc-ripple';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';document.body.appendChild(r);setTimeout(function(){if(r.parentNode)r.parentNode.removeChild(r);},700);});
+  document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){ring.classList.add('hover');});el.addEventListener('mouseleave',function(){ring.classList.remove('hover');});});
+  function animate(){
+    rx+=(mx-rx)*0.11;ry+=(my-ry)*0.11;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    var px=mx,py=my;
+    trails.forEach(function(t){t.x+=(px-t.x)*0.18;t.y+=(py-t.y)*0.18;t.el.style.left=t.x+'px';t.el.style.top=t.y+'px';px=t.x;py=t.y;});
+    requestAnimationFrame(animate);
+  }
+  animate();
+  window.addEventListener('scroll',function(){document.getElementById('navbarWrap').classList.toggle('scrolled',window.scrollY>40);});
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.15});
+  document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el);});
+  setTimeout(function(){
+    document.querySelectorAll('.progress-fill').forEach(function(el){var w=el.style.width;el.style.width='0';setTimeout(function(){el.style.width=w;},100);});
+  },500);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Aarvish Global LTD</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:#000;color:#fff;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.15;}
+:root{--blue:#1770f1;--line:rgba(255,255,255,0.07);--muted:rgba(255,255,255,0.55);}
+.container{width:100%;max-width:900px;margin:0 auto;padding:0 24px;}
+
+/* NAVBAR */
+.navbar{padding:0;position:fixed;top:30px;left:0;right:0;z-index:999;display:flex;justify-content:center;}
+.navbar-wrap{background:#00000096;padding:10px 25px;border-radius:50px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;width:calc(100% - 60px);max-width:1320px;border:1px solid rgba(255,255,255,0.06);transition:background 0.3s,box-shadow 0.3s;}
+.navbar-wrap.scrolled{background:rgba(0,0,0,0.97);box-shadow:0 2px 20px rgba(0,0,0,0.6);}
+.navbar-brand img{max-width:65px;width:100%;}
+.navbar-nav{display:flex;flex-direction:row;align-items:center;gap:4px;list-style:none;margin:0;padding:0;}
+.nav-item .nav-link{padding:10px 22px;font-size:18px;font-weight:400;color:#fff;font-family:'Poppins',sans-serif;transition:color 0.3s;display:block;position:relative;}
+.nav-item .nav-link:hover{color:#1770f1;}
+@media(max-width:991px){.navbar{top:20px;}.navbar-wrap{padding:10px 18px;}.nav-item .nav-link{padding:8px 14px;font-size:15px;}}
+
+/* HERO */
+.page-hero{padding:160px 24px 80px;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(23,112,241,0.12) 0%,transparent 60%),linear-gradient(180deg,#020815 0%,#000 80%);}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,#000 0%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,#000 0%,transparent 80%);opacity:0.6;}
+.page-hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:20px;position:relative;z-index:1;}
+.page-hero .eyebrow::before,.page-hero .eyebrow::after{content:'';width:24px;height:1px;background:var(--blue);}
+.page-hero h1{font-size:clamp(36px,6vw,64px);line-height:1.05;letter-spacing:-1px;margin-bottom:16px;position:relative;z-index:1;}
+.page-hero .updated{font-size:13px;color:var(--muted);position:relative;z-index:1;}
+
+/* CONTENT */
+.legal-body{padding:80px 0 120px;}
+.legal-toc{background:rgba(23,112,241,0.05);border:1px solid rgba(23,112,241,0.15);border-radius:16px;padding:32px 36px;margin-bottom:64px;}
+.legal-toc h3{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:20px;font-family:'Jost',sans-serif;}
+.legal-toc ol{list-style:decimal;padding-left:20px;display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;}
+.legal-toc li{font-size:14px;color:rgba(255,255,255,0.7);padding:2px 0;}
+.legal-toc a{color:rgba(255,255,255,0.7);transition:color 0.2s;}
+.legal-toc a:hover{color:var(--blue);}
+@media(max-width:600px){.legal-toc ol{grid-template-columns:1fr;}}
+
+.legal-section{margin-bottom:60px;scroll-margin-top:120px;}
+.legal-section h2{font-size:22px;font-weight:600;color:#fff;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;}
+.legal-section h2 .sec-num{font-size:12px;color:var(--blue);font-family:'Jost',sans-serif;font-weight:500;letter-spacing:1px;background:rgba(23,112,241,0.1);padding:3px 10px;border-radius:20px;}
+.legal-section p{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.72);margin-bottom:14px;font-weight:300;}
+.legal-section ul{list-style:none;margin:14px 0 20px;}
+.legal-section ul li{font-size:15px;line-height:1.75;color:rgba(255,255,255,0.72);padding:6px 0 6px 22px;position:relative;font-weight:300;}
+.legal-section ul li::before{content:'';position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--blue);opacity:0.7;}
+.legal-section h3{font-size:16px;font-weight:600;color:#fff;margin:28px 0 12px;font-family:'Jost',sans-serif;}
+.callout{background:rgba(23,112,241,0.06);border-left:3px solid var(--blue);border-radius:0 12px 12px 0;padding:18px 22px;margin:20px 0;}
+.callout p{margin:0;font-size:14px;color:rgba(255,255,255,0.8);}
+
+/* FOOTER */
+.footer-sec{background:#000;border-top:1px solid rgba(255,255,255,0.06);padding:80px 0 0;position:relative;}
+.footer-sec::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(23,112,241,0.4),transparent);}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px;}
+.footer-logo-img{max-width:70px;margin-bottom:18px;}
+.footer-tagline{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.38);max-width:240px;}
+.social-links{display:flex;gap:10px;margin-top:24px;}
+.social-links a{width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.38);font-size:13px;transition:all 0.2s;font-weight:600;}
+.social-links a:hover{border-color:#1770f1;color:#1770f1;background:rgba(23,112,241,0.08);}
+.footer-col-title{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:20px;font-weight:500;}
+.footer-links{display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:14px;color:rgba(255,255,255,0.5);transition:color 0.2s;}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding:28px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.25);}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:36px;}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}}
+
+/* WATER CURSOR */
+*{cursor:none!important;}
+.wc-ring{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(23,112,241,0.55);background:radial-gradient(circle,rgba(23,112,241,0.07) 0%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none;z-index:99999;transition:width .35s cubic-bezier(.25,.46,.45,.94),height .35s cubic-bezier(.25,.46,.45,.94),border-color .3s,background .3s,border-radius .35s;}
+.wc-dot{position:fixed;width:5px;height:5px;border-radius:50%;background:#4da3ff;transform:translate(-50%,-50%);pointer-events:none;z-index:100000;box-shadow:0 0 6px rgba(77,163,255,0.95),0 0 18px rgba(23,112,241,0.6),0 0 32px rgba(23,112,241,0.25);}
+.wc-ring.hover{width:56px;height:56px;border-color:rgba(23,112,241,0.85);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;}
+.wc-trail{position:fixed;border-radius:50%;background:#1770f1;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);}
+@keyframes wcRipple{0%{transform:translate(-50%,-50%) scale(1);opacity:0.55;}100%{transform:translate(-50%,-50%) scale(3.2);opacity:0;}}
+.wc-ripple{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(77,163,255,0.7);pointer-events:none;z-index:99997;animation:wcRipple 0.65s ease-out forwards;}
+</style>
+</head>
+<body>
+<div class="wc-ring" id="wcRing"></div>
+<div class="wc-dot" id="wcDot"></div>
+
+<nav class="navbar">
+  <div class="navbar-wrap" id="navbarWrap">
+    <a class="navbar-brand" href="https://www.aarvish.ca/index.php">
+      <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Logo">
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="https://www.aarvish.ca/index.php">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="Insights-Desktop-Main.html">Insights</a></li>
+      <li class="nav-item"><a class="nav-link" href="Innovation - destop final Main.html">Innovation</a></li>
+      <li class="nav-item"><a class="nav-link" href="Inquiry Destop Main.html">Inquiry</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">Legal &amp; Compliance</div>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Effective Date: January 1, 2025 &nbsp;·&nbsp; Last Updated: May 1, 2026</p>
+</div>
+
+<section class="legal-body">
+  <div class="container">
+
+    <div class="legal-toc">
+      <h3>Table of Contents</h3>
+      <ol>
+        <li><a href="#s1">Who We Are</a></li>
+        <li><a href="#s2">Information We Collect</a></li>
+        <li><a href="#s3">How We Use Your Information</a></li>
+        <li><a href="#s4">Sharing &amp; Disclosure</a></li>
+        <li><a href="#s5">Cookies &amp; Analytics</a></li>
+        <li><a href="#s6">Data Retention</a></li>
+        <li><a href="#s7">Your Rights Under PIPEDA</a></li>
+        <li><a href="#s8">Cross-Border Transfers</a></li>
+        <li><a href="#s9">Children's Privacy</a></li>
+        <li><a href="#s10">Changes to This Policy</a></li>
+        <li><a href="#s11">Contact Us</a></li>
+      </ol>
+    </div>
+
+    <div class="legal-section" id="s1">
+      <h2><span class="sec-num">01</span> Who We Are</h2>
+      <p>Aarvish Global LTD ("Aarvish," "we," "us," or "our") is a water technology company incorporated and operating from Winnipeg, Manitoba, Canada. We design, develop, and deploy decentralized water treatment and distribution systems for Indigenous communities, remote facilities, and emergency response operations across Canada.</p>
+      <p>This Privacy Policy governs the collection, use, and disclosure of personal information by Aarvish Global LTD through our website (the "Site") and any associated digital communications.</p>
+      <div class="callout"><p><strong>Registered:</strong> Manitoba Métis Federation. Operating under the Personal Information Protection and Electronic Documents Act (PIPEDA), RSC 2000, c 5, and applicable provincial privacy legislation.</p></div>
+    </div>
+
+    <div class="legal-section" id="s2">
+      <h2><span class="sec-num">02</span> Information We Collect</h2>
+      <h3>Information You Provide Directly</h3>
+      <p>When you interact with our Site, submit an inquiry form, or contact us by email or phone, we may collect:</p>
+      <ul>
+        <li>Full name and professional title</li>
+        <li>Organization or company name</li>
+        <li>Email address and phone number</li>
+        <li>Nature of your inquiry (e.g., partnership, procurement, investment)</li>
+        <li>Geographic location or project location details you share</li>
+        <li>Any additional information you voluntarily include in messages</li>
+      </ul>
+      <h3>Information Collected Automatically</h3>
+      <p>When you visit our Site, certain information is collected automatically by our hosting infrastructure and analytics tools:</p>
+      <ul>
+        <li>IP address and approximate geographic location (country/city level)</li>
+        <li>Browser type, version, and operating system</li>
+        <li>Pages visited, time spent, and navigation path</li>
+        <li>Referring URL (how you arrived at our Site)</li>
+        <li>Device type (desktop, mobile, tablet)</li>
+      </ul>
+      <p>We do not use session-recording tools, fingerprinting, or behavioral ad-tracking technologies.</p>
+    </div>
+
+    <div class="legal-section" id="s3">
+      <h2><span class="sec-num">03</span> How We Use Your Information</h2>
+      <p>We use personal information strictly for legitimate business purposes related to our water technology operations:</p>
+      <ul>
+        <li>Responding to your inquiries, partnership proposals, or procurement requests</li>
+        <li>Evaluating potential deployment opportunities in communities or facilities</li>
+        <li>Sending follow-up information about our technology that you have requested</li>
+        <li>Improving the content and user experience of our Site</li>
+        <li>Complying with legal obligations under Canadian federal and provincial law</li>
+        <li>Maintaining records for government grant applications and reporting requirements</li>
+      </ul>
+      <p>We do not use personal information for automated decision-making, profiling, or targeted advertising. We will never sell your personal information to third parties.</p>
+    </div>
+
+    <div class="legal-section" id="s4">
+      <h2><span class="sec-num">04</span> Sharing &amp; Disclosure</h2>
+      <p>Aarvish does not sell, rent, or trade personal information. We may share information only in limited circumstances:</p>
+      <ul>
+        <li><strong>Service Providers:</strong> Trusted third parties who assist with website hosting, email delivery, or CRM functions, bound by confidentiality agreements.</li>
+        <li><strong>Government Partners:</strong> Where required for grant reporting or regulatory compliance with Indigenous Services Canada, Infrastructure Canada, or provincial bodies.</li>
+        <li><strong>Legal Requirements:</strong> When required by applicable law, court order, or to protect the safety of individuals.</li>
+        <li><strong>Business Transfer:</strong> In the event of a merger, acquisition, or asset sale, personal data may transfer to the acquiring entity under equivalent privacy protections.</li>
+      </ul>
+      <p>Any third-party service provider with access to personal information is contractually required to handle it in accordance with PIPEDA and this Policy.</p>
+    </div>
+
+    <div class="legal-section" id="s5">
+      <h2><span class="sec-num">05</span> Cookies &amp; Analytics</h2>
+      <p>Our Site uses minimal cookies to support essential functionality and basic analytics:</p>
+      <ul>
+        <li><strong>Essential Cookies:</strong> Required for the Site to function correctly (e.g., form session management). These cannot be disabled without affecting Site functionality.</li>
+        <li><strong>Analytics Cookies:</strong> We may use Google Analytics or similar tools to understand aggregate Site usage. These collect anonymized data only and do not identify individual users.</li>
+      </ul>
+      <p>You may control cookies through your browser settings. Disabling analytics cookies will not affect your ability to use our Site. We do not use advertising, retargeting, or social media tracking cookies.</p>
+    </div>
+
+    <div class="legal-section" id="s6">
+      <h2><span class="sec-num">06</span> Data Retention</h2>
+      <p>We retain personal information only as long as necessary for the purpose it was collected:</p>
+      <ul>
+        <li><strong>Inquiry records:</strong> Up to 3 years from last contact, unless an active business relationship is maintained.</li>
+        <li><strong>Analytics data:</strong> Aggregated and anonymized; retained up to 26 months per Google Analytics default settings.</li>
+        <li><strong>Legal and financial records:</strong> Retained as required by the Canada Business Corporations Act and applicable tax legislation (typically 7 years).</li>
+      </ul>
+      <p>When retention periods expire, data is securely deleted or anonymized so it can no longer be linked to an individual.</p>
+    </div>
+
+    <div class="legal-section" id="s7">
+      <h2><span class="sec-num">07</span> Your Rights Under PIPEDA</h2>
+      <p>As a Canadian resident, you have the following rights regarding your personal information under PIPEDA:</p>
+      <ul>
+        <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
+        <li><strong>Correction:</strong> Request that inaccurate or incomplete information be corrected.</li>
+        <li><strong>Withdrawal of Consent:</strong> Withdraw consent for non-essential uses at any time, subject to legal and contractual limitations.</li>
+        <li><strong>Complaint:</strong> Lodge a complaint with the Office of the Privacy Commissioner of Canada (OPC) at <em>priv.gc.ca</em> if you believe your rights have been violated.</li>
+      </ul>
+      <p>To exercise any of these rights, contact our Privacy Officer at <a href="mailto:operations@aarvish.ca" style="color:#1770f1;">operations@aarvish.ca</a>. We will respond within 30 days as required by PIPEDA.</p>
+    </div>
+
+    <div class="legal-section" id="s8">
+      <h2><span class="sec-num">08</span> Cross-Border Transfers</h2>
+      <p>Aarvish is a Canadian company and our primary data infrastructure is hosted in Canada. Some service providers (e.g., cloud hosting, analytics) may process data on servers located in the United States. When this occurs, data remains subject to the laws of that jurisdiction, including potential access by U.S. authorities under applicable legislation.</p>
+      <p>We take contractual measures (e.g., Data Processing Agreements) to ensure that any cross-border transfers maintain an equivalent level of protection to that provided under PIPEDA.</p>
+    </div>
+
+    <div class="legal-section" id="s9">
+      <h2><span class="sec-num">09</span> Children's Privacy</h2>
+      <p>Our Site is intended for business and professional audiences. We do not knowingly collect personal information from individuals under the age of 16. If you believe a minor has submitted personal information through our Site, please contact us immediately and we will promptly delete the information.</p>
+    </div>
+
+    <div class="legal-section" id="s10">
+      <h2><span class="sec-num">10</span> Changes to This Policy</h2>
+      <p>Aarvish Global LTD may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. Material changes will be indicated by updating the "Last Updated" date at the top of this page. We encourage you to review this Policy periodically.</p>
+      <p>Continued use of our Site following the posting of changes constitutes acceptance of the revised Policy.</p>
+    </div>
+
+    <div class="legal-section" id="s11">
+      <h2><span class="sec-num">11</span> Contact Us</h2>
+      <p>For privacy-related questions, access requests, or concerns, contact our Privacy Officer:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:operations@aarvish.ca" style="color:#1770f1;">operations@aarvish.ca</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+12049623844" style="color:#1770f1;">+1 204-962-3844</a></li>
+        <li><strong>Address:</strong> Aarvish Global LTD, Winnipeg, Manitoba, Canada</li>
+      </ul>
+      <div class="callout"><p>You may also contact the <strong>Office of the Privacy Commissioner of Canada</strong> at 1-800-282-1376 or <em>priv.gc.ca</em> if you have unresolved concerns.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer-sec">
+  <div class="container" style="max-width:1280px;">
+    <div class="footer-grid">
+      <div>
+        <img src="https://www.aarvish.ca/assets/images/logo.png" alt="Aarvish Global LTD" class="footer-logo-img">
+        <p class="footer-tagline">Decentralized water innovation for a water-secure future. Serving Indigenous communities, government agencies, and global partners from Winnipeg, Manitoba.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/aarvish/" title="LinkedIn" target="_blank" rel="noopener">in</a>
+          <a href="https://www.instagram.com/aarvish.ca" title="Instagram" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://youtube.com/@aarvishgloballtd" title="YouTube" target="_blank" rel="noopener">▶</a>
+          <a href="mailto:operations@aarvish.ca" title="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></a>
+          <a href="tel:+12049623844" title="Phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12 19.79 19.79 0 010.95 3.38 2 2 0 012.93 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.07-1.07a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Company</h6>
+        <div class="footer-links">
+          <a href="https://www.aarvish.ca/index.php">About Aarvish</a>
+          <a href="Innovation - destop final Main.html">Innovation</a>
+          <a href="Insights-Desktop-Main.html">Insights</a>
+          <a href="Inquiry Destop Main.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Contact</h6>
+        <div class="footer-links">
+          <a href="tel:+12049623844">+1 204-962-3844</a>
+          <a href="mailto:operations@aarvish.ca">operations@aarvish.ca</a>
+          <a href="#">Winnipeg, MB, Canada</a>
+        </div>
+      </div>
+      <div>
+        <h6 class="footer-col-title">Legal</h6>
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="sustainability-report.html">Sustainability Report</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Aarvish Global LTD. All Rights Reserved. Manitoba Métis Federation Registered.</p>
+      <p>Designed to deliver water security to those who need it most.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ring=document.getElementById('wcRing'),dot=document.getElementById('wcDot');
+  var rx=window.innerWidth/2,ry=window.innerHeight/2,mx=rx,my=ry;
+  var trails=[];
+  for(var i=0;i<5;i++){var t=document.createElement('div');t.className='wc-trail';var s=3.5-i*0.5;t.style.cssText='width:'+s+'px;height:'+s+'px;opacity:'+(0.55-i*0.09)+';';document.body.appendChild(t);trails.push({el:t,x:rx,y:ry});}
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  document.addEventListener('mousedown',function(e){var r=document.createElement('div');r.className='wc-ripple';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';document.body.appendChild(r);setTimeout(function(){if(r.parentNode)r.parentNode.removeChild(r);},700);});
+  document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){ring.classList.add('hover');});el.addEventListener('mouseleave',function(){ring.classList.remove('hover');});});
+  function animate(){
+    rx+=(mx-rx)*0.11;ry+=(my-ry)*0.11;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    var px=mx,py=my;
+    trails.forEach(function(t){t.x+=(px-t.x)*0.18;t.y+=(py-t.y)*0.18;t.el.style.left=t.x+'px';t.el.style.top=t.y+'px';px=t.x;py=t.y;});
+    requestAnimationFrame(animate);
+  }
+  animate();
+  window.addEventListener('scroll',function(){document.getElementById('navbarWrap').classList.toggle('scrolled',window.scrollY>40);});
+})();
+</script>
+</body>
+</html>
